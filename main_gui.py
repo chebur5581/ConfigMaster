@@ -16,9 +16,9 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QtCore.QSize(1207, 809))
         MainWindow.setMaximumSize(QtCore.QSize(1407, 809))
         MainWindow.setStyleSheet("QMainWindow\n"
-                                 "{\n"
-                                 "    background-color: rgb(209, 209, 209);\n"
-                                 "}")
+"{\n"
+"    background-color: rgb(209, 209, 209);\n"
+"}")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
@@ -27,9 +27,9 @@ class Ui_MainWindow(object):
         self.gridLayout.setObjectName("gridLayout")
         self.frame_2 = QtWidgets.QFrame(parent=self.centralwidget)
         self.frame_2.setStyleSheet("QFrame\n"
-                                   "{\n"
-                                   "    border-radius: 10px;\n"
-                                   "}")
+"{\n"
+"    border-radius: 10px;\n"
+"}")
         self.frame_2.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_2.setObjectName("frame_2")
@@ -39,10 +39,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.widget = QtWidgets.QWidget(parent=self.frame_2)
         self.widget.setStyleSheet("QWidget\n"
-                                  "{\n"
-                                  "    \n"
-                                  "    background-color: rgb(190, 190, 190);\n"
-                                  "}")
+"{\n"
+"    \n"
+"    background-color: rgb(190, 190, 190);\n"
+"}")
         self.widget.setObjectName("widget")
         self.frame_3 = QtWidgets.QFrame(parent=self.widget)
         self.frame_3.setGeometry(QtCore.QRect(0, 0, 881, 745))
@@ -55,14 +55,294 @@ class Ui_MainWindow(object):
         self.label.setPixmap(QtGui.QPixmap("assets/arduino_uno_pinout-final.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
+        self.frame_5 = QtWidgets.QFrame(parent=self.frame_3)
+        self.frame_5.setGeometry(QtCore.QRect(58, 540, 101, 31))
+        self.frame_5.setStyleSheet("QFrame\n"
+"{\n"
+"    \n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.frame_5.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_5.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame_5.setObjectName("frame_5")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.frame_5)
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2.setSpacing(0)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.A0_def = QtWidgets.QPushButton(parent=self.frame_5)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.A0_def.sizePolicy().hasHeightForWidth())
+        self.A0_def.setSizePolicy(sizePolicy)
+        self.A0_def.setMaximumSize(QtCore.QSize(26, 16777215))
+        self.A0_def.setStyleSheet("QPushButton\n"
+"{\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.A0_def.setText("")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("assets/A0.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.A0_def.setIcon(icon)
+        self.A0_def.setIconSize(QtCore.QSize(76, 76))
+        self.A0_def.setObjectName("A0_def")
+        self.horizontalLayout_2.addWidget(self.A0_def)
+        self.A0 = QtWidgets.QPushButton(parent=self.frame_5)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.A0.sizePolicy().hasHeightForWidth())
+        self.A0.setSizePolicy(sizePolicy)
+        self.A0.setMaximumSize(QtCore.QSize(67, 16777215))
+        self.A0.setStyleSheet("QPushButton\n"
+"{\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.A0.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("assets/none.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.A0.setIcon(icon1)
+        self.A0.setIconSize(QtCore.QSize(76, 76))
+        self.A0.setObjectName("A0")
+        self.horizontalLayout_2.addWidget(self.A0)
+        self.frame_6 = QtWidgets.QFrame(parent=self.frame_3)
+        self.frame_6.setGeometry(QtCore.QRect(58, 564, 101, 31))
+        self.frame_6.setStyleSheet("QFrame\n"
+"{\n"
+"    \n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.frame_6.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_6.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame_6.setObjectName("frame_6")
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.frame_6)
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_3.setSpacing(0)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.A1_def = QtWidgets.QPushButton(parent=self.frame_6)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.A1_def.sizePolicy().hasHeightForWidth())
+        self.A1_def.setSizePolicy(sizePolicy)
+        self.A1_def.setMaximumSize(QtCore.QSize(26, 16777215))
+        self.A1_def.setStyleSheet("QPushButton\n"
+"{\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.A1_def.setText("")
+        self.A1_def.setIcon(icon)
+        self.A1_def.setIconSize(QtCore.QSize(76, 76))
+        self.A1_def.setObjectName("A1_def")
+        self.horizontalLayout_3.addWidget(self.A1_def)
+        self.A1 = QtWidgets.QPushButton(parent=self.frame_6)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.A1.sizePolicy().hasHeightForWidth())
+        self.A1.setSizePolicy(sizePolicy)
+        self.A1.setMaximumSize(QtCore.QSize(67, 16777215))
+        self.A1.setStyleSheet("QPushButton\n"
+"{\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.A1.setText("")
+        self.A1.setIcon(icon1)
+        self.A1.setIconSize(QtCore.QSize(76, 76))
+        self.A1.setObjectName("A1")
+        self.horizontalLayout_3.addWidget(self.A1)
+        self.frame_8 = QtWidgets.QFrame(parent=self.frame_3)
+        self.frame_8.setGeometry(QtCore.QRect(58, 610, 101, 31))
+        self.frame_8.setStyleSheet("QFrame\n"
+"{\n"
+"    \n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.frame_8.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_8.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame_8.setObjectName("frame_8")
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.frame_8)
+        self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_4.setSpacing(0)
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.A3_def = QtWidgets.QPushButton(parent=self.frame_8)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.A3_def.sizePolicy().hasHeightForWidth())
+        self.A3_def.setSizePolicy(sizePolicy)
+        self.A3_def.setMaximumSize(QtCore.QSize(26, 16777215))
+        self.A3_def.setStyleSheet("QPushButton\n"
+"{\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.A3_def.setText("")
+        self.A3_def.setIcon(icon)
+        self.A3_def.setIconSize(QtCore.QSize(76, 76))
+        self.A3_def.setObjectName("A3_def")
+        self.horizontalLayout_4.addWidget(self.A3_def)
+        self.A3 = QtWidgets.QPushButton(parent=self.frame_8)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.A3.sizePolicy().hasHeightForWidth())
+        self.A3.setSizePolicy(sizePolicy)
+        self.A3.setMaximumSize(QtCore.QSize(67, 16777215))
+        self.A3.setStyleSheet("QPushButton\n"
+"{\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.A3.setText("")
+        self.A3.setIcon(icon1)
+        self.A3.setIconSize(QtCore.QSize(76, 76))
+        self.A3.setObjectName("A3")
+        self.horizontalLayout_4.addWidget(self.A3)
+        self.frame_7 = QtWidgets.QFrame(parent=self.frame_3)
+        self.frame_7.setGeometry(QtCore.QRect(58, 586, 101, 31))
+        self.frame_7.setStyleSheet("QFrame\n"
+"{\n"
+"    \n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.frame_7.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_7.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame_7.setObjectName("frame_7")
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.frame_7)
+        self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_5.setSpacing(0)
+        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
+        self.A2_def = QtWidgets.QPushButton(parent=self.frame_7)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.A2_def.sizePolicy().hasHeightForWidth())
+        self.A2_def.setSizePolicy(sizePolicy)
+        self.A2_def.setMaximumSize(QtCore.QSize(26, 16777215))
+        self.A2_def.setStyleSheet("QPushButton\n"
+"{\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.A2_def.setText("")
+        self.A2_def.setIcon(icon)
+        self.A2_def.setIconSize(QtCore.QSize(76, 76))
+        self.A2_def.setObjectName("A2_def")
+        self.horizontalLayout_5.addWidget(self.A2_def)
+        self.A2 = QtWidgets.QPushButton(parent=self.frame_7)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.A2.sizePolicy().hasHeightForWidth())
+        self.A2.setSizePolicy(sizePolicy)
+        self.A2.setMaximumSize(QtCore.QSize(67, 16777215))
+        self.A2.setStyleSheet("QPushButton\n"
+"{\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.A2.setText("")
+        self.A2.setIcon(icon1)
+        self.A2.setIconSize(QtCore.QSize(76, 76))
+        self.A2.setObjectName("A2")
+        self.horizontalLayout_5.addWidget(self.A2)
+        self.frame_9 = QtWidgets.QFrame(parent=self.frame_3)
+        self.frame_9.setGeometry(QtCore.QRect(58, 633, 101, 31))
+        self.frame_9.setStyleSheet("QFrame\n"
+"{\n"
+"    \n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.frame_9.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_9.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame_9.setObjectName("frame_9")
+        self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.frame_9)
+        self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_6.setSpacing(0)
+        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
+        self.A4_def = QtWidgets.QPushButton(parent=self.frame_9)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.A4_def.sizePolicy().hasHeightForWidth())
+        self.A4_def.setSizePolicy(sizePolicy)
+        self.A4_def.setMaximumSize(QtCore.QSize(26, 16777215))
+        self.A4_def.setStyleSheet("QPushButton\n"
+"{\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.A4_def.setText("")
+        self.A4_def.setIcon(icon)
+        self.A4_def.setIconSize(QtCore.QSize(76, 76))
+        self.A4_def.setObjectName("A4_def")
+        self.horizontalLayout_6.addWidget(self.A4_def)
+        self.A4 = QtWidgets.QPushButton(parent=self.frame_9)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.A4.sizePolicy().hasHeightForWidth())
+        self.A4.setSizePolicy(sizePolicy)
+        self.A4.setMaximumSize(QtCore.QSize(67, 16777215))
+        self.A4.setStyleSheet("QPushButton\n"
+"{\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.A4.setText("")
+        self.A4.setIcon(icon1)
+        self.A4.setIconSize(QtCore.QSize(76, 76))
+        self.A4.setObjectName("A4")
+        self.horizontalLayout_6.addWidget(self.A4)
+        self.frame_14 = QtWidgets.QFrame(parent=self.frame_3)
+        self.frame_14.setGeometry(QtCore.QRect(58, 656, 101, 31))
+        self.frame_14.setStyleSheet("QFrame\n"
+"{\n"
+"    \n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.frame_14.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_14.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame_14.setObjectName("frame_14")
+        self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.frame_14)
+        self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_7.setSpacing(0)
+        self.horizontalLayout_7.setObjectName("horizontalLayout_7")
+        self.A5_def = QtWidgets.QPushButton(parent=self.frame_14)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.A5_def.sizePolicy().hasHeightForWidth())
+        self.A5_def.setSizePolicy(sizePolicy)
+        self.A5_def.setMaximumSize(QtCore.QSize(26, 16777215))
+        self.A5_def.setStyleSheet("QPushButton\n"
+"{\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.A5_def.setText("")
+        self.A5_def.setIcon(icon)
+        self.A5_def.setIconSize(QtCore.QSize(76, 76))
+        self.A5_def.setObjectName("A5_def")
+        self.horizontalLayout_7.addWidget(self.A5_def)
+        self.A5 = QtWidgets.QPushButton(parent=self.frame_14)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.A5.sizePolicy().hasHeightForWidth())
+        self.A5.setSizePolicy(sizePolicy)
+        self.A5.setMaximumSize(QtCore.QSize(67, 16777215))
+        self.A5.setStyleSheet("QPushButton\n"
+"{\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.A5.setText("")
+        self.A5.setIcon(icon1)
+        self.A5.setIconSize(QtCore.QSize(76, 76))
+        self.A5.setObjectName("A5")
+        self.horizontalLayout_7.addWidget(self.A5)
         self.horizontalLayout.addWidget(self.widget)
         self.scrollArea = QtWidgets.QScrollArea(parent=self.frame_2)
         self.scrollArea.setMaximumSize(QtCore.QSize(250, 16777215))
         self.scrollArea.setStyleSheet("QScrollArea\n"
-                                      "{\n"
-                                      "    border-radius: 10px;\n"
-                                      "    background-color: rgb(227, 227, 227);\n"
-                                      "}")
+"{\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(227, 227, 227);\n"
+"}")
         self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
         self.scrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAsNeeded)
         self.scrollArea.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustIgnored)
@@ -76,8 +356,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.frame_10 = QtWidgets.QFrame(parent=self.scrollAreaWidgetContents)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred,
-                                           QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame_10.sizePolicy().hasHeightForWidth())
@@ -89,8 +368,7 @@ class Ui_MainWindow(object):
         self.frame_10.setObjectName("frame_10")
         self.rgb = QtWidgets.QPushButton(parent=self.frame_10)
         self.rgb.setGeometry(QtCore.QRect(1, 1, 111, 105))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding,
-                                           QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.rgb.sizePolicy().hasHeightForWidth())
@@ -102,33 +380,33 @@ class Ui_MainWindow(object):
         font.setKerning(True)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferDefault)
         self.rgb.setFont(font)
+        self.rgb.setStatusTip("")
         self.rgb.setStyleSheet("QPushButton{\n"
-                               "    background-color:rgb(255, 250, 247);\n"
-                               "     border-radius: 10px;\n"
-                               "}")
+"    background-color:rgb(255, 250, 247);\n"
+"     border-radius: 10px;\n"
+"}")
         self.rgb.setText("")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("assets/rgb.PNG"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.rgb.setIcon(icon)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("assets/rgb.PNG"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.rgb.setIcon(icon2)
         self.rgb.setIconSize(QtCore.QSize(80, 80))
         self.rgb.setObjectName("rgb")
         self.seg = QtWidgets.QPushButton(parent=self.frame_10)
         self.seg.setGeometry(QtCore.QRect(119, 1, 111, 105))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding,
-                                           QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.seg.sizePolicy().hasHeightForWidth())
         self.seg.setSizePolicy(sizePolicy)
         self.seg.setMinimumSize(QtCore.QSize(111, 105))
         self.seg.setStyleSheet("QPushButton{\n"
-                               "    background-color:rgb(255, 250, 247);\n"
-                               "     border-radius: 10px;\n"
-                               "}")
+"    background-color:rgb(255, 250, 247);\n"
+"     border-radius: 10px;\n"
+"}")
         self.seg.setText("")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("assets/7_seg.PNG"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.seg.setIcon(icon1)
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("assets/7_seg.PNG"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.seg.setIcon(icon3)
         self.seg.setIconSize(QtCore.QSize(75, 75))
         self.seg.setObjectName("seg")
         self.label_2 = QtWidgets.QLabel(parent=self.frame_10)
@@ -137,10 +415,10 @@ class Ui_MainWindow(object):
         font.setPointSize(9)
         self.label_2.setFont(font)
         self.label_2.setStyleSheet("QLabel\n"
-                                   "{\n"
-                                   "    background-color: rgba(0,0,0,0%);\n"
-                                   "    color:  rgb(81, 81, 81);\n"
-                                   "}")
+"{\n"
+"    background-color: rgba(0,0,0,0%);\n"
+"    color:  rgb(81, 81, 81);\n"
+"}")
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(parent=self.frame_10)
         self.label_3.setGeometry(QtCore.QRect(120, 0, 121, 20))
@@ -148,15 +426,14 @@ class Ui_MainWindow(object):
         font.setPointSize(9)
         self.label_3.setFont(font)
         self.label_3.setStyleSheet("QLabel\n"
-                                   "{\n"
-                                   "    background-color: rgba(0,0,0,0%);\n"
-                                   "    color:  rgb(81, 81, 81);\n"
-                                   "}")
+"{\n"
+"    background-color: rgba(0,0,0,0%);\n"
+"    color:  rgb(81, 81, 81);\n"
+"}")
         self.label_3.setObjectName("label_3")
         self.verticalLayout_2.addWidget(self.frame_10)
         self.frame_11 = QtWidgets.QFrame(parent=self.scrollAreaWidgetContents)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred,
-                                           QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame_11.sizePolicy().hasHeightForWidth())
@@ -168,40 +445,38 @@ class Ui_MainWindow(object):
         self.frame_11.setObjectName("frame_11")
         self.ik = QtWidgets.QPushButton(parent=self.frame_11)
         self.ik.setGeometry(QtCore.QRect(1, 1, 111, 105))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding,
-                                           QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.ik.sizePolicy().hasHeightForWidth())
         self.ik.setSizePolicy(sizePolicy)
         self.ik.setMinimumSize(QtCore.QSize(111, 105))
         self.ik.setStyleSheet("QPushButton{\n"
-                              "    background-color:rgb(255, 250, 247);\n"
-                              "     border-radius: 10px;\n"
-                              "}")
+"    background-color:rgb(255, 250, 247);\n"
+"     border-radius: 10px;\n"
+"}")
         self.ik.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("assets/ik.PNG"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.ik.setIcon(icon2)
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("assets/ik.PNG"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.ik.setIcon(icon4)
         self.ik.setIconSize(QtCore.QSize(85, 85))
         self.ik.setObjectName("ik")
         self.servo = QtWidgets.QPushButton(parent=self.frame_11)
         self.servo.setGeometry(QtCore.QRect(119, 1, 111, 105))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding,
-                                           QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.servo.sizePolicy().hasHeightForWidth())
         self.servo.setSizePolicy(sizePolicy)
         self.servo.setMinimumSize(QtCore.QSize(111, 105))
         self.servo.setStyleSheet("QPushButton{\n"
-                                 "    background-color:rgb(255, 250, 247);\n"
-                                 "     border-radius: 10px;\n"
-                                 "}")
+"    background-color:rgb(255, 250, 247);\n"
+"     border-radius: 10px;\n"
+"}")
         self.servo.setText("")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("assets/servo.PNG"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.servo.setIcon(icon3)
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap("assets/servo.PNG"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.servo.setIcon(icon5)
         self.servo.setIconSize(QtCore.QSize(70, 70))
         self.servo.setObjectName("servo")
         self.label_4 = QtWidgets.QLabel(parent=self.frame_11)
@@ -210,10 +485,10 @@ class Ui_MainWindow(object):
         font.setPointSize(9)
         self.label_4.setFont(font)
         self.label_4.setStyleSheet("QLabel\n"
-                                   "{\n"
-                                   "    background-color: rgba(0,0,0,0%);\n"
-                                   "    color:  rgb(81, 81, 81);\n"
-                                   "}")
+"{\n"
+"    background-color: rgba(0,0,0,0%);\n"
+"    color:  rgb(81, 81, 81);\n"
+"}")
         self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(parent=self.frame_11)
         self.label_5.setGeometry(QtCore.QRect(140, 0, 91, 20))
@@ -221,15 +496,14 @@ class Ui_MainWindow(object):
         font.setPointSize(9)
         self.label_5.setFont(font)
         self.label_5.setStyleSheet("QLabel\n"
-                                   "{\n"
-                                   "    background-color: rgba(0,0,0,0%);\n"
-                                   "    color:  rgb(81, 81, 81);\n"
-                                   "}")
+"{\n"
+"    background-color: rgba(0,0,0,0%);\n"
+"    color:  rgb(81, 81, 81);\n"
+"}")
         self.label_5.setObjectName("label_5")
         self.verticalLayout_2.addWidget(self.frame_11)
         self.frame_12 = QtWidgets.QFrame(parent=self.scrollAreaWidgetContents)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred,
-                                           QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame_12.sizePolicy().hasHeightForWidth())
@@ -241,40 +515,38 @@ class Ui_MainWindow(object):
         self.frame_12.setObjectName("frame_12")
         self.uz = QtWidgets.QPushButton(parent=self.frame_12)
         self.uz.setGeometry(QtCore.QRect(1, 1, 112, 105))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding,
-                                           QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.uz.sizePolicy().hasHeightForWidth())
         self.uz.setSizePolicy(sizePolicy)
         self.uz.setMinimumSize(QtCore.QSize(111, 105))
         self.uz.setStyleSheet("QPushButton{\n"
-                              "    background-color:rgb(255, 250, 247);\n"
-                              "     border-radius: 10px;\n"
-                              "}")
+"    background-color:rgb(255, 250, 247);\n"
+"     border-radius: 10px;\n"
+"}")
         self.uz.setText("")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("assets/tk_echo.PNG"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.uz.setIcon(icon4)
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap("assets/tk_echo.PNG"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.uz.setIcon(icon6)
         self.uz.setIconSize(QtCore.QSize(100, 110))
         self.uz.setObjectName("uz")
         self.keybrd = QtWidgets.QPushButton(parent=self.frame_12)
         self.keybrd.setGeometry(QtCore.QRect(119, 1, 111, 105))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding,
-                                           QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.keybrd.sizePolicy().hasHeightForWidth())
         self.keybrd.setSizePolicy(sizePolicy)
         self.keybrd.setMinimumSize(QtCore.QSize(111, 105))
         self.keybrd.setStyleSheet("QPushButton{\n"
-                                  "    background-color:rgb(255, 250, 247);\n"
-                                  "     border-radius: 10px;\n"
-                                  "}")
+"    background-color:rgb(255, 250, 247);\n"
+"     border-radius: 10px;\n"
+"}")
         self.keybrd.setText("")
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("assets/tk_pad.PNG"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.keybrd.setIcon(icon5)
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap("assets/tk_pad.PNG"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.keybrd.setIcon(icon7)
         self.keybrd.setIconSize(QtCore.QSize(70, 70))
         self.keybrd.setObjectName("keybrd")
         self.label_6 = QtWidgets.QLabel(parent=self.frame_12)
@@ -283,10 +555,10 @@ class Ui_MainWindow(object):
         font.setPointSize(9)
         self.label_6.setFont(font)
         self.label_6.setStyleSheet("QLabel\n"
-                                   "{\n"
-                                   "    background-color: rgba(0,0,0,0%);\n"
-                                   "    color:  rgb(81, 81, 81);\n"
-                                   "}")
+"{\n"
+"    background-color: rgba(0,0,0,0%);\n"
+"    color:  rgb(81, 81, 81);\n"
+"}")
         self.label_6.setObjectName("label_6")
         self.label_7 = QtWidgets.QLabel(parent=self.frame_12)
         self.label_7.setGeometry(QtCore.QRect(130, 0, 91, 20))
@@ -294,15 +566,14 @@ class Ui_MainWindow(object):
         font.setPointSize(9)
         self.label_7.setFont(font)
         self.label_7.setStyleSheet("QLabel\n"
-                                   "{\n"
-                                   "    background-color: rgba(0,0,0,0%);\n"
-                                   "    color:  rgb(81, 81, 81);\n"
-                                   "}")
+"{\n"
+"    background-color: rgba(0,0,0,0%);\n"
+"    color:  rgb(81, 81, 81);\n"
+"}")
         self.label_7.setObjectName("label_7")
         self.verticalLayout_2.addWidget(self.frame_12)
         self.frame_13 = QtWidgets.QFrame(parent=self.scrollAreaWidgetContents)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred,
-                                           QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame_13.sizePolicy().hasHeightForWidth())
@@ -314,40 +585,38 @@ class Ui_MainWindow(object):
         self.frame_13.setObjectName("frame_13")
         self.shift = QtWidgets.QPushButton(parent=self.frame_13)
         self.shift.setGeometry(QtCore.QRect(1, 1, 111, 105))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding,
-                                           QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.shift.sizePolicy().hasHeightForWidth())
         self.shift.setSizePolicy(sizePolicy)
         self.shift.setMinimumSize(QtCore.QSize(111, 105))
         self.shift.setStyleSheet("QPushButton{\n"
-                                 "    background-color:rgb(255, 250, 247);\n"
-                                 "     border-radius: 10px;\n"
-                                 "}")
+"    background-color:rgb(255, 250, 247);\n"
+"     border-radius: 10px;\n"
+"}")
         self.shift.setText("")
-        icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("assets/shift.PNG"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.shift.setIcon(icon6)
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap("assets/shift.PNG"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.shift.setIcon(icon8)
         self.shift.setIconSize(QtCore.QSize(100, 100))
         self.shift.setObjectName("shift")
         self.lcd = QtWidgets.QPushButton(parent=self.frame_13)
         self.lcd.setGeometry(QtCore.QRect(119, 1, 111, 105))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding,
-                                           QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.lcd.sizePolicy().hasHeightForWidth())
         self.lcd.setSizePolicy(sizePolicy)
         self.lcd.setMinimumSize(QtCore.QSize(111, 105))
         self.lcd.setStyleSheet("QPushButton{\n"
-                               "    background-color:rgb(255, 250, 247);\n"
-                               "     border-radius: 10px;\n"
-                               "}")
+"    background-color:rgb(255, 250, 247);\n"
+"     border-radius: 10px;\n"
+"}")
         self.lcd.setText("")
-        icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("assets/tk_lcd.PNG"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.lcd.setIcon(icon7)
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap("assets/tk_lcd.PNG"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.lcd.setIcon(icon9)
         self.lcd.setIconSize(QtCore.QSize(100, 100))
         self.lcd.setObjectName("lcd")
         self.label_8 = QtWidgets.QLabel(parent=self.frame_13)
@@ -356,10 +625,10 @@ class Ui_MainWindow(object):
         font.setPointSize(9)
         self.label_8.setFont(font)
         self.label_8.setStyleSheet("QLabel\n"
-                                   "{\n"
-                                   "    background-color: rgba(0,0,0,0%);\n"
-                                   "    color:  rgb(81, 81, 81);\n"
-                                   "}")
+"{\n"
+"    background-color: rgba(0,0,0,0%);\n"
+"    color:  rgb(81, 81, 81);\n"
+"}")
         self.label_8.setObjectName("label_8")
         self.label_9 = QtWidgets.QLabel(parent=self.frame_13)
         self.label_9.setGeometry(QtCore.QRect(150, 0, 91, 20))
@@ -367,21 +636,19 @@ class Ui_MainWindow(object):
         font.setPointSize(9)
         self.label_9.setFont(font)
         self.label_9.setStyleSheet("QLabel\n"
-                                   "{\n"
-                                   "    background-color: rgba(0,0,0,0%);\n"
-                                   "    color:  rgb(81, 81, 81);\n"
-                                   "}")
+"{\n"
+"    background-color: rgba(0,0,0,0%);\n"
+"    color:  rgb(81, 81, 81);\n"
+"}")
         self.label_9.setObjectName("label_9")
         self.verticalLayout_2.addWidget(self.frame_13)
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum,
-                                           QtWidgets.QSizePolicy.Policy.Expanding)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.verticalLayout_2.addItem(spacerItem)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.horizontalLayout.addWidget(self.scrollArea)
         self.gridLayout.addWidget(self.frame_2, 0, 1, 1, 1)
         self.frame = QtWidgets.QFrame(parent=self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred,
-                                           QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
@@ -463,49 +730,81 @@ class Ui_MainWindow(object):
         self.tableWidget.verticalHeader().setVisible(False)
         self.tableWidget.verticalHeader().setCascadingSectionResizes(False)
         self.tableWidget.verticalHeader().setDefaultSectionSize(20)
-
         self.pinA0 = QtWidgets.QComboBox(parent=self.frame_4)
         self.pinA0.setGeometry(QtCore.QRect(140, 70, 69, 22))
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        self.pinA0.setFont(font)
         self.pinA0.setObjectName("pinA0")
-        self.pinA0.addItem("None")
-        self.pinA0.addItem("INPUT")
-        self.pinA0.addItem("OUTPUT")
-
-        self.pinA1 = QtWidgets.QComboBox(parent=self.frame_4)
-        self.pinA1.setGeometry(QtCore.QRect(140, 70, 69, 22))
-        self.pinA1.setObjectName("pinA0")
-        self.pinA1.addItem("None")
-        self.pinA1.addItem("INPUT")
-        self.pinA1.addItem("OUTPUT")
-
+        self.pinA0.addItem("")
+        self.pinA0.addItem("")
+        self.pinA0.addItem("")
         self.pinA2 = QtWidgets.QComboBox(parent=self.frame_4)
-        self.pinA2.setGeometry(QtCore.QRect(140, 70, 69, 22))
-        self.pinA2.setObjectName("pinA0")
-        self.pinA2.addItem("None")
-        self.pinA2.addItem("INPUT")
-        self.pinA2.addItem("OUTPUT")
-
+        self.pinA2.setGeometry(QtCore.QRect(140, 90, 69, 22))
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        self.pinA2.setFont(font)
+        self.pinA2.setObjectName("pinA2")
+        self.pinA2.addItem("")
+        self.pinA2.addItem("")
+        self.pinA2.addItem("")
+        self.pinA1 = QtWidgets.QComboBox(parent=self.frame_4)
+        self.pinA1.setGeometry(QtCore.QRect(140, 110, 69, 22))
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        self.pinA1.setFont(font)
+        self.pinA1.setObjectName("pinA1")
+        self.pinA1.addItem("")
+        self.pinA1.addItem("")
+        self.pinA1.addItem("")
         self.pinA3 = QtWidgets.QComboBox(parent=self.frame_4)
-        self.pinA3.setGeometry(QtCore.QRect(140, 70, 69, 22))
-        self.pinA3.setObjectName("pinA0")
-        self.pinA3.addItem("None")
-        self.pinA3.addItem("INPUT")
-        self.pinA3.addItem("OUTPUT")
-
+        self.pinA3.setGeometry(QtCore.QRect(140, 130, 69, 22))
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        self.pinA3.setFont(font)
+        self.pinA3.setObjectName("pinA3")
+        self.pinA3.addItem("")
+        self.pinA3.addItem("")
+        self.pinA3.addItem("")
         self.pinA4 = QtWidgets.QComboBox(parent=self.frame_4)
-        self.pinA4.setGeometry(QtCore.QRect(140, 70, 69, 22))
-        self.pinA4.setObjectName("pinA0")
-        self.pinA4.addItem("None")
-        self.pinA4.addItem("INPUT")
-        self.pinA4.addItem("OUTPUT")
-
+        self.pinA4.setGeometry(QtCore.QRect(140, 150, 69, 22))
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        self.pinA4.setFont(font)
+        self.pinA4.setObjectName("pinA4")
+        self.pinA4.addItem("")
+        self.pinA4.addItem("")
+        self.pinA4.addItem("")
         self.pinA5 = QtWidgets.QComboBox(parent=self.frame_4)
-        self.pinA5.setGeometry(QtCore.QRect(140, 70, 69, 22))
-        self.pinA5.setObjectName("pinA0")
-        self.pinA5.addItem("None")
-        self.pinA5.addItem("INPUT")
-        self.pinA5.addItem("OUTPUT")
-
+        self.pinA5.setGeometry(QtCore.QRect(140, 170, 69, 22))
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        self.pinA5.setFont(font)
+        self.pinA5.setObjectName("pinA5")
+        self.pinA5.addItem("")
+        self.pinA5.addItem("")
+        self.pinA5.addItem("")
+        self.bod = QtWidgets.QComboBox(parent=self.frame_4)
+        self.bod.setGeometry(QtCore.QRect(120, 50, 131, 22))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.bod.setFont(font)
+        self.bod.setObjectName("bod")
+        self.bod.addItem("")
+        self.bod.addItem("")
+        self.bod.addItem("")
+        self.bod.addItem("")
+        self.bod.addItem("")
+        self.bod.addItem("")
+        self.bod.addItem("")
+        self.bod.addItem("")
+        self.bod.addItem("")
+        self.bod.addItem("")
+        self.bod.addItem("")
+        self.bod.addItem("")
+        self.bod.addItem("")
+        self.bod.addItem("")
+        self.bod.addItem("")
         self.verticalLayout.addWidget(self.frame_4)
         self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -519,28 +818,24 @@ class Ui_MainWindow(object):
         self.toolBar.setObjectName("toolBar")
         MainWindow.addToolBar(QtCore.Qt.ToolBarArea.TopToolBarArea, self.toolBar)
         self.actionopen = QtGui.QAction(parent=MainWindow)
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("assets/icons8-открыть-файл-50.png"), QtGui.QIcon.Mode.Normal,
-                        QtGui.QIcon.State.Off)
-        self.actionopen.setIcon(icon8)
+        icon10 = QtGui.QIcon()
+        icon10.addPixmap(QtGui.QPixmap("assets/icons8-открыть-файл-50.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.actionopen.setIcon(icon10)
         self.actionopen.setObjectName("actionopen")
         self.actionCompile = QtGui.QAction(parent=MainWindow)
-        icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("assets/free-icon-compiler-5958745.png"), QtGui.QIcon.Mode.Normal,
-                        QtGui.QIcon.State.Off)
-        self.actionCompile.setIcon(icon9)
+        icon11 = QtGui.QIcon()
+        icon11.addPixmap(QtGui.QPixmap("assets/free-icon-compiler-5958745.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.actionCompile.setIcon(icon11)
         self.actionCompile.setObjectName("actionCompile")
         self.actionStart_monitoring = QtGui.QAction(parent=MainWindow)
-        icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap("assets/free-icon-monitoring-2952754.png"), QtGui.QIcon.Mode.Normal,
-                         QtGui.QIcon.State.Off)
-        self.actionStart_monitoring.setIcon(icon10)
+        icon12 = QtGui.QIcon()
+        icon12.addPixmap(QtGui.QPixmap("assets/free-icon-monitoring-2952754.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.actionStart_monitoring.setIcon(icon12)
         self.actionStart_monitoring.setObjectName("actionStart_monitoring")
         self.action_Save = QtGui.QAction(parent=MainWindow)
-        icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap("assets/free-icon-save-2550221.png"), QtGui.QIcon.Mode.Normal,
-                         QtGui.QIcon.State.Off)
-        self.action_Save.setIcon(icon11)
+        icon13 = QtGui.QIcon()
+        icon13.addPixmap(QtGui.QPixmap("assets/free-icon-save-2550221.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.action_Save.setIcon(icon13)
         self.action_Save.setObjectName("action_Save")
         self.menubar.addAction(self.menufile.menuAction())
         self.toolBar.addAction(self.actionopen)
@@ -554,12 +849,20 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.rgb.setToolTip(_translate("MainWindow", "<html><head/><body><p>RGB светодиод</p></body></html>"))
+        self.seg.setToolTip(_translate("MainWindow", "<html><head/><body><p>7-ми сегментный индикатор</p></body></html>"))
         self.label_2.setText(_translate("MainWindow", "RGB светодиод"))
         self.label_3.setText(_translate("MainWindow", "7-ми сегментный..."))
+        self.ik.setToolTip(_translate("MainWindow", "<html><head/><body><p>ИК датчик</p></body></html>"))
+        self.servo.setToolTip(_translate("MainWindow", "<html><head/><body><p>Сервопривод</p></body></html>"))
         self.label_4.setText(_translate("MainWindow", "ИК датчик"))
         self.label_5.setText(_translate("MainWindow", "Сервопривод"))
+        self.uz.setToolTip(_translate("MainWindow", "<html><head/><body><p>УЗ датчик</p></body></html>"))
+        self.keybrd.setToolTip(_translate("MainWindow", "<html><head/><body><p>Клавиатура 4х4</p></body></html>"))
         self.label_6.setText(_translate("MainWindow", "УЗ датчик"))
         self.label_7.setText(_translate("MainWindow", "Клавиатура 4х4"))
+        self.shift.setToolTip(_translate("MainWindow", "<html><head/><body><p>8-ми разрядный сдвиговый регистр</p></body></html>"))
+        self.lcd.setToolTip(_translate("MainWindow", "ЖК-экран"))
         self.label_8.setText(_translate("MainWindow", "Сдвиговый регистр"))
         self.label_9.setText(_translate("MainWindow", "ЖК-экран"))
         self.treeWidget.headerItem().setText(0, _translate("MainWindow", "Примеры"))
@@ -608,6 +911,36 @@ class Ui_MainWindow(object):
         self.pinA0.setItemText(0, _translate("MainWindow", "None"))
         self.pinA0.setItemText(1, _translate("MainWindow", "INPUT"))
         self.pinA0.setItemText(2, _translate("MainWindow", "OUTPUT"))
+        self.pinA2.setItemText(0, _translate("MainWindow", "None"))
+        self.pinA2.setItemText(1, _translate("MainWindow", "INPUT"))
+        self.pinA2.setItemText(2, _translate("MainWindow", "OUTPUT"))
+        self.pinA1.setItemText(0, _translate("MainWindow", "None"))
+        self.pinA1.setItemText(1, _translate("MainWindow", "INPUT"))
+        self.pinA1.setItemText(2, _translate("MainWindow", "OUTPUT"))
+        self.pinA3.setItemText(0, _translate("MainWindow", "None"))
+        self.pinA3.setItemText(1, _translate("MainWindow", "INPUT"))
+        self.pinA3.setItemText(2, _translate("MainWindow", "OUTPUT"))
+        self.pinA4.setItemText(0, _translate("MainWindow", "None"))
+        self.pinA4.setItemText(1, _translate("MainWindow", "INPUT"))
+        self.pinA4.setItemText(2, _translate("MainWindow", "OUTPUT"))
+        self.pinA5.setItemText(0, _translate("MainWindow", "None"))
+        self.pinA5.setItemText(1, _translate("MainWindow", "INPUT"))
+        self.pinA5.setItemText(2, _translate("MainWindow", "OUTPUT"))
+        self.bod.setItemText(0, _translate("MainWindow", "Выключить"))
+        self.bod.setItemText(1, _translate("MainWindow", "300"))
+        self.bod.setItemText(2, _translate("MainWindow", "1200"))
+        self.bod.setItemText(3, _translate("MainWindow", "2400"))
+        self.bod.setItemText(4, _translate("MainWindow", "4800"))
+        self.bod.setItemText(5, _translate("MainWindow", "9600 "))
+        self.bod.setItemText(6, _translate("MainWindow", "19200"))
+        self.bod.setItemText(7, _translate("MainWindow", "38400"))
+        self.bod.setItemText(8, _translate("MainWindow", "57600"))
+        self.bod.setItemText(9, _translate("MainWindow", "115200 "))
+        self.bod.setItemText(10, _translate("MainWindow", "230400"))
+        self.bod.setItemText(11, _translate("MainWindow", "250000"))
+        self.bod.setItemText(12, _translate("MainWindow", "500000"))
+        self.bod.setItemText(13, _translate("MainWindow", "1000000"))
+        self.bod.setItemText(14, _translate("MainWindow", "2000000"))
         self.menufile.setTitle(_translate("MainWindow", "&File"))
         self.toolBar.setWindowTitle(_translate("MainWindow", "toolBar"))
         self.actionopen.setText(_translate("MainWindow", "&Open"))
