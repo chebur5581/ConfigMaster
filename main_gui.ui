@@ -1,0 +1,1179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1407</width>
+    <height>809</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1207</width>
+    <height>809</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1407</width>
+    <height>809</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow
+{
+	background-color: rgb(209, 209, 209);
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="1">
+     <widget class="QFrame" name="frame_2">
+      <property name="styleSheet">
+       <string notr="true">QFrame
+{
+	border-radius: 10px;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="widget" native="true">
+         <property name="styleSheet">
+          <string notr="true">QWidget
+{
+	
+	background-color: rgb(190, 190, 190);
+}</string>
+         </property>
+         <widget class="QFrame" name="frame_3">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>881</width>
+            <height>745</height>
+           </rect>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label">
+           <property name="geometry">
+            <rect>
+             <x>-230</x>
+             <y>-180</y>
+             <width>1471</width>
+             <height>1100</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>assets/arduino_uno_pinout-final.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QScrollArea
+{
+	border-radius: 10px;
+	background-color: rgb(227, 227, 227);
+}</string>
+         </property>
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOn</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAsNeeded</enum>
+         </property>
+         <property name="sizeAdjustPolicy">
+          <enum>QAbstractScrollArea::AdjustIgnored</enum>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>233</width>
+            <height>754</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget{background-color: rgb(217, 217, 217);}</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="frame_10">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>230</width>
+               <height>107</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>107</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <widget class="QPushButton" name="rgb">
+              <property name="geometry">
+               <rect>
+                <x>1</x>
+                <y>1</y>
+                <width>111</width>
+                <height>105</height>
+               </rect>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>111</width>
+                <height>105</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <italic>false</italic>
+                <strikeout>false</strikeout>
+                <stylestrategy>PreferDefault</stylestrategy>
+                <kerning>true</kerning>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton{
+	background-color:rgb(255, 250, 247);
+     border-radius: 10px;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>assets/rgb.PNG</normaloff>assets/rgb.PNG</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>80</width>
+                <height>80</height>
+               </size>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="seg">
+              <property name="geometry">
+               <rect>
+                <x>119</x>
+                <y>1</y>
+                <width>111</width>
+                <height>105</height>
+               </rect>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>111</width>
+                <height>105</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton{
+	background-color:rgb(255, 250, 247);
+     border-radius: 10px;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>assets/7_seg.PNG</normaloff>assets/7_seg.PNG</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>75</width>
+                <height>75</height>
+               </size>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_2">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>0</y>
+                <width>91</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>9</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel
+{
+	background-color: rgba(0,0,0,0%);
+	color:  rgb(81, 81, 81);
+}</string>
+              </property>
+              <property name="text">
+               <string>RGB светодиод</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_3">
+              <property name="geometry">
+               <rect>
+                <x>120</x>
+                <y>0</y>
+                <width>121</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>9</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel
+{
+	background-color: rgba(0,0,0,0%);
+	color:  rgb(81, 81, 81);
+}</string>
+              </property>
+              <property name="text">
+               <string>7-ми сегментный...</string>
+              </property>
+             </widget>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_11">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>230</width>
+               <height>107</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>107</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <widget class="QPushButton" name="ik">
+              <property name="geometry">
+               <rect>
+                <x>1</x>
+                <y>1</y>
+                <width>111</width>
+                <height>105</height>
+               </rect>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>111</width>
+                <height>105</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton{
+	background-color:rgb(255, 250, 247);
+     border-radius: 10px;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>assets/ik.PNG</normaloff>assets/ik.PNG</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>85</width>
+                <height>85</height>
+               </size>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="servo">
+              <property name="geometry">
+               <rect>
+                <x>119</x>
+                <y>1</y>
+                <width>111</width>
+                <height>105</height>
+               </rect>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>111</width>
+                <height>105</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton{
+	background-color:rgb(255, 250, 247);
+     border-radius: 10px;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>assets/servo.PNG</normaloff>assets/servo.PNG</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>70</width>
+                <height>70</height>
+               </size>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_4">
+              <property name="geometry">
+               <rect>
+                <x>30</x>
+                <y>0</y>
+                <width>71</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>9</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel
+{
+	background-color: rgba(0,0,0,0%);
+	color:  rgb(81, 81, 81);
+}</string>
+              </property>
+              <property name="text">
+               <string>ИК датчик</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_5">
+              <property name="geometry">
+               <rect>
+                <x>140</x>
+                <y>0</y>
+                <width>91</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>9</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel
+{
+	background-color: rgba(0,0,0,0%);
+	color:  rgb(81, 81, 81);
+}</string>
+              </property>
+              <property name="text">
+               <string>Сервопривод</string>
+              </property>
+             </widget>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_12">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>230</width>
+               <height>107</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>107</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <widget class="QPushButton" name="uz">
+              <property name="geometry">
+               <rect>
+                <x>1</x>
+                <y>1</y>
+                <width>112</width>
+                <height>105</height>
+               </rect>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>111</width>
+                <height>105</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton{
+	background-color:rgb(255, 250, 247);
+     border-radius: 10px;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>assets/tk_echo.PNG</normaloff>assets/tk_echo.PNG</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>100</width>
+                <height>110</height>
+               </size>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="keybrd">
+              <property name="geometry">
+               <rect>
+                <x>119</x>
+                <y>1</y>
+                <width>111</width>
+                <height>105</height>
+               </rect>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>111</width>
+                <height>105</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton{
+	background-color:rgb(255, 250, 247);
+     border-radius: 10px;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>assets/tk_pad.PNG</normaloff>assets/tk_pad.PNG</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>70</width>
+                <height>70</height>
+               </size>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_6">
+              <property name="geometry">
+               <rect>
+                <x>30</x>
+                <y>0</y>
+                <width>91</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>9</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel
+{
+	background-color: rgba(0,0,0,0%);
+	color:  rgb(81, 81, 81);
+}</string>
+              </property>
+              <property name="text">
+               <string>УЗ датчик</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_7">
+              <property name="geometry">
+               <rect>
+                <x>130</x>
+                <y>0</y>
+                <width>91</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>9</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel
+{
+	background-color: rgba(0,0,0,0%);
+	color:  rgb(81, 81, 81);
+}</string>
+              </property>
+              <property name="text">
+               <string>Клавиатура 4х4</string>
+              </property>
+             </widget>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_13">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>230</width>
+               <height>107</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>107</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <widget class="QPushButton" name="shift">
+              <property name="geometry">
+               <rect>
+                <x>1</x>
+                <y>1</y>
+                <width>111</width>
+                <height>105</height>
+               </rect>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>111</width>
+                <height>105</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton{
+	background-color:rgb(255, 250, 247);
+     border-radius: 10px;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>assets/shift.PNG</normaloff>assets/shift.PNG</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>100</width>
+                <height>100</height>
+               </size>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="lcd">
+              <property name="geometry">
+               <rect>
+                <x>119</x>
+                <y>1</y>
+                <width>111</width>
+                <height>105</height>
+               </rect>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>111</width>
+                <height>105</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton{
+	background-color:rgb(255, 250, 247);
+     border-radius: 10px;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>assets/tk_lcd.PNG</normaloff>assets/tk_lcd.PNG</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>100</width>
+                <height>100</height>
+               </size>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_8">
+              <property name="geometry">
+               <rect>
+                <x>2</x>
+                <y>2</y>
+                <width>121</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>9</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel
+{
+	background-color: rgba(0,0,0,0%);
+	color:  rgb(81, 81, 81);
+}</string>
+              </property>
+              <property name="text">
+               <string>Сдвиговый регистр</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_9">
+              <property name="geometry">
+               <rect>
+                <x>150</x>
+                <y>0</y>
+                <width>91</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>9</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel
+{
+	background-color: rgba(0,0,0,0%);
+	color:  rgb(81, 81, 81);
+}</string>
+              </property>
+              <property name="text">
+               <string>ЖК-экран</string>
+              </property>
+             </widget>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QFrame" name="frame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>250</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame{border-radius: 10px;}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>6</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QTreeWidget" name="treeWidget">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <column>
+          <property name="text">
+           <string>Примеры</string>
+          </property>
+         </column>
+         <item>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>3</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_4">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>370</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QTableWidget" name="tableWidget">
+          <property name="geometry">
+           <rect>
+            <x>-1</x>
+            <y>9</y>
+            <width>251</width>
+            <height>371</height>
+           </rect>
+          </property>
+          <property name="showGrid">
+           <bool>true</bool>
+          </property>
+          <property name="sortingEnabled">
+           <bool>false</bool>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+          <property name="cornerButtonEnabled">
+           <bool>true</bool>
+          </property>
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>125</number>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="verticalHeaderCascadingSectionResizes">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="verticalHeaderDefaultSectionSize">
+           <number>20</number>
+          </attribute>
+          <row>
+           <property name="text">
+            <string/>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>New Row</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>New Row</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>New Row</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>New Row</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>New Row</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>New Row</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>New Row</string>
+           </property>
+          </row>
+          <column>
+           <property name="text">
+            <string>property</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>value</string>
+           </property>
+          </column>
+          <item row="0" column="0">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="background">
+            <brush brushstyle="NoBrush">
+             <color alpha="255">
+              <red>0</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </property>
+           <property name="foreground">
+            <brush brushstyle="NoBrush">
+             <color alpha="255">
+              <red>0</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </property>
+          </item>
+          <item row="1" column="0">
+           <property name="text">
+            <string>          Serial</string>
+           </property>
+          </item>
+          <item row="1" column="1">
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item row="2" column="0">
+           <property name="text">
+            <string>          pin A0</string>
+           </property>
+          </item>
+          <item row="3" column="0">
+           <property name="text">
+            <string>          pin A1</string>
+           </property>
+          </item>
+          <item row="4" column="0">
+           <property name="text">
+            <string>          pin A2</string>
+           </property>
+          </item>
+          <item row="5" column="0">
+           <property name="text">
+            <string>          pin A3</string>
+           </property>
+          </item>
+          <item row="6" column="0">
+           <property name="text">
+            <string>          pin A4</string>
+           </property>
+          </item>
+          <item row="7" column="0">
+           <property name="text">
+            <string>          pin A5</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="pinA0">
+          <property name="geometry">
+           <rect>
+            <x>140</x>
+            <y>70</y>
+            <width>69</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <item>
+           <property name="text">
+            <string>None</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>INPUT</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>OUTPUT</string>
+           </property>
+          </item>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1407</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menufile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+   </widget>
+   <addaction name="menufile"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionopen"/>
+   <addaction name="action_Save"/>
+   <addaction name="actionCompile"/>
+   <addaction name="actionStart_monitoring"/>
+  </widget>
+  <action name="actionopen">
+   <property name="icon">
+    <iconset>
+     <normaloff>assets/icons8-открыть-файл-50.png</normaloff>assets/icons8-открыть-файл-50.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open</string>
+   </property>
+  </action>
+  <action name="actionCompile">
+   <property name="icon">
+    <iconset>
+     <normaloff>assets/free-icon-compiler-5958745.png</normaloff>assets/free-icon-compiler-5958745.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Compile</string>
+   </property>
+  </action>
+  <action name="actionStart_monitoring">
+   <property name="icon">
+    <iconset>
+     <normaloff>assets/free-icon-monitoring-2952754.png</normaloff>assets/free-icon-monitoring-2952754.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Start monitoring</string>
+   </property>
+  </action>
+  <action name="action_Save">
+   <property name="icon">
+    <iconset>
+     <normaloff>assets/free-icon-save-2550221.png</normaloff>assets/free-icon-save-2550221.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Save</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
