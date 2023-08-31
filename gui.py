@@ -1,6 +1,9 @@
 from main_gui import Ui_MainWindow
 
 
+# Крч в main_gui.py не лезть, он автоматом создаётся
+# если что-то надо добавить в ui то добавлять в сюда в MainWindow
+
 class MainWindow(Ui_MainWindow):
     def configure(self):
         # установка виджетов в tableWidget
@@ -26,4 +29,3 @@ class MainWindow(Ui_MainWindow):
         self.tableWidget.setIndexWidget(self.tableWidget.model().index(19, 1), self.pinP11)
         self.tableWidget.setIndexWidget(self.tableWidget.model().index(20, 1), self.pinP12)
         self.tableWidget.setIndexWidget(self.tableWidget.model().index(21, 1), self.pinP13)
-

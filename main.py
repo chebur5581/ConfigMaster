@@ -1,4 +1,4 @@
-from PyQt6 import QtWidgets, QtCore, QtGui
+from PyQt6 import QtWidgets, QtGui
 
 from gui import MainWindow
 from settings import *
@@ -10,7 +10,7 @@ class App(QtWidgets.QMainWindow):
         super(App, self).__init__()
         self.ui = MainWindow()
         self.ui.setupUi(self)
-        self.ui.configure()  # доп. добавки в ui
+        self.ui.configure()  # доп. добавки в ui которые не сделать через QtDesigner
 
         self.buttons_and_combos()  # мне стыдно за это
 
@@ -36,32 +36,34 @@ class App(QtWidgets.QMainWindow):
                      'P13': [1, 21, self.ui.P13],
                      }
 
-    def mode_changed(self, c_box):
-        print(c_box.objectName())
-        button = self.pins.get(c_box.objectName().replace('pin', ''))[2]
-        value = c_box.currentIndex()
-        self.pins[c_box.objectName().replace('pin', '')][0] = value
-        button.setIcon(QtGui.QIcon(icons.get(value)))
+    def mode_changed(self, c_box):  # если значение комбокса изменилось то меняем его везде
+        pin = c_box.objectName().replace('pin', '')
+        button = self.pins.get(pin)[2]  # получаем объект кнопки соответствующий комбоксу
+        value = c_box.currentIndex()  # индекс выбранной строки
+        self.pins[pin][0] = value  # устанавливаем значение от 0 до 2
+        button.setIcon(QtGui.QIcon(icons.get(value)))  # ставим иконку input/output/none
 
     def change_mode(self, button):  # input, output, none
         name = button.objectName()  # получаем имя кнопки
         value = self.pins.get(name)[0]  # получаем значение кнопки от 0 до 2
 
-        index = self.pins.get(name)[1]
+        index = self.pins.get(name)[1]  # номер строки на которой находиться комбокс для пина
         self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(index, 1)).setCurrentIndex(value)
+        # ^^^ установка нужной строки по индексу ^^^
 
-        if value == 2:
+        if value == 2:  # тут всё понятно прибавляем значение пока оно не станет ровно 2 потом сбрасываем до 0
             self.pins[name][0] = 0
         elif value < 2:
             self.pins[name][0] += 1
 
-        button.setIcon(QtGui.QIcon(icons.get(value)))  # установка иконки по номеру
+        button.setIcon(QtGui.QIcon(icons.get(value)))  # установка иконки input/output/none
 
         # 0 - none
         # 1 - input
         # 2 - output
 
     def buttons_and_combos(self):
+        # говорим что если кнопка нажата то вызвать функцию change_mode и передать себя как аргумент
         self.ui.A0.clicked.connect(lambda x: self.change_mode(self.ui.A0))
         self.ui.A1.clicked.connect(lambda x: self.change_mode(self.ui.A1))
         self.ui.A2.clicked.connect(lambda x: self.change_mode(self.ui.A2))
@@ -84,6 +86,7 @@ class App(QtWidgets.QMainWindow):
         self.ui.P12.clicked.connect(lambda x: self.change_mode(self.ui.P12))
         self.ui.P13.clicked.connect(lambda x: self.change_mode(self.ui.P13))
 
+        # если значение комбокса изменилось то вызывем функцию mode_changed и передаём себя
         self.ui.tableWidget.indexWidget(
             self.ui.tableWidget.model().index(2, 1)).currentIndexChanged.connect(
             lambda x: self.mode_changed(
