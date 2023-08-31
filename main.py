@@ -12,6 +12,56 @@ class App(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.ui.configure()  # доп. добавки в ui
 
+        self.buttons_and_combos()  # мне стыдно за это
+
+        self.pins = {'A0': [1, 2, self.ui.A0],  # [состояние 0-2, индекс комбобокса в tableWidget, ссылка на кнопку]
+                     'A1': [1, 3, self.ui.A1],
+                     'A2': [1, 4, self.ui.A2],
+                     'A3': [1, 5, self.ui.A3],
+                     'A4': [1, 6, self.ui.A4],
+                     'A5': [1, 7, self.ui.A5],
+                     'P0': [1, 8, self.ui.P0],
+                     'P1': [1, 9, self.ui.P1],
+                     'P2': [1, 10, self.ui.P2],
+                     'P3': [1, 11, self.ui.P3],
+                     'P4': [1, 12, self.ui.P4],
+                     'P5': [1, 13, self.ui.P5],
+                     'P6': [1, 14, self.ui.P6],
+                     'P7': [1, 15, self.ui.P7],
+                     'P8': [1, 16, self.ui.P8],
+                     'P9': [1, 17, self.ui.P9],
+                     'P10': [1, 18, self.ui.P10],
+                     'P11': [1, 19, self.ui.P11],
+                     'P12': [1, 20, self.ui.P12],
+                     'P13': [1, 21, self.ui.P13],
+                     }
+
+    def mode_changed(self, c_box):
+        print(c_box.objectName())
+        button = self.pins.get(c_box.objectName().replace('pin', ''))[2]
+        value = c_box.currentIndex()
+        self.pins[c_box.objectName().replace('pin', '')][0] = value
+        button.setIcon(QtGui.QIcon(icons.get(value)))
+
+    def change_mode(self, button):  # input, output, none
+        name = button.objectName()  # получаем имя кнопки
+        value = self.pins.get(name)[0]  # получаем значение кнопки от 0 до 2
+
+        index = self.pins.get(name)[1]
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(index, 1)).setCurrentIndex(value)
+
+        if value == 2:
+            self.pins[name][0] = 0
+        elif value < 2:
+            self.pins[name][0] += 1
+
+        button.setIcon(QtGui.QIcon(icons.get(value)))  # установка иконки по номеру
+
+        # 0 - none
+        # 1 - input
+        # 2 - output
+
+    def buttons_and_combos(self):
         self.ui.A0.clicked.connect(lambda x: self.change_mode(self.ui.A0))
         self.ui.A1.clicked.connect(lambda x: self.change_mode(self.ui.A1))
         self.ui.A2.clicked.connect(lambda x: self.change_mode(self.ui.A2))
@@ -34,18 +84,86 @@ class App(QtWidgets.QMainWindow):
         self.ui.P12.clicked.connect(lambda x: self.change_mode(self.ui.P12))
         self.ui.P13.clicked.connect(lambda x: self.change_mode(self.ui.P13))
 
-    def change_mode(self, button):  # input, output, none
-        name = button.objectName()  # получаем имя кнопки
-        value = pins.get(name)  # получаем значение кнопки от 0 до 2
-        print(f'{name}: {value}')
-        if value == 2:
-            pins[name] = 0
-        elif value < 2:
-            pins[name] += 1
-        button.setIcon(QtGui.QIcon(icons.get(value)))  # установка иконки по номеру
-        # 0 - none
-        # 1 - input
-        # 2 - output
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(2, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(2, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(3, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(3, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(4, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(4, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(5, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(5, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(6, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(6, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(7, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(7, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(8, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(8, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(9, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(9, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(10, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(10, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(11, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(11, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(12, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(12, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(13, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(13, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(14, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(14, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(15, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(15, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(16, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(16, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(17, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(17, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(18, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(18, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(19, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(19, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(20, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(20, 1))))
+        self.ui.tableWidget.indexWidget(
+            self.ui.tableWidget.model().index(21, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(
+                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(21, 1))))
 
 
 if __name__ == "__main__":  # запуск всего

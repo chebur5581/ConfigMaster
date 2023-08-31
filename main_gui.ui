@@ -824,7 +824,7 @@
              <number>0</number>
             </property>
             <item>
-             <widget class="QFrame" name="frame_8">
+             <widget class="QFrame" name="frame_5">
               <property name="styleSheet">
                <string notr="true">QFrame
 {
@@ -838,7 +838,7 @@
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
                <property name="spacing">
                 <number>0</number>
                </property>
@@ -855,7 +855,7 @@
                 <number>0</number>
                </property>
                <item>
-                <widget class="QPushButton" name="A3_def">
+                <widget class="QPushButton" name="A0_def">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
                    <horstretch>0</horstretch>
@@ -879,7 +879,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>assets/A3.png</normaloff>assets/A3.png</iconset>
+                   <normaloff>assets/A0.png</normaloff>assets/A0.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -890,215 +890,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="A3">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>67</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton
-{
-	background-color: rgba(255, 255, 255, 0);
-}</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset>
-                   <normaloff>assets/none.png</normaloff>assets/none.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>76</width>
-                   <height>76</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <widget class="QFrame" name="frame_7">
-              <property name="styleSheet">
-               <string notr="true">QFrame
-{
-	
-	background-color: rgba(255, 255, 255, 0);
-}</string>
-              </property>
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Raised</enum>
-              </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_5">
-               <property name="spacing">
-                <number>0</number>
-               </property>
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
-                <number>0</number>
-               </property>
-               <item>
-                <widget class="QPushButton" name="A2_def">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>26</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton
-{
-	background-color: rgba(255, 255, 255, 0);
-}</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset>
-                   <normaloff>assets/A2.png</normaloff>assets/A2.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>76</width>
-                   <height>76</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="A2">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>67</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton
-{
-	background-color: rgba(255, 255, 255, 0);
-}</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset>
-                   <normaloff>assets/none.png</normaloff>assets/none.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>76</width>
-                   <height>76</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <widget class="QFrame" name="frame_14">
-              <property name="styleSheet">
-               <string notr="true">QFrame
-{
-	
-	background-color: rgba(255, 255, 255, 0);
-}</string>
-              </property>
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Raised</enum>
-              </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_7">
-               <property name="spacing">
-                <number>0</number>
-               </property>
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
-                <number>0</number>
-               </property>
-               <item>
-                <widget class="QPushButton" name="A5_def">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>26</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton
-{
-	background-color: rgba(255, 255, 255, 0);
-}</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="icon">
-                  <iconset>
-                   <normaloff>assets/A5.png</normaloff>assets/A5.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>76</width>
-                   <height>76</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="A5">
+                <widget class="QPushButton" name="A0">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
                    <horstretch>0</horstretch>
@@ -1240,7 +1032,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QFrame" name="frame_5">
+             <widget class="QFrame" name="frame_7">
               <property name="styleSheet">
                <string notr="true">QFrame
 {
@@ -1254,7 +1046,7 @@
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <layout class="QHBoxLayout" name="horizontalLayout_5">
                <property name="spacing">
                 <number>0</number>
                </property>
@@ -1271,7 +1063,7 @@
                 <number>0</number>
                </property>
                <item>
-                <widget class="QPushButton" name="A0_def">
+                <widget class="QPushButton" name="A2_def">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
                    <horstretch>0</horstretch>
@@ -1295,7 +1087,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>assets/A0.png</normaloff>assets/A0.png</iconset>
+                   <normaloff>assets/A2.png</normaloff>assets/A2.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -1306,7 +1098,111 @@
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="A0">
+                <widget class="QPushButton" name="A2">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>67</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton
+{
+	background-color: rgba(255, 255, 255, 0);
+}</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset>
+                   <normaloff>assets/none.png</normaloff>assets/none.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>76</width>
+                   <height>76</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="frame_8">
+              <property name="styleSheet">
+               <string notr="true">QFrame
+{
+	
+	background-color: rgba(255, 255, 255, 0);
+}</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QPushButton" name="A3_def">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>26</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton
+{
+	background-color: rgba(255, 255, 255, 0);
+}</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset>
+                   <normaloff>assets/A3.png</normaloff>assets/A3.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>76</width>
+                   <height>76</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="A3">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
                    <horstretch>0</horstretch>
@@ -1411,6 +1307,110 @@
                </item>
                <item>
                 <widget class="QPushButton" name="A4">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>67</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton
+{
+	background-color: rgba(255, 255, 255, 0);
+}</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset>
+                   <normaloff>assets/none.png</normaloff>assets/none.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>76</width>
+                   <height>76</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="frame_14">
+              <property name="styleSheet">
+               <string notr="true">QFrame
+{
+	
+	background-color: rgba(255, 255, 255, 0);
+}</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_7">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QPushButton" name="A5_def">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>26</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton
+{
+	background-color: rgba(255, 255, 255, 0);
+}</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset>
+                   <normaloff>assets/A5.png</normaloff>assets/A5.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>76</width>
+                   <height>76</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="A5">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
                    <horstretch>0</horstretch>
@@ -3771,7 +3771,7 @@
            </property>
           </item>
          </widget>
-         <widget class="QComboBox" name="pin0">
+         <widget class="QComboBox" name="pinP0">
           <property name="geometry">
            <rect>
             <x>140</x>
@@ -3801,7 +3801,7 @@
            </property>
           </item>
          </widget>
-         <widget class="QComboBox" name="pin1">
+         <widget class="QComboBox" name="pinP1">
           <property name="geometry">
            <rect>
             <x>140</x>
@@ -3831,7 +3831,7 @@
            </property>
           </item>
          </widget>
-         <widget class="QComboBox" name="pin2">
+         <widget class="QComboBox" name="pinP2">
           <property name="geometry">
            <rect>
             <x>140</x>
@@ -3861,7 +3861,7 @@
            </property>
           </item>
          </widget>
-         <widget class="QComboBox" name="pin3">
+         <widget class="QComboBox" name="pinP3">
           <property name="geometry">
            <rect>
             <x>140</x>
@@ -3891,7 +3891,7 @@
            </property>
           </item>
          </widget>
-         <widget class="QComboBox" name="pin4">
+         <widget class="QComboBox" name="pinP4">
           <property name="geometry">
            <rect>
             <x>140</x>
@@ -3921,7 +3921,7 @@
            </property>
           </item>
          </widget>
-         <widget class="QComboBox" name="pin5">
+         <widget class="QComboBox" name="pinP5">
           <property name="geometry">
            <rect>
             <x>140</x>
@@ -3951,7 +3951,7 @@
            </property>
           </item>
          </widget>
-         <widget class="QComboBox" name="pin6">
+         <widget class="QComboBox" name="pinP6">
           <property name="geometry">
            <rect>
             <x>140</x>
@@ -3981,7 +3981,7 @@
            </property>
           </item>
          </widget>
-         <widget class="QComboBox" name="pin7">
+         <widget class="QComboBox" name="pinP7">
           <property name="geometry">
            <rect>
             <x>140</x>
@@ -4011,7 +4011,7 @@
            </property>
           </item>
          </widget>
-         <widget class="QComboBox" name="pin8">
+         <widget class="QComboBox" name="pinP8">
           <property name="geometry">
            <rect>
             <x>150</x>
@@ -4041,7 +4041,7 @@
            </property>
           </item>
          </widget>
-         <widget class="QComboBox" name="pin9">
+         <widget class="QComboBox" name="pinP9">
           <property name="geometry">
            <rect>
             <x>170</x>
@@ -4071,7 +4071,7 @@
            </property>
           </item>
          </widget>
-         <widget class="QComboBox" name="pin10">
+         <widget class="QComboBox" name="pinP10">
           <property name="geometry">
            <rect>
             <x>170</x>
@@ -4101,7 +4101,7 @@
            </property>
           </item>
          </widget>
-         <widget class="QComboBox" name="pin11">
+         <widget class="QComboBox" name="pinP11">
           <property name="geometry">
            <rect>
             <x>170</x>
@@ -4131,7 +4131,7 @@
            </property>
           </item>
          </widget>
-         <widget class="QComboBox" name="pin12">
+         <widget class="QComboBox" name="pinP12">
           <property name="geometry">
            <rect>
             <x>170</x>
@@ -4161,7 +4161,7 @@
            </property>
           </item>
          </widget>
-         <widget class="QComboBox" name="pin13">
+         <widget class="QComboBox" name="pinP13">
           <property name="geometry">
            <rect>
             <x>170</x>
