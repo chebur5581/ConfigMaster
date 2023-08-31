@@ -19,6 +19,21 @@ class App(QtWidgets.QMainWindow):
         self.ui.A4.clicked.connect(lambda x: self.change_mode(self.ui.A4))
         self.ui.A5.clicked.connect(lambda x: self.change_mode(self.ui.A5))
 
+        self.ui.P0.clicked.connect(lambda x: self.change_mode(self.ui.P0))
+        self.ui.P1.clicked.connect(lambda x: self.change_mode(self.ui.P1))
+        self.ui.P2.clicked.connect(lambda x: self.change_mode(self.ui.P2))
+        self.ui.P3.clicked.connect(lambda x: self.change_mode(self.ui.P3))
+        self.ui.P4.clicked.connect(lambda x: self.change_mode(self.ui.P4))
+        self.ui.P5.clicked.connect(lambda x: self.change_mode(self.ui.P5))
+        self.ui.P6.clicked.connect(lambda x: self.change_mode(self.ui.P6))
+        self.ui.P7.clicked.connect(lambda x: self.change_mode(self.ui.P7))
+        self.ui.P8.clicked.connect(lambda x: self.change_mode(self.ui.P8))
+        self.ui.P9.clicked.connect(lambda x: self.change_mode(self.ui.P9))
+        self.ui.P10.clicked.connect(lambda x: self.change_mode(self.ui.P10))
+        self.ui.P11.clicked.connect(lambda x: self.change_mode(self.ui.P11))
+        self.ui.P12.clicked.connect(lambda x: self.change_mode(self.ui.P12))
+        self.ui.P13.clicked.connect(lambda x: self.change_mode(self.ui.P13))
+
     def change_mode(self, button):  # input, output, none
         name = button.objectName()  # получаем имя кнопки
         value = pins.get(name)  # получаем значение кнопки от 0 до 2
@@ -31,7 +46,6 @@ class App(QtWidgets.QMainWindow):
         # 0 - none
         # 1 - input
         # 2 - output
-
 
 
 if __name__ == "__main__":  # запуск всего
