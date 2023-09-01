@@ -1,4 +1,4 @@
-from PyQt6 import QtWidgets, QtGui
+from PyQt6 import QtWidgets, QtGui, QtCore
 
 from gui import MainWindow
 from settings import *
@@ -13,6 +13,10 @@ class App(QtWidgets.QMainWindow):
         self.ui.configure()  # доп. добавки в ui которые не сделать через QtDesigner
 
         self.buttons_and_combos()  # мне стыдно за это
+
+        self.offset = QtCore.QPoint(0, 0)
+        self.old_pos = QtCore.QPoint(0, 0)
+        self.cur_pos = QtCore.QPoint(0, 0)
 
         self.pins = {'A0': [1, 2, self.ui.A0],  # [состояние 0-2, индекс комбобокса в tableWidget, ссылка на кнопку]
                      'A1': [1, 3, self.ui.A1],
@@ -42,6 +46,26 @@ class App(QtWidgets.QMainWindow):
         value = c_box.currentIndex()  # индекс выбранной строки
         self.pins[pin][0] = value  # устанавливаем значение от 0 до 2
         button.setIcon(QtGui.QIcon(icons.get(value)))  # ставим иконку input/output/none
+
+    def mousePressEvent(self, e):
+        self.ui.frame_3.mousePressEvent(e)
+        if e.button() == QtCore.Qt.MouseButton.MiddleButton:
+            self.old_pos = e.pos()
+
+    #
+    def mouseReleaseEvent(self, e):
+        self.ui.frame_3.mouseReleaseEvent(e)
+        self.moving = False
+        self.offset += self.cur_pos - self.old_pos
+
+    def mouseMoveEvent(self, e):
+        self.ui.frame_3.mouseMoveEvent(e)
+        self.cur_pos = e.pos()
+
+
+        offset = self.cur_pos - self.old_pos
+
+        self.ui.frame_3.move(self.offset + offset)
 
     def change_mode(self, button):  # input, output, none
         name = button.objectName()  # получаем имя кнопки
