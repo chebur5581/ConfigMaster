@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1407</width>
-    <height>809</height>
+    <width>1310</width>
+    <height>768</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -90,10 +90,10 @@
          <widget class="QFrame" name="frame_3">
           <property name="geometry">
            <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>881</width>
-            <height>745</height>
+            <x>-499</x>
+            <y>-518</y>
+            <width>9999999</width>
+            <height>9999999</height>
            </rect>
           </property>
           <property name="frameShape">
@@ -105,8 +105,8 @@
           <widget class="QLabel" name="label">
            <property name="geometry">
             <rect>
-             <x>-230</x>
-             <y>-180</y>
+             <x>259</x>
+             <y>314</y>
              <width>1471</width>
              <height>1100</height>
             </rect>
@@ -120,12 +120,15 @@
            <property name="scaledContents">
             <bool>true</bool>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
           <widget class="QFrame" name="frame_29">
            <property name="geometry">
             <rect>
-             <x>701</x>
-             <y>346</y>
+             <x>1190</x>
+             <y>840</y>
              <width>111</width>
              <height>138</height>
             </rect>
@@ -788,8 +791,8 @@
           <widget class="QFrame" name="frame_30">
            <property name="geometry">
             <rect>
-             <x>50</x>
-             <y>544</y>
+             <x>539</x>
+             <y>1038</y>
              <width>111</width>
              <height>138</height>
             </rect>
@@ -1452,8 +1455,8 @@
           <widget class="QFrame" name="frame_31">
            <property name="geometry">
             <rect>
-             <x>701</x>
-             <y>500</y>
+             <x>1190</x>
+             <y>994</y>
              <width>111</width>
              <height>185</height>
             </rect>
@@ -2326,9 +2329,15 @@
        </item>
        <item>
         <widget class="QScrollArea" name="scrollArea">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>26</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="maximumSize">
           <size>
-           <width>250</width>
+           <width>251</width>
            <height>16777215</height>
           </size>
          </property>
@@ -2356,8 +2365,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>233</width>
-            <height>754</height>
+            <width>230</width>
+            <height>702</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -4203,8 +4212,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1407</width>
-     <height>21</height>
+     <width>1310</width>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menufile">
