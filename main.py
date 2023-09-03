@@ -18,6 +18,9 @@ class App(QtWidgets.QMainWindow):
         self.old_pos = QtCore.QPoint(0, 0)
         self.cur_pos = QtCore.QPoint(0, 0)
 
+        self.zoom = 0
+        self.w, self.h = self.ui.label.size().width(), self.ui.label.size().height()
+
         self.pins = {'A0': [1, 2, self.ui.A0],  # [состояние 0-2, индекс комбобокса в tableWidget, ссылка на кнопку]
                      'A1': [1, 3, self.ui.A1],
                      'A2': [1, 4, self.ui.A2],
@@ -40,6 +43,18 @@ class App(QtWidgets.QMainWindow):
                      'P13': [1, 21, self.ui.P13],
                      }
 
+    def wheelEvent(self, e):
+        self.ui.frame_3.wheelEvent(e)
+        self.zoom = e.angleDelta().y() // 5
+
+        print(self.zoom)
+
+        self.w, self.h = self.ui.label.size().width() + self.zoom, self.ui.label.size().height() + self.zoom
+
+        print(self.w, self.h)
+
+        self.ui.label.resize(self.w + self.zoom, self.h + self.zoom)
+
     def mode_changed(self, c_box):  # если значение комбокса изменилось то меняем его везде
         pin = c_box.objectName().replace('pin', '')
         button = self.pins.get(pin)[2]  # получаем объект кнопки соответствующий комбоксу
@@ -49,7 +64,7 @@ class App(QtWidgets.QMainWindow):
 
     def mousePressEvent(self, e):
         self.ui.frame_3.mousePressEvent(e)
-        if e.button() == QtCore.Qt.MouseButton.MiddleButton:
+        if e.button() == QtCore.Qt.MouseButton.RightButton:
             self.old_pos = e.pos()
 
     #
@@ -61,7 +76,6 @@ class App(QtWidgets.QMainWindow):
     def mouseMoveEvent(self, e):
         self.ui.frame_3.mouseMoveEvent(e)
         self.cur_pos = e.pos()
-
 
         offset = self.cur_pos - self.old_pos
 
