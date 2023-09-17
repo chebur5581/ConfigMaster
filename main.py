@@ -2,7 +2,7 @@ from PyQt6 import QtWidgets, QtGui, QtCore
 
 from gui import MainWindow
 from settings import *
-import sys
+from sys import exit
 
 
 class App(QtWidgets.QMainWindow):
@@ -14,12 +14,12 @@ class App(QtWidgets.QMainWindow):
 
         self.buttons_and_combos()  # мне стыдно за это
 
-        self.offset = QtCore.QPoint(0, 0)
+        self.offset = -self.ui.label.pos()
         self.old_pos = QtCore.QPoint(0, 0)
         self.cur_pos = QtCore.QPoint(0, 0)
 
-        self.zoom = 0
-        self.w, self.h = self.ui.label.size().width(), self.ui.label.size().height()
+        # self.zoom = 0
+        # self.w, self.h = self.ui.label.size().width(), self.ui.label.size().height()
 
         self.pins = {'A0': [1, 2, self.ui.A0],  # [состояние 0-2, индекс комбобокса в tableWidget, ссылка на кнопку]
                      'A1': [1, 3, self.ui.A1],
@@ -43,17 +43,17 @@ class App(QtWidgets.QMainWindow):
                      'P13': [1, 21, self.ui.P13],
                      }
 
-    def wheelEvent(self, e):
-        self.ui.frame_3.wheelEvent(e)
-        self.zoom = e.angleDelta().y() // 5
-
-        print(self.zoom)
-
-        self.w, self.h = self.ui.label.size().width() + self.zoom, self.ui.label.size().height() + self.zoom
-
-        print(self.w, self.h)
-
-        self.ui.label.resize(self.w + self.zoom, self.h + self.zoom)
+    # def wheelEvent(self, e):
+    #     self.ui.frame_3.wheelEvent(e)
+    #     self.zoom = e.angleDelta().y() // 5
+    #
+    #     print(self.zoom)
+    #
+    #     self.w, self.h = self.ui.label.size().width() + self.zoom, self.ui.label.size().height() + self.zoom
+    #
+    #     print(self.w, self.h)
+    #
+    #     self.ui.label.resize(self.w + self.zoom, self.h + self.zoom)
 
     def mode_changed(self, c_box):  # если значение комбокса изменилось то меняем его везде
         pin = c_box.objectName().replace('pin', '')
@@ -67,19 +67,19 @@ class App(QtWidgets.QMainWindow):
         if e.button() == QtCore.Qt.MouseButton.RightButton:
             self.old_pos = e.pos()
 
-    #
     def mouseReleaseEvent(self, e):
         self.ui.frame_3.mouseReleaseEvent(e)
-        self.moving = False
-        self.offset += self.cur_pos - self.old_pos
+        if e.button() == QtCore.Qt.MouseButton.RightButton:
+            self.moving = False
+            self.offset += self.cur_pos - self.old_pos
 
     def mouseMoveEvent(self, e):
         self.ui.frame_3.mouseMoveEvent(e)
-        self.cur_pos = e.pos()
-
-        offset = self.cur_pos - self.old_pos
-
-        self.ui.frame_3.move(self.offset + offset)
+        if e.buttons() == QtCore.Qt.MouseButton.RightButton:
+            self.cur_pos = e.pos()
+            offset = self.cur_pos - self.old_pos
+            print(self.offset + offset)
+            self.ui.frame_3.move(self.offset + offset)
 
     def change_mode(self, button):  # input, output, none
         name = button.objectName()  # получаем имя кнопки
@@ -211,4 +211,4 @@ if __name__ == "__main__":  # запуск всего
     app = QtWidgets.QApplication([])
     application = App()
     application.show()
-    sys.exit(app.exec())
+    exit(app.exec())
