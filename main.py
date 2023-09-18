@@ -1,46 +1,47 @@
-from PyQt6 import QtWidgets, QtGui, QtCore
+from PyQt6.QtCore import QPoint, Qt
+from PyQt6.QtWidgets import QMainWindow, QApplication
+from PyQt6.QtGui import QIcon
 
 from gui import MainWindow
-from settings import *
+from settings import icons
 from sys import exit
+from converter import Script
 
 
-class App(QtWidgets.QMainWindow):
+class App(QMainWindow):
     def __init__(self):
         super(App, self).__init__()
         self.ui = MainWindow()
         self.ui.setupUi(self)
-        self.ui.configure()  # доп. добавки в ui которые не сделать через QtDesigner
+        self.ui.configure()  # Доп. добавки в ui которые не сделать через QtDesigner
 
         self.buttons_and_combos()  # мне стыдно за это
+        self.ui.actionCompile.triggered.connect(self.compile)
 
         self.offset = -self.ui.label.pos()
-        self.old_pos = QtCore.QPoint(0, 0)
-        self.cur_pos = QtCore.QPoint(0, 0)
+        self.old_pos = QPoint(0, 0)
+        self.cur_pos = QPoint(0, 0)
 
-        # self.zoom = 0
-        # self.w, self.h = self.ui.label.size().width(), self.ui.label.size().height()
-
-        self.pins = {'A0': [1, 2, self.ui.A0],  # [состояние 0-2, индекс комбобокса в tableWidget, ссылка на кнопку]
-                     'A1': [1, 3, self.ui.A1],
-                     'A2': [1, 4, self.ui.A2],
-                     'A3': [1, 5, self.ui.A3],
-                     'A4': [1, 6, self.ui.A4],
-                     'A5': [1, 7, self.ui.A5],
-                     'P0': [1, 8, self.ui.P0],
-                     'P1': [1, 9, self.ui.P1],
-                     'P2': [1, 10, self.ui.P2],
-                     'P3': [1, 11, self.ui.P3],
-                     'P4': [1, 12, self.ui.P4],
-                     'P5': [1, 13, self.ui.P5],
-                     'P6': [1, 14, self.ui.P6],
-                     'P7': [1, 15, self.ui.P7],
-                     'P8': [1, 16, self.ui.P8],
-                     'P9': [1, 17, self.ui.P9],
-                     'P10': [1, 18, self.ui.P10],
-                     'P11': [1, 19, self.ui.P11],
-                     'P12': [1, 20, self.ui.P12],
-                     'P13': [1, 21, self.ui.P13],
+        self.pins = {'A0': [0, 2, self.ui.A0],  # [состояние 0-2, индекс комбобокса в tableWidget, ссылка на кнопку]
+                     'A1': [0, 3, self.ui.A1],
+                     'A2': [0, 4, self.ui.A2],
+                     'A3': [0, 5, self.ui.A3],
+                     'A4': [0, 6, self.ui.A4],
+                     'A5': [0, 7, self.ui.A5],
+                     '0': [0, 8, self.ui.P0],
+                     '1': [0, 9, self.ui.P1],
+                     '2': [0, 10, self.ui.P2],
+                     '3': [0, 11, self.ui.P3],
+                     '4': [0, 12, self.ui.P4],
+                     '5': [0, 13, self.ui.P5],
+                     '6': [0, 14, self.ui.P6],
+                     '7': [0, 15, self.ui.P7],
+                     '8': [0, 16, self.ui.P8],
+                     '9': [0, 17, self.ui.P9],
+                     '10': [0, 18, self.ui.P10],
+                     '11': [0, 19, self.ui.P11],
+                     '12': [0, 20, self.ui.P12],
+                     '13': [0, 21, self.ui.P13],
                      }
 
     # def wheelEvent(self, e):
@@ -55,34 +56,45 @@ class App(QtWidgets.QMainWindow):
     #
     #     self.ui.label.resize(self.w + self.zoom, self.h + self.zoom)
 
-    def mode_changed(self, c_box):  # если значение комбокса изменилось то меняем его везде
-        pin = c_box.objectName().replace('pin', '')
+    def compile(self):
+        bod = self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(1, 1)).currentText()
+        if bod == 'Выключить':
+            bod = None
+
+        self.script = Script(pins=self.pins, serial=bod)
+        self.script.compile('output.ino')
+        print('compile completed')
+        print('saved in output.ino')
+
+    def mode_changed(self, c_box):  # Если значение комбокса изменилось, то меняем его везде
+        pin = c_box.objectName().replace('pin', '').replace('P', '')
+        print(pin)
         button = self.pins.get(pin)[2]  # получаем объект кнопки соответствующий комбоксу
         value = c_box.currentIndex()  # индекс выбранной строки
         self.pins[pin][0] = value  # устанавливаем значение от 0 до 2
-        button.setIcon(QtGui.QIcon(icons.get(value)))  # ставим иконку input/output/none
+        button.setIcon(QIcon(icons.get(value)))  # ставим иконку input/output/none
 
     def mousePressEvent(self, e):
         self.ui.frame_3.mousePressEvent(e)
-        if e.button() == QtCore.Qt.MouseButton.RightButton:
+        if e.button() == Qt.MouseButton.RightButton:
             self.old_pos = e.pos()
 
     def mouseReleaseEvent(self, e):
         self.ui.frame_3.mouseReleaseEvent(e)
-        if e.button() == QtCore.Qt.MouseButton.RightButton:
+        if e.button() == Qt.MouseButton.RightButton:
             self.moving = False
             self.offset += self.cur_pos - self.old_pos
 
     def mouseMoveEvent(self, e):
         self.ui.frame_3.mouseMoveEvent(e)
-        if e.buttons() == QtCore.Qt.MouseButton.RightButton:
+        if e.buttons() == Qt.MouseButton.RightButton:
             self.cur_pos = e.pos()
             offset = self.cur_pos - self.old_pos
             print(self.offset + offset)
             self.ui.frame_3.move(self.offset + offset)
 
     def change_mode(self, button):  # input, output, none
-        name = button.objectName()  # получаем имя кнопки
+        name = button.objectName().replace('P', '')  # получаем имя кнопки
         value = self.pins.get(name)[0]  # получаем значение кнопки от 0 до 2
 
         index = self.pins.get(name)[1]  # номер строки на которой находиться комбокс для пина
@@ -94,7 +106,7 @@ class App(QtWidgets.QMainWindow):
         elif value < 2:
             self.pins[name][0] += 1
 
-        button.setIcon(QtGui.QIcon(icons.get(value)))  # установка иконки input/output/none
+        button.setIcon(QIcon(icons.get(value)))  # установка иконки input/output/none
 
         # 0 - none
         # 1 - input
@@ -124,7 +136,7 @@ class App(QtWidgets.QMainWindow):
         self.ui.P12.clicked.connect(lambda x: self.change_mode(self.ui.P12))
         self.ui.P13.clicked.connect(lambda x: self.change_mode(self.ui.P13))
 
-        # если значение комбокса изменилось то вызывем функцию mode_changed и передаём себя
+        # если значение комбокса изменилось, то вызывем функцию mode_changed и передаём себя
         self.ui.tableWidget.indexWidget(
             self.ui.tableWidget.model().index(2, 1)).currentIndexChanged.connect(
             lambda x: self.mode_changed(
@@ -208,7 +220,7 @@ class App(QtWidgets.QMainWindow):
 
 
 if __name__ == "__main__":  # запуск всего
-    app = QtWidgets.QApplication([])
+    app = QApplication([])
     application = App()
     application.show()
     exit(app.exec())
