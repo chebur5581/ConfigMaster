@@ -14,7 +14,7 @@ class Script():
         # prepare pins, заменяем ключи на их названия в define'ах
         if self.defines is not None:
             for name in self.defines:
-                self.pins[name] = self.pins.pop(f'{self.defines[name]}')
+                self.pins[self.defines[name]] = self.pins.pop(f'{name}')
 
     @property
     def to_str(self):
@@ -38,7 +38,7 @@ class Script():
             for line in enumerate(self.script):
                 if line[1] == '\n':
                     for define in self.defines:
-                        self.script.insert(line[0] + 1, f'#define {define} {self.defines[define]}\n')
+                        self.script.insert(line[0] + 1, f'#define {self.defines[define]} {define}\n')
                     self.script.insert(line[0] + len(self.defines) + 1, '\n')
                     break
 
@@ -91,10 +91,10 @@ if __name__ == "__main__":
 
     libs = ['lcd', 'servo']
 
-    defs = {'RS': 2,
-            'D7': 3,
-            'LED': 5,
-            'POT': 'A1'}
+    defs = {2: 'RS',
+            3: 'D7',
+            5: 'LED',
+            'A1': 'POT'}
 
     c = Script(pins, defs, libs, serial=9600)
     c.compile('output.ino')

@@ -29,3 +29,4 @@ class MainWindow(Ui_MainWindow):
         self.tableWidget.setIndexWidget(self.tableWidget.model().index(19, 1), self.pinP11)
         self.tableWidget.setIndexWidget(self.tableWidget.model().index(20, 1), self.pinP12)
         self.tableWidget.setIndexWidget(self.tableWidget.model().index(21, 1), self.pinP13)
+

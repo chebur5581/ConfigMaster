@@ -1,5 +1,5 @@
 from PyQt6.QtCore import QPoint, Qt
-from PyQt6.QtWidgets import QMainWindow, QApplication
+from PyQt6.QtWidgets import QMainWindow, QApplication, QLineEdit, QComboBox, QPushButton
 from PyQt6.QtGui import QIcon
 
 from gui import MainWindow
@@ -15,10 +15,12 @@ class App(QMainWindow):
         self.ui.setupUi(self)
         self.ui.configure()  # Доп. добавки в ui которые не сделать через QtDesigner
 
+        self.defines = {}
+
         self.buttons_and_combos()  # мне стыдно за это
         self.ui.actionCompile.triggered.connect(self.compile)
 
-        self.offset = -self.ui.label.pos()
+        self.offset = self.ui.frame_3.pos()
         self.old_pos = QPoint(0, 0)
         self.cur_pos = QPoint(0, 0)
 
@@ -47,28 +49,30 @@ class App(QMainWindow):
     # def wheelEvent(self, e):
     #     self.ui.frame_3.wheelEvent(e)
     #     self.zoom = e.angleDelta().y() // 5
-    #
-    #     print(self.zoom)
-    #
-    #     self.w, self.h = self.ui.label.size().width() + self.zoom, self.ui.label.size().height() + self.zoom
-    #
-    #     print(self.w, self.h)
-    #
-    #     self.ui.label.resize(self.w + self.zoom, self.h + self.zoom)
 
     def compile(self):
         bod = self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(1, 1)).currentText()
         if bod == 'Выключить':
             bod = None
 
-        self.script = Script(pins=self.pins, serial=bod)
+        self.script = Script(pins=self.pins, defines=self.defines, serial=bod)
         self.script.compile('output.ino')
         print('compile completed')
         print('saved in output.ino')
 
-    def mode_changed(self, c_box):  # Если значение комбокса изменилось, то меняем его везде
+    def definition(self, lineEdit: QLineEdit):
+        key = lineEdit.objectName().replace('L', '')  # Ключь - пин на подобии A0 A1
+        value = lineEdit.text()  # текст для названия пина
+        self.defines.update({key: value})  # добавляем в словарь
+        table_index = self.pins[key][1]  # получаем индекс пина в таблице
+        if value == '':  # если текст стёрли
+            self.defines.pop(key)  # удаляем пин из словаря
+            self.ui.tableWidget.item(table_index, 0).setText(f'          pin {key}')  # ставим текст
+        else:
+            self.ui.tableWidget.item(table_index, 0).setText(f'pin {value} ({key})')  # ставим текст
+
+    def mode_changed(self, c_box: QComboBox):  # Если значение комбокса изменилось, то меняем его везде
         pin = c_box.objectName().replace('pin', '').replace('P', '')
-        print(pin)
         button = self.pins.get(pin)[2]  # получаем объект кнопки соответствующий комбоксу
         value = c_box.currentIndex()  # индекс выбранной строки
         self.pins[pin][0] = value  # устанавливаем значение от 0 до 2
@@ -78,6 +82,7 @@ class App(QMainWindow):
         self.ui.frame_3.mousePressEvent(e)
         if e.button() == Qt.MouseButton.RightButton:
             self.old_pos = e.pos()
+            print(self.ui.frame_3.pos())
 
     def mouseReleaseEvent(self, e):
         self.ui.frame_3.mouseReleaseEvent(e)
@@ -90,10 +95,9 @@ class App(QMainWindow):
         if e.buttons() == Qt.MouseButton.RightButton:
             self.cur_pos = e.pos()
             offset = self.cur_pos - self.old_pos
-            print(self.offset + offset)
             self.ui.frame_3.move(self.offset + offset)
 
-    def change_mode(self, button):  # input, output, none
+    def change_mode(self, button: QPushButton):  # input, output, none
         name = button.objectName().replace('P', '')  # получаем имя кнопки
         value = self.pins.get(name)[0]  # получаем значение кнопки от 0 до 2
 
@@ -135,6 +139,28 @@ class App(QMainWindow):
         self.ui.P11.clicked.connect(lambda x: self.change_mode(self.ui.P11))
         self.ui.P12.clicked.connect(lambda x: self.change_mode(self.ui.P12))
         self.ui.P13.clicked.connect(lambda x: self.change_mode(self.ui.P13))
+
+        self.ui.LA0.textChanged.connect(lambda x: self.definition(self.ui.LA0))
+        self.ui.LA1.textChanged.connect(lambda x: self.definition(self.ui.LA1))
+        self.ui.LA2.textChanged.connect(lambda x: self.definition(self.ui.LA2))
+        self.ui.LA3.textChanged.connect(lambda x: self.definition(self.ui.LA3))
+        self.ui.LA4.textChanged.connect(lambda x: self.definition(self.ui.LA4))
+        self.ui.LA5.textChanged.connect(lambda x: self.definition(self.ui.LA5))
+
+        self.ui.L0.textChanged.connect(lambda x: self.definition(self.ui.L0))
+        self.ui.L1.textChanged.connect(lambda x: self.definition(self.ui.L1))
+        self.ui.L2.textChanged.connect(lambda x: self.definition(self.ui.L2))
+        self.ui.L3.textChanged.connect(lambda x: self.definition(self.ui.L3))
+        self.ui.L4.textChanged.connect(lambda x: self.definition(self.ui.L4))
+        self.ui.L5.textChanged.connect(lambda x: self.definition(self.ui.L5))
+        self.ui.L6.textChanged.connect(lambda x: self.definition(self.ui.L6))
+        self.ui.L7.textChanged.connect(lambda x: self.definition(self.ui.L7))
+        self.ui.L8.textChanged.connect(lambda x: self.definition(self.ui.L8))
+        self.ui.L9.textChanged.connect(lambda x: self.definition(self.ui.L9))
+        self.ui.L10.textChanged.connect(lambda x: self.definition(self.ui.L10))
+        self.ui.L11.textChanged.connect(lambda x: self.definition(self.ui.L11))
+        self.ui.L12.textChanged.connect(lambda x: self.definition(self.ui.L12))
+        self.ui.L13.textChanged.connect(lambda x: self.definition(self.ui.L13))
 
         # если значение комбокса изменилось, то вызывем функцию mode_changed и передаём себя
         self.ui.tableWidget.indexWidget(

@@ -129,7 +129,7 @@
             <rect>
              <x>1190</x>
              <y>840</y>
-             <width>111</width>
+             <width>191</width>
              <height>138</height>
             </rect>
            </property>
@@ -263,6 +263,13 @@
                  </property>
                 </widget>
                </item>
+               <item>
+                <widget class="QLineEdit" name="L13">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
@@ -364,6 +371,13 @@
                    <width>76</width>
                    <height>76</height>
                   </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="L12">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -471,6 +485,13 @@
                  </property>
                 </widget>
                </item>
+               <item>
+                <widget class="QLineEdit" name="L11">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
@@ -572,6 +593,13 @@
                    <width>76</width>
                    <height>76</height>
                   </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="L10">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -679,6 +707,13 @@
                  </property>
                 </widget>
                </item>
+               <item>
+                <widget class="QLineEdit" name="L9">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
@@ -783,6 +818,13 @@
                  </property>
                 </widget>
                </item>
+               <item>
+                <widget class="QLineEdit" name="L8">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
@@ -791,9 +833,9 @@
           <widget class="QFrame" name="frame_30">
            <property name="geometry">
             <rect>
-             <x>539</x>
+             <x>469</x>
              <y>1038</y>
-             <width>111</width>
+             <width>181</width>
              <height>138</height>
             </rect>
            </property>
@@ -857,6 +899,16 @@
                <property name="bottomMargin">
                 <number>0</number>
                </property>
+               <item>
+                <widget class="QLineEdit" name="LA0">
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
                <item>
                 <widget class="QPushButton" name="A0_def">
                  <property name="sizePolicy">
@@ -962,6 +1014,13 @@
                 <number>0</number>
                </property>
                <item>
+                <widget class="QLineEdit" name="LA1">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
                 <widget class="QPushButton" name="A1_def">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -1065,6 +1124,13 @@
                <property name="bottomMargin">
                 <number>0</number>
                </property>
+               <item>
+                <widget class="QLineEdit" name="LA2">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
                <item>
                 <widget class="QPushButton" name="A2_def">
                  <property name="sizePolicy">
@@ -1170,6 +1236,13 @@
                 <number>0</number>
                </property>
                <item>
+                <widget class="QLineEdit" name="LA3">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
                 <widget class="QPushButton" name="A3_def">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -1273,6 +1346,13 @@
                <property name="bottomMargin">
                 <number>0</number>
                </property>
+               <item>
+                <widget class="QLineEdit" name="LA4">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
                <item>
                 <widget class="QPushButton" name="A4_def">
                  <property name="sizePolicy">
@@ -1378,6 +1458,13 @@
                 <number>0</number>
                </property>
                <item>
+                <widget class="QLineEdit" name="LA5">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
                 <widget class="QPushButton" name="A5_def">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -1457,7 +1544,7 @@
             <rect>
              <x>1190</x>
              <y>994</y>
-             <width>111</width>
+             <width>191</width>
              <height>185</height>
             </rect>
            </property>
@@ -1591,6 +1678,13 @@
                  </property>
                 </widget>
                </item>
+               <item>
+                <widget class="QLineEdit" name="L7">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
@@ -1692,6 +1786,13 @@
                    <width>76</width>
                    <height>76</height>
                   </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="L6">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -1799,6 +1900,13 @@
                  </property>
                 </widget>
                </item>
+               <item>
+                <widget class="QLineEdit" name="L5">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
@@ -1900,6 +2008,13 @@
                    <width>76</width>
                    <height>76</height>
                   </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="L4">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -2007,6 +2122,13 @@
                  </property>
                 </widget>
                </item>
+               <item>
+                <widget class="QLineEdit" name="L3">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
@@ -2108,6 +2230,13 @@
                    <width>76</width>
                    <height>76</height>
                   </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="L2">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -2215,6 +2344,13 @@
                  </property>
                 </widget>
                </item>
+               <item>
+                <widget class="QLineEdit" name="L1">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
@@ -2319,6 +2455,13 @@
                  </property>
                 </widget>
                </item>
+               <item>
+                <widget class="QLineEdit" name="L0">
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
@@ -2365,8 +2508,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>230</width>
-            <height>702</height>
+            <width>234</width>
+            <height>713</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -3059,19 +3202,6 @@
               </property>
              </widget>
             </widget>
-           </item>
-           <item>
-            <spacer name="verticalSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
            </item>
           </layout>
          </widget>
@@ -4213,7 +4343,7 @@
      <x>0</x>
      <y>0</y>
      <width>1310</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menufile">
