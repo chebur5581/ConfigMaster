@@ -1,5 +1,5 @@
 from PyQt6.QtCore import QPoint, Qt
-from PyQt6.QtWidgets import QMainWindow, QApplication, QLineEdit, QComboBox, QPushButton
+from PyQt6.QtWidgets import QMainWindow, QApplication, QLineEdit, QComboBox, QPushButton, QFileDialog
 from PyQt6.QtGui import QIcon
 
 from gui import MainWindow
@@ -19,6 +19,7 @@ class App(QMainWindow):
 
         self.buttons_and_combos()  # мне стыдно за это
         self.ui.actionCompile.triggered.connect(self.compile)
+        self.ui.actionCompile_2.triggered.connect(self.compile)
 
         self.offset = self.ui.frame_3.pos()
         self.old_pos = QPoint(0, 0)
@@ -56,9 +57,13 @@ class App(QMainWindow):
             bod = None
 
         self.script = Script(pins=self.pins, defines=self.defines, serial=bod)
-        self.script.compile('output.ino')
-        print('compile completed')
-        print('saved in output.ino')
+
+        filename, _ = QFileDialog.getSaveFileName(self,
+                                                  "Save File", "", "Arduino Files(*.ino)")
+        if filename:
+            self.script.compile(filename)
+            print('compile completed')
+            print(f'saved in {filename}')
 
     def definition(self, lineEdit: QLineEdit):
         key = lineEdit.objectName().replace('L', '')  # Ключь - пин на подобии A0 A1
