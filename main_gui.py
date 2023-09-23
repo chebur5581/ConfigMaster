@@ -14,7 +14,7 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1310, 765)
         MainWindow.setMinimumSize(QtCore.QSize(500, 500))
-        MainWindow.setMaximumSize(QtCore.QSize(1407, 809))
+        MainWindow.setMaximumSize(QtCore.QSize(16777215, 16777215))
         MainWindow.setStyleSheet("QMainWindow\n"
 "{\n"
 "    background-color: rgb(209, 209, 209);\n"

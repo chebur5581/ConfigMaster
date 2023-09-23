@@ -16,10 +16,14 @@ class App(QMainWindow):
         self.ui.configure()  # Доп. добавки в ui которые не сделать через QtDesigner
 
         self.defines = {}
+        self.libs = []
 
         self.buttons_and_combos()  # мне стыдно за это
         self.ui.actionCompile.triggered.connect(self.compile)
         self.ui.actionCompile_2.triggered.connect(self.compile)
+
+        self.ui.lcd.clicked.connect(lambda x: self.include_lib(self.ui.lcd))
+        self.ui.servo.clicked.connect(lambda x: self.include_lib(self.ui.servo))
 
         self.offset = self.ui.frame_3.pos()
         self.old_pos = QPoint(0, 0)
@@ -51,12 +55,19 @@ class App(QMainWindow):
     #     self.ui.frame_3.wheelEvent(e)
     #     self.zoom = e.angleDelta().y() // 5
 
+    def include_lib(self, button: QPushButton):
+        if button.isChecked():
+            self.libs.append(button.objectName())
+        if not button.isChecked():
+            self.libs.remove(button.objectName())
+
+
     def compile(self):
         bod = self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(1, 1)).currentText()
         if bod == 'Выключить':
             bod = None
 
-        self.script = Script(pins=self.pins, defines=self.defines, serial=bod)
+        self.script = Script(pins=self.pins, defines=self.defines, libraries=self.libs, serial=bod)
 
         filename, _ = QFileDialog.getSaveFileName(self,
                                                   "Save File", "", "Arduino Files(*.ino)")
