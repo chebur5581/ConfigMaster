@@ -6,7 +6,7 @@ from gui import MainWindow
 from settings import icons
 from sys import exit
 from converter import Script
-
+import webbrowser
 
 class App(QMainWindow):
     def __init__(self):
@@ -21,6 +21,8 @@ class App(QMainWindow):
         self.buttons_and_combos()  # мне стыдно за это
         self.ui.actionCompile.triggered.connect(self.compile)
         self.ui.actionCompile_2.triggered.connect(self.compile)
+
+        self.ui.actionQuick_guide.triggered.connect(self.open_quick_guide_page)
 
         self.ui.lcd.clicked.connect(lambda x: self.include_lib(self.ui.lcd))
         self.ui.servo.clicked.connect(lambda x: self.include_lib(self.ui.servo))
@@ -260,6 +262,8 @@ class App(QMainWindow):
             lambda x: self.mode_changed(
                 self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(21, 1))))
 
+    def open_quick_guide_page(self):
+        webbrowser.open('https://github.com/chebur5581/ConfigMaster/blob/beta/QuickGuide.md', new=0, autoraise=True)
 
 if __name__ == "__main__":  # запуск всего
     app = QApplication([])

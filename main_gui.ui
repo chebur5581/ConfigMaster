@@ -1230,8 +1230,8 @@
           <widget class="QLabel" name="label">
            <property name="geometry">
             <rect>
-             <x>259</x>
-             <y>314</y>
+             <x>230</x>
+             <y>290</y>
              <width>1471</width>
              <height>1100</height>
             </rect>
@@ -3633,8 +3633,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>234</width>
-            <height>710</height>
+            <width>238</width>
+            <height>721</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -3874,16 +3874,26 @@ QPushButton::checked
      <x>0</x>
      <y>0</y>
      <width>1310</width>
-     <height>21</height>
+     <height>18</height>
     </rect>
    </property>
    <widget class="QMenu" name="menufile">
     <property name="title">
      <string>&amp;File</string>
     </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="separator"/>
     <addaction name="actionCompile_2"/>
    </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionQuick_guide"/>
+   </widget>
    <addaction name="menufile"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="toolBar">
    <property name="windowTitle">
@@ -3939,6 +3949,21 @@ QPushButton::checked
   <action name="actionCompile_2">
    <property name="text">
     <string>Compile</string>
+   </property>
+  </action>
+  <action name="actionNew">
+   <property name="text">
+    <string>&amp;New</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionQuick_guide">
+   <property name="text">
+    <string>Quick guide</string>
    </property>
   </action>
  </widget>
