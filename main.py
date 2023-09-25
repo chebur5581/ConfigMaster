@@ -17,6 +17,7 @@ class App(QMainWindow):
 
         self.defines = {}
         self.libs = []
+        self.script = None
 
         self.buttons_and_combos()  # мне стыдно за это
         self.ui.actionCompile.triggered.connect(self.compile)
@@ -61,7 +62,6 @@ class App(QMainWindow):
         if not button.isChecked():
             self.libs.remove(button.objectName())
 
-
     def compile(self):
         bod = self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(1, 1)).currentText()
         if bod == 'Выключить':
@@ -102,8 +102,7 @@ class App(QMainWindow):
 
     def mouseReleaseEvent(self, e):
         self.ui.frame_3.mouseReleaseEvent(e)
-        if e.button() == Qt.MouseButton.RightButton:
-            self.moving = False
+        if e.button() == Qt.MouseButton.RightButton and self.old_pos != e.pos():
             self.offset += self.cur_pos - self.old_pos
 
     def mouseMoveEvent(self, e):
@@ -116,15 +115,17 @@ class App(QMainWindow):
     def change_mode(self, button: QPushButton):  # input, output, none
         name = button.objectName().replace('P', '')  # получаем имя кнопки
         value = self.pins.get(name)[0]  # получаем значение кнопки от 0 до 2
+        print(value)
+        if value == 2:  # тут всё понятно прибавляем значение пока оно не станет ровно 2 потом сбрасываем до 0
+            self.pins[name][0] = 0
+        if value < 2:
+            self.pins[name][0] += 1
+
+        value = self.pins.get(name)[0]  # обновляем value
 
         index = self.pins.get(name)[1]  # номер строки на которой находиться комбокс для пина
         self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(index, 1)).setCurrentIndex(value)
         # ^^^ установка нужной строки по индексу ^^^
-
-        if value == 2:  # тут всё понятно прибавляем значение пока оно не станет ровно 2 потом сбрасываем до 0
-            self.pins[name][0] = 0
-        elif value < 2:
-            self.pins[name][0] += 1
 
         button.setIcon(QIcon(icons.get(value)))  # установка иконки input/output/none
 

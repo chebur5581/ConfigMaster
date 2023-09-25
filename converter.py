@@ -1,4 +1,5 @@
 from settings import default_script, libraries, modes
+from os import mkdir, rename
 
 
 class Script():
@@ -49,6 +50,9 @@ class Script():
                 self.script.insert(line[0], '\n')
                 setup_index = line[0] + 2
                 break
+        if 'servo' in self.libs:
+            self.script.insert(setup_index, f'\t{libraries["servo"][2]}\n')
+            setup_index += 1
         # pins
         working_index = 0  # индекс куда мы добавляем новый строки
         for pin in enumerate(self.pins):
@@ -65,6 +69,12 @@ class Script():
         if filename is not None:
             with open(filename, 'w') as f:
                 f.write(''.join(self.script))
+            dir = filename.replace('.ino', '')
+            mkdir(dir)
+            name = filename.split('/')[-1]
+            rename(filename, f'{dir}/{name}')
+
+
 
 if __name__ == "__main__":
     pins = {'A0': [0, 2],  # [состояние 0-2, индекс комбобокса в tableWidget, ссылка на кнопку]
