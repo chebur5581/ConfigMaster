@@ -22,6 +22,7 @@ class App(QMainWindow):
         self.buttons_and_combos()  # мне стыдно за это
         self.ui.actionCompile.triggered.connect(self.compile)
         self.ui.actionCompile_2.triggered.connect(self.compile)
+        self.ui.action_New.triggered.connect(self.new_file)
 
         self.ui.lcd.clicked.connect(lambda x: self.include_lib(self.ui.lcd))
         self.ui.servo.clicked.connect(lambda x: self.include_lib(self.ui.servo))
@@ -55,6 +56,34 @@ class App(QMainWindow):
     # def wheelEvent(self, e):
     #     self.ui.frame_3.wheelEvent(e)
     #     self.zoom = e.angleDelta().y() // 5
+
+    def new_file(self):
+        self.pins = {'A0': [0, 2, self.ui.A0, self.ui.LA0],  # [состояние 0-2, индекс комбобокса в tableWidget, ссылка на кнопку]
+                     'A1': [0, 3, self.ui.A1, self.ui.LA1],
+                     'A2': [0, 4, self.ui.A2, self.ui.LA2],
+                     'A3': [0, 5, self.ui.A3, self.ui.LA3],
+                     'A4': [0, 6, self.ui.A4, self.ui.LA4],
+                     'A5': [0, 7, self.ui.A5, self.ui.LA5],
+                     '0': [0, 8, self.ui.P0, self.ui.L0],
+                     '1': [0, 9, self.ui.P1, self.ui.L1],
+                     '2': [0, 10, self.ui.P2, self.ui.L2],
+                     '3': [0, 11, self.ui.P3, self.ui.L3],
+                     '4': [0, 12, self.ui.P4, self.ui.L4],
+                     '5': [0, 13, self.ui.P5, self.ui.L5],
+                     '6': [0, 14, self.ui.P6, self.ui.L6],
+                     '7': [0, 15, self.ui.P7, self.ui.L7],
+                     '8': [0, 16, self.ui.P8, self.ui.L8],
+                     '9': [0, 17, self.ui.P9, self.ui.L9],
+                     '10': [0, 18, self.ui.P10, self.ui.L10],
+                     '11': [0, 19, self.ui.P11, self.ui.L11],
+                     '12': [0, 20, self.ui.P12, self.ui.L12],
+                     '13': [0, 21, self.ui.P13, self.ui.L13],
+                     }
+        for key in self.pins.keys():
+            self.change_mode(self.pins[key][2], add=False)
+            self.pins[key][3].clear()
+        self.ui.lcd.setChecked(False)
+        self.ui.servo.setChecked(False)
 
     def include_lib(self, button: QPushButton):
         if button.isChecked():
@@ -112,13 +141,13 @@ class App(QMainWindow):
             offset = self.cur_pos - self.old_pos
             self.ui.frame_3.move(self.offset + offset)
 
-    def change_mode(self, button: QPushButton):  # input, output, none
+    def change_mode(self, button: QPushButton, add=True):  # input, output, none
         name = button.objectName().replace('P', '')  # получаем имя кнопки
         value = self.pins.get(name)[0]  # получаем значение кнопки от 0 до 2
         print(value)
-        if value == 2:  # тут всё понятно прибавляем значение пока оно не станет ровно 2 потом сбрасываем до 0
+        if value == 2 and add:  # тут всё понятно прибавляем значение пока оно не станет ровно 2 потом сбрасываем до 0
             self.pins[name][0] = 0
-        if value < 2:
+        if value < 2 and add:
             self.pins[name][0] += 1
 
         value = self.pins.get(name)[0]  # обновляем value

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1310</width>
-    <height>765</height>
+    <width>1433</width>
+    <height>771</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -1215,8 +1215,8 @@
          <widget class="QFrame" name="frame_3">
           <property name="geometry">
            <rect>
-            <x>-499</x>
-            <y>-518</y>
+            <x>-460</x>
+            <y>-520</y>
             <width>9999999</width>
             <height>9999999</height>
            </rect>
@@ -3634,7 +3634,7 @@
             <x>0</x>
             <y>0</y>
             <width>234</width>
-            <height>710</height>
+            <height>716</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -3873,7 +3873,7 @@ QPushButton::checked
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1310</width>
+     <width>1433</width>
      <height>21</height>
     </rect>
    </property>
@@ -3881,6 +3881,9 @@ QPushButton::checked
     <property name="title">
      <string>&amp;File</string>
     </property>
+    <addaction name="action_New"/>
+    <addaction name="action_File"/>
+    <addaction name="action_Save_2"/>
     <addaction name="actionCompile_2"/>
    </widget>
    <addaction name="menufile"/>
@@ -3939,6 +3942,31 @@ QPushButton::checked
   <action name="actionCompile_2">
    <property name="text">
     <string>Compile</string>
+   </property>
+  </action>
+  <action name="action_file">
+   <property name="text">
+    <string>&amp;file</string>
+   </property>
+  </action>
+  <action name="action_File">
+   <property name="text">
+    <string>&amp;Open</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>&amp;Save</string>
+   </property>
+  </action>
+  <action name="action_New">
+   <property name="text">
+    <string>&amp;New</string>
+   </property>
+  </action>
+  <action name="action_Save_2">
+   <property name="text">
+    <string>&amp;Save</string>
    </property>
   </action>
  </widget>
