@@ -1390,6 +1390,11 @@
                </item>
                <item>
                 <widget class="QLineEdit" name="L13">
+                 <property name="styleSheet">
+                  <string notr="true">QLineEdit{
+	border: none;
+}</string>
+                 </property>
                  <property name="clearButtonEnabled">
                   <bool>true</bool>
                  </property>

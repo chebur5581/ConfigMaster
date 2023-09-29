@@ -2,7 +2,7 @@ from settings import default_script, libraries, modes
 from os import mkdir, rename
 
 
-class Script():
+class Script:
     def __init__(self, pins, defines=None, libraries=None, serial=None):
         self.pins = pins
         self.defines = defines

@@ -486,6 +486,9 @@ class Ui_MainWindow(object):
         self.P13_def.setObjectName("P13_def")
         self.horizontalLayout_19.addWidget(self.P13_def)
         self.L13 = QtWidgets.QLineEdit(parent=self.frame_23)
+        self.L13.setStyleSheet("QLineEdit{\n"
+"    border: none;\n"
+"}")
         self.L13.setClearButtonEnabled(True)
         self.L13.setObjectName("L13")
         self.horizontalLayout_19.addWidget(self.L13)

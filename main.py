@@ -7,6 +7,7 @@ from PyQt6.QtWidgets import QMainWindow, QApplication, QLineEdit, QComboBox, QPu
 from converter import Script
 from gui import MainWindow
 from settings import icons
+from logger import logging, debug, log
 
 
 class App(QMainWindow):
@@ -19,6 +20,7 @@ class App(QMainWindow):
         self.defines = {}
         self.libs = []
         self.script = None
+
 
         self.libs_buttons = {'lcd': [self.ui.LibRs,
                                      self.ui.LibE,
@@ -112,7 +114,7 @@ class App(QMainWindow):
             else:
                 self.ui.LibServo.show()
 
-        if not button.isChecked():
+        if not button.isChecked() and button.objectName() in self.libs:
             self.libs.remove(button.objectName())
 
             if button.objectName() == 'lcd':
@@ -132,8 +134,8 @@ class App(QMainWindow):
                                                   "Save File", "", "Arduino Files(*.ino)")
         if filename:
             self.script.compile(filename)
-            print('compile completed')
-            print(f'saved in {filename}')
+            log('compile completed', 'success')
+            log(f'saved in {filename}', 'info')
 
     def definition(self, lineEdit: QLineEdit):
         key = lineEdit.objectName().replace('L', '')  # Ключь - пин на подобии A0 A1
@@ -155,21 +157,21 @@ class App(QMainWindow):
 
     def libPressEvent(self, lib=QLabel, e=QMouseEvent):
         self.libs_pos[lib]['old'] = e.pos()
-        print(self.libs_pos[lib]['old'])
-        print('press')
+        log(self.libs_pos[lib]['old'])
+        log('press')
 
     def libMoveEvent(self, lib=QLabel, e=QMouseEvent):
         self.libs_pos[lib]['cur'] = e.pos()
         offset = self.libs_pos[lib]['cur'] - self.libs_pos[lib]['old']
         lib.move(offset + self.libs_pos[lib]['offset'])
-        print(self.libs_pos[lib]['cur'])
-        print(offset)
-        print('move')
+        log(self.libs_pos[lib]['cur'])
+        log(offset)
+        log('move')
 
     def libReleaseEvent(self, lib=QLabel):
         self.libs_pos[lib]['offset'] += self.libs_pos[lib]['cur'] - self.libs_pos[lib]['old']
-        print(self.libs_pos[lib]['offset'])
-        print('release')
+        log(self.libs_pos[lib]['offset'])
+        log('release')
 
     def mousePressEvent(self, e=QMouseEvent):
         if e.button() == Qt.MouseButton.RightButton:
@@ -203,7 +205,7 @@ class App(QMainWindow):
     def change_mode(self, button: QPushButton, add=True):  # input, output, none
         name = button.objectName().replace('P', '')  # получаем имя кнопки
         value = self.pins.get(name)[0]  # получаем значение кнопки от 0 до 2
-        print(value)
+        log(value)
         if value == 2 and add:  # тут всё понятно прибавляем значение пока оно не станет ровно 2 потом сбрасываем до 0
             self.pins[name][0] = 0
         if value < 2 and add:
