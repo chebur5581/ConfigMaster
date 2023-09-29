@@ -75,7 +75,6 @@ class Script():
             rename(filename, f'{dir}/{name}')
 
 
-
 if __name__ == "__main__":
     pins = {'A0': [0, 2],  # [состояние 0-2, индекс комбобокса в tableWidget, ссылка на кнопку]
             'A1': [1, 3],

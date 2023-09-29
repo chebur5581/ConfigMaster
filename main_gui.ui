@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1433</width>
-    <height>771</height>
+    <width>1597</width>
+    <height>799</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -2669,7 +2669,7 @@
             <rect>
              <x>1190</x>
              <y>994</y>
-             <width>191</width>
+             <width>231</width>
              <height>185</height>
             </rect>
            </property>
@@ -3592,6 +3592,153 @@
             </item>
            </layout>
           </widget>
+          <widget class="QLabel" name="LibRs">
+           <property name="geometry">
+            <rect>
+             <x>1210</x>
+             <y>590</y>
+             <width>68</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel{
+background-color: rgba(255, 255, 255, 0);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>assets/rs_plate.png</pixmap>
+           </property>
+          </widget>
+          <widget class="QLabel" name="LibE">
+           <property name="geometry">
+            <rect>
+             <x>1210</x>
+             <y>610</y>
+             <width>68</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel{
+background-color: rgba(255, 255, 255, 0);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>assets/e_plate.png</pixmap>
+           </property>
+          </widget>
+          <widget class="QLabel" name="LibD4">
+           <property name="geometry">
+            <rect>
+             <x>1210</x>
+             <y>630</y>
+             <width>68</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel{
+background-color: rgba(255, 255, 255, 0);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>assets/d4_plate.png</pixmap>
+           </property>
+          </widget>
+          <widget class="QLabel" name="LibD5">
+           <property name="geometry">
+            <rect>
+             <x>1210</x>
+             <y>650</y>
+             <width>68</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel{
+background-color: rgba(255, 255, 255, 0);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>assets/d5_plate.png</pixmap>
+           </property>
+          </widget>
+          <widget class="QLabel" name="LibD6">
+           <property name="geometry">
+            <rect>
+             <x>1210</x>
+             <y>670</y>
+             <width>68</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel{
+background-color: rgba(255, 255, 255, 0);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>assets/d6_plate.png</pixmap>
+           </property>
+          </widget>
+          <widget class="QLabel" name="LibD7">
+           <property name="geometry">
+            <rect>
+             <x>1210</x>
+             <y>690</y>
+             <width>68</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel{
+background-color: rgba(255, 255, 255, 0);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>assets/d7_plate.png</pixmap>
+           </property>
+          </widget>
+          <widget class="QLabel" name="LibServo">
+           <property name="geometry">
+            <rect>
+             <x>1300</x>
+             <y>590</y>
+             <width>68</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel{
+background-color: rgba(255, 255, 255, 0);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>assets/servo_plate.png</pixmap>
+           </property>
+          </widget>
          </widget>
         </widget>
        </item>
@@ -3634,7 +3781,7 @@
             <x>0</x>
             <y>0</y>
             <width>234</width>
-            <height>716</height>
+            <height>744</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -3873,7 +4020,7 @@ QPushButton::checked
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1433</width>
+     <width>1597</width>
      <height>21</height>
     </rect>
    </property>

@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1433, 771)
+        MainWindow.resize(1597, 799)
         MainWindow.setMinimumSize(QtCore.QSize(500, 500))
         MainWindow.setMaximumSize(QtCore.QSize(16777215, 16777215))
         MainWindow.setStyleSheet("QMainWindow\n"
@@ -1078,7 +1078,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.A5)
         self.verticalLayout_3.addWidget(self.frame_14)
         self.frame_31 = QtWidgets.QFrame(parent=self.frame_3)
-        self.frame_31.setGeometry(QtCore.QRect(1190, 994, 191, 185))
+        self.frame_31.setGeometry(QtCore.QRect(1190, 994, 231, 185))
         self.frame_31.setStyleSheet("QFrame\n"
 "{\n"
 "    \n"
@@ -1507,6 +1507,62 @@ class Ui_MainWindow(object):
         self.L0.setObjectName("L0")
         self.horizontalLayout_8.addWidget(self.L0)
         self.verticalLayout_5.addWidget(self.frame_15)
+        self.LibRs = QtWidgets.QLabel(parent=self.frame_3)
+        self.LibRs.setGeometry(QtCore.QRect(1210, 590, 68, 23))
+        self.LibRs.setStyleSheet("QLabel{\n"
+"background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.LibRs.setText("")
+        self.LibRs.setPixmap(QtGui.QPixmap("assets/rs_plate.png"))
+        self.LibRs.setObjectName("LibRs")
+        self.LibE = QtWidgets.QLabel(parent=self.frame_3)
+        self.LibE.setGeometry(QtCore.QRect(1210, 610, 68, 23))
+        self.LibE.setStyleSheet("QLabel{\n"
+"background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.LibE.setText("")
+        self.LibE.setPixmap(QtGui.QPixmap("assets/e_plate.png"))
+        self.LibE.setObjectName("LibE")
+        self.LibD4 = QtWidgets.QLabel(parent=self.frame_3)
+        self.LibD4.setGeometry(QtCore.QRect(1210, 630, 68, 23))
+        self.LibD4.setStyleSheet("QLabel{\n"
+"background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.LibD4.setText("")
+        self.LibD4.setPixmap(QtGui.QPixmap("assets/d4_plate.png"))
+        self.LibD4.setObjectName("LibD4")
+        self.LibD5 = QtWidgets.QLabel(parent=self.frame_3)
+        self.LibD5.setGeometry(QtCore.QRect(1210, 650, 68, 23))
+        self.LibD5.setStyleSheet("QLabel{\n"
+"background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.LibD5.setText("")
+        self.LibD5.setPixmap(QtGui.QPixmap("assets/d5_plate.png"))
+        self.LibD5.setObjectName("LibD5")
+        self.LibD6 = QtWidgets.QLabel(parent=self.frame_3)
+        self.LibD6.setGeometry(QtCore.QRect(1210, 670, 68, 23))
+        self.LibD6.setStyleSheet("QLabel{\n"
+"background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.LibD6.setText("")
+        self.LibD6.setPixmap(QtGui.QPixmap("assets/d6_plate.png"))
+        self.LibD6.setObjectName("LibD6")
+        self.LibD7 = QtWidgets.QLabel(parent=self.frame_3)
+        self.LibD7.setGeometry(QtCore.QRect(1210, 690, 68, 23))
+        self.LibD7.setStyleSheet("QLabel{\n"
+"background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.LibD7.setText("")
+        self.LibD7.setPixmap(QtGui.QPixmap("assets/d7_plate.png"))
+        self.LibD7.setObjectName("LibD7")
+        self.LibServo = QtWidgets.QLabel(parent=self.frame_3)
+        self.LibServo.setGeometry(QtCore.QRect(1300, 590, 68, 23))
+        self.LibServo.setStyleSheet("QLabel{\n"
+"background-color: rgba(255, 255, 255, 0);\n"
+"}")
+        self.LibServo.setText("")
+        self.LibServo.setPixmap(QtGui.QPixmap("assets/servo_plate.png"))
+        self.LibServo.setObjectName("LibServo")
         self.horizontalLayout.addWidget(self.widget)
         self.scrollArea = QtWidgets.QScrollArea(parent=self.frame_2)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
@@ -1526,7 +1582,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 234, 716))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 234, 744))
         self.scrollAreaWidgetContents.setStyleSheet("QWidget{background-color: rgb(217, 217, 217);}")
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
@@ -1626,7 +1682,7 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.frame_2, 0, 1, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1433, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1597, 21))
         self.menubar.setObjectName("menubar")
         self.menufile = QtWidgets.QMenu(parent=self.menubar)
         self.menufile.setObjectName("menufile")
