@@ -161,6 +161,8 @@ class App(QMainWindow):
                 # добавляем в словарь
                 self.libs_pos[lib]['pin'] = lineEdit
 
+                self.pins[item][0] = 0
+
         self.libs_pos[lib]['offset'] = lib.pos().__pos__()  # сохраняем смещение
 
     def mousePressEvent(self, e=QMouseEvent):
