@@ -16,7 +16,7 @@ void loop() {
 modes = {1: 'INPUT', 2: 'OUTPUT', 3: 'INPUT_PULLUP'}
 
 logging = True
-debug = False
+debug = True
 
 
 libraries = {

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1597</width>
+    <width>1525</width>
     <height>799</height>
    </rect>
   </property>
@@ -1215,8 +1215,8 @@
          <widget class="QFrame" name="frame_3">
           <property name="geometry">
            <rect>
-            <x>-460</x>
-            <y>-520</y>
+            <x>-410</x>
+            <y>-510</y>
             <width>9999999</width>
             <height>9999999</height>
            </rect>
@@ -1391,9 +1391,7 @@
                <item>
                 <widget class="QLineEdit" name="L13">
                  <property name="styleSheet">
-                  <string notr="true">QLineEdit{
-	border: none;
-}</string>
+                  <string notr="true"/>
                  </property>
                  <property name="clearButtonEnabled">
                   <bool>true</bool>
@@ -1963,9 +1961,9 @@
           <widget class="QFrame" name="frame_30">
            <property name="geometry">
             <rect>
-             <x>469</x>
-             <y>1038</y>
-             <width>181</width>
+             <x>454</x>
+             <y>1039</y>
+             <width>191</width>
              <height>138</height>
             </rect>
            </property>
@@ -2674,7 +2672,7 @@
             <rect>
              <x>1190</x>
              <y>994</y>
-             <width>231</width>
+             <width>191</width>
              <height>185</height>
             </rect>
            </property>
@@ -4025,7 +4023,7 @@ QPushButton::checked
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1597</width>
+     <width>1525</width>
      <height>21</height>
     </rect>
    </property>

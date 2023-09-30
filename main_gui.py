@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1597, 799)
+        MainWindow.resize(1525, 799)
         MainWindow.setMinimumSize(QtCore.QSize(500, 500))
         MainWindow.setMaximumSize(QtCore.QSize(16777215, 16777215))
         MainWindow.setStyleSheet("QMainWindow\n"
@@ -411,7 +411,7 @@ class Ui_MainWindow(object):
 "}")
         self.widget.setObjectName("widget")
         self.frame_3 = QtWidgets.QFrame(parent=self.widget)
-        self.frame_3.setGeometry(QtCore.QRect(-460, -520, 9999999, 9999999))
+        self.frame_3.setGeometry(QtCore.QRect(-410, -510, 9999999, 9999999))
         self.frame_3.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_3.setObjectName("frame_3")
@@ -486,9 +486,7 @@ class Ui_MainWindow(object):
         self.P13_def.setObjectName("P13_def")
         self.horizontalLayout_19.addWidget(self.P13_def)
         self.L13 = QtWidgets.QLineEdit(parent=self.frame_23)
-        self.L13.setStyleSheet("QLineEdit{\n"
-"    border: none;\n"
-"}")
+        self.L13.setStyleSheet("")
         self.L13.setClearButtonEnabled(True)
         self.L13.setObjectName("L13")
         self.horizontalLayout_19.addWidget(self.L13)
@@ -754,7 +752,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_24.addWidget(self.L8)
         self.verticalLayout_4.addWidget(self.frame_28)
         self.frame_30 = QtWidgets.QFrame(parent=self.frame_3)
-        self.frame_30.setGeometry(QtCore.QRect(469, 1038, 181, 138))
+        self.frame_30.setGeometry(QtCore.QRect(454, 1039, 191, 138))
         self.frame_30.setStyleSheet("QFrame\n"
 "{\n"
 "    \n"
@@ -1081,7 +1079,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.A5)
         self.verticalLayout_3.addWidget(self.frame_14)
         self.frame_31 = QtWidgets.QFrame(parent=self.frame_3)
-        self.frame_31.setGeometry(QtCore.QRect(1190, 994, 231, 185))
+        self.frame_31.setGeometry(QtCore.QRect(1190, 994, 191, 185))
         self.frame_31.setStyleSheet("QFrame\n"
 "{\n"
 "    \n"
@@ -1685,7 +1683,7 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.frame_2, 0, 1, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1597, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1525, 21))
         self.menubar.setObjectName("menubar")
         self.menufile = QtWidgets.QMenu(parent=self.menubar)
         self.menufile.setObjectName("menufile")

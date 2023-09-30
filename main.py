@@ -1,13 +1,14 @@
 from sys import exit
 
-from PyQt6.QtCore import QPoint, Qt
-from PyQt6.QtGui import QIcon, QMouseEvent
-from PyQt6.QtWidgets import QMainWindow, QApplication, QLineEdit, QComboBox, QPushButton, QFileDialog, QLabel
+from PyQt6.QtCore import QPoint, Qt, QRect
+from PyQt6.QtGui import QIcon, QMouseEvent, QCursor
+from PyQt6.QtWidgets import QMainWindow, QApplication, QLineEdit, QComboBox, QPushButton, QFileDialog, QLabel, \
+    QMessageBox
 
 from converter import Script
 from gui import MainWindow
+from logger import log
 from settings import icons
-from logger import logging, debug, log
 
 
 class App(QMainWindow):
@@ -17,10 +18,12 @@ class App(QMainWindow):
         self.ui.setupUi(self)
         self.ui.configure()  # Доп. добавки в ui которые не сделать через QtDesigner
 
+        self.pins = self.ui.pins
+        self.libs_pos = self.ui.libs_pos
+
         self.defines = {}
         self.libs = []
         self.script = None
-
 
         self.libs_buttons = {'lcd': [self.ui.LibRs,
                                      self.ui.LibE,
@@ -43,57 +46,8 @@ class App(QMainWindow):
         self.old_pos = QPoint(0, 0)
         self.cur_pos = QPoint(0, 0)
 
-        # [состояние 0-2, индекс комбобокса в tableWidget, ссылка на кнопку]
-        self.pins = {'A0': [0, 2, self.ui.A0, self.ui.LA0],
-                     'A1': [0, 3, self.ui.A1, self.ui.LA1],
-                     'A2': [0, 4, self.ui.A2, self.ui.LA2],
-                     'A3': [0, 5, self.ui.A3, self.ui.LA3],
-                     'A4': [0, 6, self.ui.A4, self.ui.LA4],
-                     'A5': [0, 7, self.ui.A5, self.ui.LA5],
-                     '0': [0, 8, self.ui.P0, self.ui.L0],
-                     '1': [0, 9, self.ui.P1, self.ui.L1],
-                     '2': [0, 10, self.ui.P2, self.ui.L2],
-                     '3': [0, 11, self.ui.P3, self.ui.L3],
-                     '4': [0, 12, self.ui.P4, self.ui.L4],
-                     '5': [0, 13, self.ui.P5, self.ui.L5],
-                     '6': [0, 14, self.ui.P6, self.ui.L6],
-                     '7': [0, 15, self.ui.P7, self.ui.L7],
-                     '8': [0, 16, self.ui.P8, self.ui.L8],
-                     '9': [0, 17, self.ui.P9, self.ui.L9],
-                     '10': [0, 18, self.ui.P10, self.ui.L10],
-                     '11': [0, 19, self.ui.P11, self.ui.L11],
-                     '12': [0, 20, self.ui.P12, self.ui.L12],
-                     '13': [0, 21, self.ui.P13, self.ui.L13],
-                     }
-        self.libs_pos = {self.ui.LibRs: {'offset': self.ui.LibRs.pos().__pos__(),
-                                         'old': QPoint(0, 0),
-                                         'cur': QPoint(0, 0)},
-                         self.ui.LibE: {'offset': self.ui.LibE.pos().__pos__(),
-                                        'old': QPoint(0, 0),
-                                        'cur': QPoint(0, 0)},
-                         self.ui.LibD4: {'offset': self.ui.LibD4.pos().__pos__(),
-                                         'old': QPoint(0, 0),
-                                         'cur': QPoint(0, 0)},
-                         self.ui.LibD5: {'offset': self.ui.LibD5.pos().__pos__(),
-                                         'old': QPoint(0, 0),
-                                         'cur': QPoint(0, 0)},
-                         self.ui.LibD6: {'offset': self.ui.LibD6.pos().__pos__(),
-                                         'old': QPoint(0, 0),
-                                         'cur': QPoint(0, 0)},
-                         self.ui.LibD7: {'offset': self.ui.LibD7.pos().__pos__(),
-                                         'old': QPoint(0, 0),
-                                         'cur': QPoint(0, 0)},
-                         self.ui.LibServo: {'offset': self.ui.LibServo.pos().__pos__(),
-                                            'old': QPoint(0, 0),
-                                            'cur': QPoint(0, 0)}
-                         }
-
-    # def wheelEvent(self, e):
-    #     self.ui.frame_3.wheelEvent(e)
-    #     self.zoom = e.angleDelta().y() //
-
     def new_file(self):  # [состояние 0-2, индекс комбобокса в tableWidget, ссылка на кнопку]
-        for key in self.pins.keys():
+        for key in self.pins.keys():  # clear pin modes
             self.pins[key][0] = 0
             self.change_mode(self.pins[key][2], add=False)
             self.pins[key][3].clear()
@@ -124,6 +78,19 @@ class App(QMainWindow):
                 self.ui.LibServo.hide()
 
     def compile(self):
+
+        if 'servo' in self.libs:
+            if self.libs_pos[self.ui.LibServo]['pin'] is None:
+                QMessageBox.critical(self, 'Error', 'Подключены не все пины для библиотек',
+                                     QMessageBox.StandardButton.Ok)
+                return 0
+        elif 'lcd' in self.libs:
+            for key in self.libs_buttons['lcd']:
+                if self.libs_pos[key]['pin'] is None:
+                    QMessageBox.critical(self, 'Error', 'Подключены не все пины для библиотек',
+                                         QMessageBox.StandardButton.Ok)
+                    return 0
+
         bod = self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(1, 1)).currentText()
         if bod == 'Выключить':
             bod = None
@@ -148,6 +115,14 @@ class App(QMainWindow):
         else:
             self.ui.tableWidget.item(table_index, 0).setText(f'pin {value} ({key})')  # ставим текст
 
+        for key in self.libs_pos.keys():
+            # если значение лайна меняется то сбрасываем значки и состояния
+            if self.libs_pos[key]['pin'] == lineEdit:
+                lineEdit.setStyleSheet('')
+                key.move(self.libs_pos[key]['default'])
+                self.libs_pos[key]['offset'] = key.pos()
+                self.libs_pos[key]['pin'] = None
+
     def mode_changed(self, c_box: QComboBox):  # Если значение комбокса изменилось, то меняем его везде
         pin = c_box.objectName().replace('pin', '').replace('P', '')
         button = self.pins.get(pin)[2]  # получаем объект кнопки соответствующий комбоксу
@@ -156,22 +131,37 @@ class App(QMainWindow):
         button.setIcon(QIcon(icons.get(value)))  # ставим иконку input/output/none
 
     def libPressEvent(self, lib=QLabel, e=QMouseEvent):
-        self.libs_pos[lib]['old'] = e.pos()
-        log(self.libs_pos[lib]['old'])
-        log('press')
+        self.libs_pos[lib]['old'] = e.pos()  # всё тоже что и у frame_3
 
     def libMoveEvent(self, lib=QLabel, e=QMouseEvent):
-        self.libs_pos[lib]['cur'] = e.pos()
+        self.libs_pos[lib]['cur'] = e.pos()  # всё тоже что и у frame_3
         offset = self.libs_pos[lib]['cur'] - self.libs_pos[lib]['old']
         lib.move(offset + self.libs_pos[lib]['offset'])
-        log(self.libs_pos[lib]['cur'])
-        log(offset)
-        log('move')
 
-    def libReleaseEvent(self, lib=QLabel):
-        self.libs_pos[lib]['offset'] += self.libs_pos[lib]['cur'] - self.libs_pos[lib]['old']
-        log(self.libs_pos[lib]['offset'])
-        log('release')
+    def libReleaseEvent(self, lib=QLabel, e=QMouseEvent):
+        for item in self.pins.keys():  # всё тоже что и у frame_3 почти
+            lineEdit = self.pins[item][3]  # получаем лайн едит
+
+            # получаем глобальные координаты родительского виджета
+            global_pos = lineEdit.parentWidget().mapToGlobal(QPoint())
+
+            # получаем его ширину и высоту
+            w, h = lineEdit.parentWidget().width(), lineEdit.parentWidget().height()
+            cur = QCursor.pos()  # позиция курсора
+
+            # квадрат для определения находиться ли мышка над ним
+            rect = QRect(global_pos.x(), global_pos.y(), w, h)
+            if rect.contains(cur):  # проверка
+                # перемещаем значёк либы на место виджета
+                lib.move(self.ui.frame_3.mapFromGlobal(global_pos))
+                # ставим текст
+                lineEdit.setText(lib.objectName().replace('Lib', '').upper())
+                # убираем бортики
+                lineEdit.setStyleSheet('QLineEdit{border: none;}')
+                # добавляем в словарь
+                self.libs_pos[lib]['pin'] = lineEdit
+
+        self.libs_pos[lib]['offset'] = lib.pos().__pos__()  # сохраняем смещение
 
     def mousePressEvent(self, e=QMouseEvent):
         if e.button() == Qt.MouseButton.RightButton:
@@ -188,7 +178,7 @@ class App(QMainWindow):
         else:
             for lib in self.libs_pos.keys():
                 if lib.underMouse():
-                    self.libReleaseEvent(lib)
+                    self.libReleaseEvent(lib, e)
                     break
 
     def mouseMoveEvent(self, e):
@@ -199,13 +189,17 @@ class App(QMainWindow):
         else:
             for lib in self.libs_pos.keys():
                 if lib.underMouse():
+                    lineEdit = self.libs_pos[lib]['pin']
+                    if lineEdit is not None:
+                        lineEdit.setText('')
+                        lineEdit.setStyleSheet('')
                     self.libMoveEvent(lib, e)
                     break
 
     def change_mode(self, button: QPushButton, add=True):  # input, output, none
         name = button.objectName().replace('P', '')  # получаем имя кнопки
         value = self.pins.get(name)[0]  # получаем значение кнопки от 0 до 2
-        log(value)
+        # log(value)
         if value == 2 and add:  # тут всё понятно прибавляем значение пока оно не станет ровно 2 потом сбрасываем до 0
             self.pins[name][0] = 0
         if value < 2 and add:
