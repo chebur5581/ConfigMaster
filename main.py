@@ -4,7 +4,7 @@ from sys import exit
 from PyQt6.QtCore import QPoint, Qt, QRect
 from PyQt6.QtGui import QIcon, QMouseEvent, QCursor
 from PyQt6.QtWidgets import QMainWindow, QApplication, QLineEdit, QComboBox, QPushButton, QFileDialog, QLabel, \
-    QMessageBox
+    QMessageBox, QTreeWidgetItem
 
 from converter import Script
 from gui import MainWindow
@@ -48,10 +48,18 @@ class App(QMainWindow):
         self.ui.lcd.clicked.connect(lambda x: self.include_lib(self.ui.lcd))
         self.ui.servo.clicked.connect(lambda x: self.include_lib(self.ui.servo))
 
+        self.ui.treeWidget.itemDoubleClicked.connect(self.load_example)
+
         self.offset = self.ui.frame_3.pos()
         self.old_pos = QPoint(0, 0)
         self.cur_pos = QPoint(0, 0)
 
+    def load_example(self, i=QTreeWidgetItem, col=int):
+        text = i.text(col)
+        if text == 'ЖК-экран (LCD)':
+            self.open_file('examples/lcd.cfmex')
+        if text == 'Сервопривод':
+            self.open_file('examples/servo.cfmex')
     def save_file(self):
         filename, _ = QFileDialog.getSaveFileName(self,
                                                   "Save File", "", "ConfigMaster Files(*.cfm)")
@@ -79,15 +87,15 @@ class App(QMainWindow):
             log('Saving completed', 'success')
             log(f'Path to file {filename}', 'info')
 
-    def open_file(self):
-        filename, _ = QFileDialog.getOpenFileName(self,
-                                                  "Open File", "", "ConfigMaster Files(*.cfm)")
+    def open_file(self, filename):
+        if not filename:
+            filename, _ = QFileDialog.getOpenFileName(self,
+                                                      "Open File", "", "ConfigMaster Files(*.cfm)")
         if filename:
             with open(filename, 'r') as f:
                 file = f.read()
 
             load = json.loads(file)
-            print(load)
             for key in enumerate(self.pins.keys()):  # pin states
                 self.pins[key[1]][0] = load['pins'][key[0]]
                 self.change_mode(self.pins[key[1]][2], add=False)
@@ -108,8 +116,16 @@ class App(QMainWindow):
                 self.include_lib(self.ui.lcd)
 
             self.defines = load['defs']
-            for key in self.defines.keys():
-                self.pins[key][3].setText(self.defines[key])
+            # log(load)
+            for key in self.pins.keys():
+                if key not in self.defines:
+                    self.pins[key][3].setText('')
+                    self.pins[key][3].setStyleSheet('')
+                else:
+                    self.pins[key][3].setText(self.defines[key])
+
+            # for key in self.defines.keys():
+            #     self.pins[key][3].setText(self.defines[key])
 
             for i in enumerate(self.libs_pos.keys()):
                 pin = load['libs'][i[0]]['pin']
@@ -125,7 +141,7 @@ class App(QMainWindow):
                 self.libs_pos[i[1]]['offset'] = QPoint(pos[0], pos[1])
 
             self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(1, 1)).setCurrentIndex(load['serial'])
-
+            log(f'{filename} successfully loaded', 'success')
     def new_file(self):  # [состояние 0-2, индекс комбобокса в tableWidget, ссылка на кнопку]
         for key in self.pins.keys():  # clear pin modes
             self.pins[key][0] = 0

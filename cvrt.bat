@@ -40,3 +40,5 @@ set "PATH=%VIRTUAL_ENV%\Scripts;%PATH%"
 
 
 pyuic6 main_gui.ui -o main_gui.py
+
+exit

@@ -92,6 +92,11 @@
        </property>
        <item>
         <widget class="QTreeWidget" name="treeWidget">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
          <property name="styleSheet">
           <string notr="true"/>
          </property>
@@ -99,20 +104,20 @@
           <property name="text">
            <string>Примеры</string>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
          </column>
          <item>
           <property name="text">
-           <string>1</string>
+           <string>ЖК-экран (LCD)</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>2</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>3</string>
+           <string>Сервопривод</string>
           </property>
          </item>
         </widget>
