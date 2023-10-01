@@ -26,6 +26,8 @@ class App(QMainWindow):
         self.libs = []
         self.script = None
 
+        self.libs_links = {'lcd': self.ui.lcd,
+                           'servo': self.ui.servo}
         self.libs_buttons = {'lcd': [self.ui.LibRs,
                                      self.ui.LibE,
                                      self.ui.LibD4,
@@ -65,10 +67,12 @@ class App(QMainWindow):
                             break
                 libs.append({'pin': pin, 'pos': (key.x(), key.y())})
 
+            serial = self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(1, 1)).currentIndex()
             dump = json.dumps({'pins': [i[0] for i in self.pins.values()],
                                'includes': self.libs,
                                'defs': self.defines,
-                               'libs': libs})
+                               'libs': libs,
+                               'serial': serial})
 
             with open(filename, 'w') as f:
                 f.write(dump)
@@ -76,15 +80,51 @@ class App(QMainWindow):
             log(f'Path to file {filename}', 'info')
 
     def open_file(self):
-        filename = '123.cfm'
-        file = ''
-        with open(filename, 'r') as f:
-            file = f.read()
+        filename, _ = QFileDialog.getOpenFileName(self,
+                                                  "Open File", "", "ConfigMaster Files(*.cfm)")
+        if filename:
+            with open(filename, 'r') as f:
+                file = f.read()
 
-        load = json.loads(file)
-        for key in enumerate(self.pins.keys()):
-            self.pins[key[1]][0] = load['pins'][key[0]]
-            self.change_mode(self.pins[key[1]][2], add=False)
+            load = json.loads(file)
+            print(load)
+            for key in enumerate(self.pins.keys()):  # pin states
+                self.pins[key[1]][0] = load['pins'][key[0]]
+                self.change_mode(self.pins[key[1]][2], add=False)
+
+            includes = load['includes']
+            if len(includes) > 1:
+                self.ui.lcd.setChecked(True)
+                self.ui.servo.setChecked(True)
+            if includes[0] == 'lcd':
+                self.ui.lcd.setChecked(True)
+                self.ui.servo.setChecked(False)
+                self.include_lib(self.ui.servo)
+                self.include_lib(self.ui.lcd)
+            if includes[0] == 'servo':
+                self.ui.lcd.setChecked(False)
+                self.ui.servo.setChecked(True)
+                self.include_lib(self.ui.servo)
+                self.include_lib(self.ui.lcd)
+
+            self.defines = load['defs']
+            for key in self.defines.keys():
+                self.pins[key][3].setText(self.defines[key])
+
+            for i in enumerate(self.libs_pos.keys()):
+                pin = load['libs'][i[0]]['pin']
+                if pin is not None:
+                    self.libs_pos[i[1]]['pin'] = self.pins[pin][3]
+                    self.pins[pin][3].setStyleSheet('QLineEdit{border: none;}')
+
+                else:
+                    self.libs_pos[i[1]]['pin'] = None
+
+                pos = load['libs'][i[0]]['pos']
+                i[1].move(pos[0], pos[1])
+                self.libs_pos[i[1]]['offset'] = QPoint(pos[0], pos[1])
+
+            self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(1, 1)).setCurrentIndex(load['serial'])
 
     def new_file(self):  # [состояние 0-2, индекс комбобокса в tableWidget, ссылка на кнопку]
         for key in self.pins.keys():  # clear pin modes
@@ -97,6 +137,8 @@ class App(QMainWindow):
 
         self.include_lib(self.ui.lcd)
         self.include_lib(self.ui.servo)
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(1, 1)).setCurrentIndex(0)
 
     def include_lib(self, button: QPushButton):
         if button.isChecked():
