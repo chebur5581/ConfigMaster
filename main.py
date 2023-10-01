@@ -1,3 +1,4 @@
+import json
 from sys import exit
 
 from PyQt6.QtCore import QPoint, Qt, QRect
@@ -38,6 +39,9 @@ class App(QMainWindow):
         self.ui.actionCompile.triggered.connect(self.compile)
         self.ui.actionCompile_2.triggered.connect(self.compile)
         self.ui.action_New.triggered.connect(self.new_file)
+        self.ui.actionSave_2.triggered.connect(self.save_file)
+        self.ui.action_Save_2.triggered.connect(self.save_file)
+        self.ui.actionOpen.triggered.connect(self.open_file)
 
         self.ui.lcd.clicked.connect(lambda x: self.include_lib(self.ui.lcd))
         self.ui.servo.clicked.connect(lambda x: self.include_lib(self.ui.servo))
@@ -45,6 +49,42 @@ class App(QMainWindow):
         self.offset = self.ui.frame_3.pos()
         self.old_pos = QPoint(0, 0)
         self.cur_pos = QPoint(0, 0)
+
+    def save_file(self):
+        filename, _ = QFileDialog.getSaveFileName(self,
+                                                  "Save File", "", "ConfigMaster Files(*.cfm)")
+        if filename:
+
+            libs = []
+            for key in self.libs_pos.keys():
+                pin = self.libs_pos[key]['pin']
+                if pin is not None:
+                    for key_pin in self.pins.keys():
+                        if pin == self.pins[key_pin][3]:
+                            pin = key_pin
+                            break
+                libs.append({'pin': pin, 'pos': (key.x(), key.y())})
+
+            dump = json.dumps({'pins': [i[0] for i in self.pins.values()],
+                               'includes': self.libs,
+                               'defs': self.defines,
+                               'libs': libs})
+
+            with open(filename, 'w') as f:
+                f.write(dump)
+            log('Saving completed', 'success')
+            log(f'Path to file {filename}', 'info')
+
+    def open_file(self):
+        filename = '123.cfm'
+        file = ''
+        with open(filename, 'r') as f:
+            file = f.read()
+
+        load = json.loads(file)
+        for key in enumerate(self.pins.keys()):
+            self.pins[key[1]][0] = load['pins'][key[0]]
+            self.change_mode(self.pins[key[1]][2], add=False)
 
     def new_file(self):  # [состояние 0-2, индекс комбобокса в tableWidget, ссылка на кнопку]
         for key in self.pins.keys():  # clear pin modes
@@ -106,7 +146,7 @@ class App(QMainWindow):
 
     def definition(self, lineEdit: QLineEdit):
         key = lineEdit.objectName().replace('L', '')  # Ключь - пин на подобии A0 A1
-        value = lineEdit.text()  # текст для названия пина
+        value = lineEdit.text().replace(' ', '')  # текст для названия пина
         self.defines.update({key: value})  # добавляем в словарь
         table_index = self.pins[key][1]  # получаем индекс пина в таблице
         if value == '':  # если текст стёрли
@@ -120,8 +160,11 @@ class App(QMainWindow):
             if self.libs_pos[key]['pin'] == lineEdit:
                 lineEdit.setStyleSheet('')
                 key.move(self.libs_pos[key]['default'])
-                self.libs_pos[key]['offset'] = key.pos()
                 self.libs_pos[key]['pin'] = None
+                if lineEdit.text() == '':
+                    self.libs_pos[key]['offset'] = key.pos()
+        if lineEdit.text() == ' ':
+            lineEdit.clear()
 
     def mode_changed(self, c_box: QComboBox):  # Если значение комбокса изменилось, то меняем его везде
         pin = c_box.objectName().replace('pin', '').replace('P', '')
@@ -162,8 +205,10 @@ class App(QMainWindow):
                 self.libs_pos[lib]['pin'] = lineEdit
 
                 self.pins[item][0] = 0
+                self.change_mode(self.pins[item][2], add=False)
+                break
 
-        self.libs_pos[lib]['offset'] = lib.pos().__pos__()  # сохраняем смещение
+        self.libs_pos[lib]['offset'] = lib.pos()  # сохраняем смещение
 
     def mousePressEvent(self, e=QMouseEvent):
         if e.button() == Qt.MouseButton.RightButton:
@@ -193,7 +238,7 @@ class App(QMainWindow):
                 if lib.underMouse():
                     lineEdit = self.libs_pos[lib]['pin']
                     if lineEdit is not None:
-                        lineEdit.setText('')
+                        lineEdit.setText(' ')
                         lineEdit.setStyleSheet('')
                     self.libMoveEvent(lib, e)
                     break

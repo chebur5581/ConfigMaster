@@ -4048,12 +4048,12 @@ QPushButton::checked
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionopen"/>
-   <addaction name="action_Save"/>
+   <addaction name="actionOpen"/>
+   <addaction name="actionSave_2"/>
    <addaction name="actionCompile"/>
    <addaction name="actionStart_monitoring"/>
   </widget>
-  <action name="actionopen">
+  <action name="actionOpen">
    <property name="icon">
     <iconset>
      <normaloff>assets/icons8-открыть-файл-50.png</normaloff>assets/icons8-открыть-файл-50.png</iconset>
@@ -4080,7 +4080,7 @@ QPushButton::checked
     <string>&amp;Start monitoring</string>
    </property>
   </action>
-  <action name="action_Save">
+  <action name="actionSave_2">
    <property name="icon">
     <iconset>
      <normaloff>assets/free-icon-save-2550221.png</normaloff>assets/free-icon-save-2550221.png</iconset>

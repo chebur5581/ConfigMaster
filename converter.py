@@ -100,9 +100,9 @@ if __name__ == "__main__":
 
     libs = ['lcd', 'servo']
 
-    defs = {2: 'RS',
-            3: 'D7',
-            5: 'LED',
+    defs = {'2': 'RS',
+            '3': 'D7',
+            '5': 'LED',
             'A1': 'POT'}
 
     c = Script(pins, defs, libs, serial=9600)
