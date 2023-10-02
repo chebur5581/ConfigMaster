@@ -1,8 +1,8 @@
 import json
 from sys import exit
 
-from PyQt6.QtCore import QPoint, Qt, QRect
-from PyQt6.QtGui import QIcon, QMouseEvent, QCursor
+from PyQt6.QtCore import QPoint, Qt, QRect, QRegularExpression as QRegExp
+from PyQt6.QtGui import QIcon, QMouseEvent, QCursor, QRegularExpressionValidator as QRegExpValidator
 from PyQt6.QtWidgets import QMainWindow, QApplication, QLineEdit, QComboBox, QPushButton, QFileDialog, QLabel, \
     QMessageBox, QTreeWidgetItem
 
@@ -60,6 +60,7 @@ class App(QMainWindow):
             self.open_file('examples/lcd.cfmex')
         if text == 'Сервопривод':
             self.open_file('examples/servo.cfmex')
+
     def save_file(self):
         filename, _ = QFileDialog.getSaveFileName(self,
                                                   "Save File", "", "ConfigMaster Files(*.cfm)")
@@ -142,6 +143,7 @@ class App(QMainWindow):
 
             self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(1, 1)).setCurrentIndex(load['serial'])
             log(f'{filename} successfully loaded', 'success')
+
     def new_file(self):  # [состояние 0-2, индекс комбобокса в tableWidget, ссылка на кнопку]
         for key in self.pins.keys():  # clear pin modes
             self.pins[key][0] = 0
@@ -203,6 +205,10 @@ class App(QMainWindow):
             log(f'saved in {filename}', 'info')
 
     def definition(self, lineEdit: QLineEdit):
+        reg_ex = QRegExp("\w+")
+        input_validator = QRegExpValidator(reg_ex, lineEdit)
+        lineEdit.setValidator(input_validator)
+
         key = lineEdit.objectName().replace('L', '')  # Ключь - пин на подобии A0 A1
         value = lineEdit.text().replace(' ', '')  # текст для названия пина
         self.defines.update({key: value})  # добавляем в словарь
