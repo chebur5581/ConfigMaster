@@ -118,9 +118,7 @@ class App(QMainWindow):
             for key in self.pins.keys():
                 if key not in self.defines:
                     self.pins[key][3].setText('')
-                    self.pins[key][3].setStyleSheet('''QLineEdit{background-color: rgb(246, 248, 250);
-	                                                        border: 1px solid grey;
-                                                            border-radius: 2px;}''')
+                    self.pins[key][3].setStyleSheet('QLineEdit{background-color: rgba(255, 255, 255, 0);}')
                 else:
                     self.pins[key][3].setText(self.defines[key])
 
@@ -128,7 +126,7 @@ class App(QMainWindow):
                 pin = load['libs'][i[0]]['pin']
                 if pin is not None:
                     self.libs_pos[i[1]]['pin'] = self.pins[pin][3]
-                    self.pins[pin][3].setStyleSheet('QLineEdit{background-color: rgba(0, 0, 0, 0); border: none;}')
+                    self.pins[pin][3].setStyleSheet('QLineEdit{background-color: rgba(255, 255, 255, 0);border: none;}')
                 else:
                     self.libs_pos[i[1]]['pin'] = None
 
@@ -217,9 +215,7 @@ class App(QMainWindow):
         for key in self.libs_pos.keys():
             # если значение лайна меняется то сбрасываем значки и состояния
             if self.libs_pos[key]['pin'] == lineEdit:
-                lineEdit.setStyleSheet('''QLineEdit{background-color: rgb(246, 248, 250);
-	                                                        border: 1px solid grey;
-                                                            border-radius: 2px;}''')
+                lineEdit.setStyleSheet('QLineEdit{background-color: rgba(255, 255, 255, 0);}')
                 key.move(self.libs_pos[key]['default'])
                 self.libs_pos[key]['pin'] = None
                 if lineEdit.text() == '':
@@ -261,7 +257,7 @@ class App(QMainWindow):
                 # ставим текст
                 lineEdit.setText(lib.objectName().replace('Lib', '').upper())
                 # убираем бортики
-                lineEdit.setStyleSheet('QLineEdit{background-color: rgba(0, 0, 0, 0);border: none;}')
+                lineEdit.setStyleSheet('QLineEdit{border: none;}')
                 # добавляем в словарь
                 self.libs_pos[lib]['pin'] = lineEdit
 
@@ -300,9 +296,7 @@ class App(QMainWindow):
                     lineEdit = self.libs_pos[lib]['pin']
                     if lineEdit is not None:
                         lineEdit.setText(' ')
-                        lineEdit.setStyleSheet('''QLineEdit{background-color: rgb(246, 248, 250);
-	                                                        border: 1px solid grey;
-                                                            border-radius: 2px;}''')
+                        lineEdit.setStyleSheet('QLineEdit{background-color: rgba(255, 255, 255, 0);}')
                     self.libMoveEvent(lib, e)
                     break
 

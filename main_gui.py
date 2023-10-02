@@ -439,7 +439,7 @@ class Ui_MainWindow(object):
         self.frame_3.setGeometry(QtCore.QRect(-420, -470, 9999999, 9999999))
         self.frame_3.setStyleSheet("QFrame{\n"
 "    \n"
-"        background-color: rgb(255, 255, 255);\n"
+"        background-color: rgb(199, 199, 199);\n"
 "}")
         self.frame_3.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
@@ -517,9 +517,7 @@ class Ui_MainWindow(object):
         self.L13 = QtWidgets.QLineEdit(parent=self.frame_23)
         self.L13.setStyleSheet("QLineEdit{\n"
 "\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
 "}")
         self.L13.setClearButtonEnabled(True)
         self.L13.setObjectName("L13")
@@ -574,9 +572,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_20.addWidget(self.P12_def)
         self.L12 = QtWidgets.QLineEdit(parent=self.frame_24)
         self.L12.setStyleSheet("QLineEdit{\n"
-"border-radius: 2px;\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
+"background-color: rgba(255, 255, 255, 0);\n"
 "}")
         self.L12.setClearButtonEnabled(True)
         self.L12.setObjectName("L12")
@@ -632,9 +628,7 @@ class Ui_MainWindow(object):
         self.L11 = QtWidgets.QLineEdit(parent=self.frame_25)
         self.L11.setStyleSheet("QLineEdit{\n"
 "\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
 "\n"
 "}")
         self.L11.setClearButtonEnabled(True)
@@ -691,9 +685,7 @@ class Ui_MainWindow(object):
         self.L10 = QtWidgets.QLineEdit(parent=self.frame_26)
         self.L10.setStyleSheet("QLineEdit{\n"
 "\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
 "}")
         self.L10.setClearButtonEnabled(True)
         self.L10.setObjectName("L10")
@@ -749,9 +741,7 @@ class Ui_MainWindow(object):
         self.L9 = QtWidgets.QLineEdit(parent=self.frame_27)
         self.L9.setStyleSheet("QLineEdit{\n"
 "\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
 "}")
         self.L9.setClearButtonEnabled(True)
         self.L9.setObjectName("L9")
@@ -807,9 +797,7 @@ class Ui_MainWindow(object):
         self.L8 = QtWidgets.QLineEdit(parent=self.frame_28)
         self.L8.setStyleSheet("QLineEdit{\n"
 "\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
 "}")
         self.L8.setClearButtonEnabled(True)
         self.L8.setObjectName("L8")
@@ -843,12 +831,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.LA0 = QtWidgets.QLineEdit(parent=self.frame_5)
-        self.LA0.setStyleSheet("QLineEdit{\n"
-"\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
-"}")
+        self.LA0.setStyleSheet("")
         self.LA0.setClearButtonEnabled(True)
         self.LA0.setObjectName("LA0")
         self.horizontalLayout_2.addWidget(self.LA0)
@@ -901,12 +884,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setSpacing(0)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.LA1 = QtWidgets.QLineEdit(parent=self.frame_6)
-        self.LA1.setStyleSheet("QLineEdit{\n"
-"\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
-"}")
+        self.LA1.setStyleSheet("")
         self.LA1.setClearButtonEnabled(True)
         self.LA1.setObjectName("LA1")
         self.horizontalLayout_3.addWidget(self.LA1)
@@ -959,12 +937,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setSpacing(0)
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.LA2 = QtWidgets.QLineEdit(parent=self.frame_7)
-        self.LA2.setStyleSheet("QLineEdit{\n"
-"\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
-"}")
+        self.LA2.setStyleSheet("")
         self.LA2.setClearButtonEnabled(True)
         self.LA2.setObjectName("LA2")
         self.horizontalLayout_5.addWidget(self.LA2)
@@ -1004,11 +977,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.addWidget(self.A2)
         self.verticalLayout_3.addWidget(self.frame_7)
         self.frame_8 = QtWidgets.QFrame(parent=self.frame_30)
-        self.frame_8.setStyleSheet("QFrame\n"
-"{\n"
-"    \n"
-"    background-color: rgba(255, 255, 255, 0);\n"
-"}")
+        self.frame_8.setStyleSheet("")
         self.frame_8.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_8.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_8.setObjectName("frame_8")
@@ -1017,12 +986,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setSpacing(0)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.LA3 = QtWidgets.QLineEdit(parent=self.frame_8)
-        self.LA3.setStyleSheet("QLineEdit{\n"
-"\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
-"}")
+        self.LA3.setStyleSheet("")
         self.LA3.setClearButtonEnabled(True)
         self.LA3.setObjectName("LA3")
         self.horizontalLayout_4.addWidget(self.LA3)
@@ -1075,12 +1039,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.setSpacing(0)
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
         self.LA4 = QtWidgets.QLineEdit(parent=self.frame_9)
-        self.LA4.setStyleSheet("QLineEdit{\n"
-"\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
-"}")
+        self.LA4.setStyleSheet("")
         self.LA4.setClearButtonEnabled(True)
         self.LA4.setObjectName("LA4")
         self.horizontalLayout_6.addWidget(self.LA4)
@@ -1135,9 +1094,7 @@ class Ui_MainWindow(object):
         self.LA5 = QtWidgets.QLineEdit(parent=self.frame_14)
         self.LA5.setStyleSheet("QLineEdit{\n"
 "\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
 "}")
         self.LA5.setClearButtonEnabled(True)
         self.LA5.setObjectName("LA5")
@@ -1239,12 +1196,7 @@ class Ui_MainWindow(object):
         self.P7_def.setObjectName("P7_def")
         self.horizontalLayout_17.addWidget(self.P7_def)
         self.L7 = QtWidgets.QLineEdit(parent=self.frame_21)
-        self.L7.setStyleSheet("QLineEdit{\n"
-"\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
-"}")
+        self.L7.setStyleSheet("")
         self.L7.setClearButtonEnabled(True)
         self.L7.setObjectName("L7")
         self.horizontalLayout_17.addWidget(self.L7)
@@ -1299,9 +1251,7 @@ class Ui_MainWindow(object):
         self.L6 = QtWidgets.QLineEdit(parent=self.frame_22)
         self.L6.setStyleSheet("QLineEdit{\n"
 "\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
 "}")
         self.L6.setClearButtonEnabled(True)
         self.L6.setObjectName("L6")
@@ -1357,9 +1307,7 @@ class Ui_MainWindow(object):
         self.L5 = QtWidgets.QLineEdit(parent=self.frame_20)
         self.L5.setStyleSheet("QLineEdit{\n"
 "\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
 "}")
         self.L5.setClearButtonEnabled(True)
         self.L5.setObjectName("L5")
@@ -1415,9 +1363,7 @@ class Ui_MainWindow(object):
         self.L4 = QtWidgets.QLineEdit(parent=self.frame_18)
         self.L4.setStyleSheet("QLineEdit{\n"
 "\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
 "}")
         self.L4.setClearButtonEnabled(True)
         self.L4.setObjectName("L4")
@@ -1473,9 +1419,7 @@ class Ui_MainWindow(object):
         self.L3 = QtWidgets.QLineEdit(parent=self.frame_19)
         self.L3.setStyleSheet("QLineEdit{\n"
 "\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
 "}")
         self.L3.setClearButtonEnabled(True)
         self.L3.setObjectName("L3")
@@ -1531,9 +1475,7 @@ class Ui_MainWindow(object):
         self.L2 = QtWidgets.QLineEdit(parent=self.frame_17)
         self.L2.setStyleSheet("QLineEdit{\n"
 "\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
 "}")
         self.L2.setClearButtonEnabled(True)
         self.L2.setObjectName("L2")
@@ -1589,9 +1531,7 @@ class Ui_MainWindow(object):
         self.L1 = QtWidgets.QLineEdit(parent=self.frame_16)
         self.L1.setStyleSheet("QLineEdit{\n"
 "\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
+"background-color: rgba(255, 255, 255, 0);\n"
 "}")
         self.L1.setClearButtonEnabled(True)
         self.L1.setObjectName("L1")
@@ -1645,12 +1585,7 @@ class Ui_MainWindow(object):
         self.P0_def.setObjectName("P0_def")
         self.horizontalLayout_8.addWidget(self.P0_def)
         self.L0 = QtWidgets.QLineEdit(parent=self.frame_15)
-        self.L0.setStyleSheet("QLineEdit{\n"
-"\n"
-"    background-color: rgb(246, 248, 250);\n"
-"    border: 1px solid grey;\n"
-"border-radius: 2px;\n"
-"}")
+        self.L0.setStyleSheet("")
         self.L0.setClearButtonEnabled(True)
         self.L0.setObjectName("L0")
         self.horizontalLayout_8.addWidget(self.L0)

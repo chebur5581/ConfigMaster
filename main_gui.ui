@@ -1255,7 +1255,7 @@ border-bottom: none;
           <property name="styleSheet">
            <string notr="true">QFrame{
 	
-		background-color: rgb(255, 255, 255);
+		background-color: rgb(199, 199, 199);
 }</string>
           </property>
           <property name="frameShape">
@@ -1430,9 +1430,7 @@ border-bottom: none;
                  <property name="styleSheet">
                   <string notr="true">QLineEdit{
 
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
+	background-color: rgba(255, 255, 255, 0);
 }</string>
                  </property>
                  <property name="clearButtonEnabled">
@@ -1548,9 +1546,7 @@ border-radius: 2px;
                 <widget class="QLineEdit" name="L12">
                  <property name="styleSheet">
                   <string notr="true">QLineEdit{
-border-radius: 2px;
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
+background-color: rgba(255, 255, 255, 0);
 }</string>
                  </property>
                  <property name="clearButtonEnabled">
@@ -1667,9 +1663,7 @@ border-radius: 2px;
                  <property name="styleSheet">
                   <string notr="true">QLineEdit{
 
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
+	background-color: rgba(255, 255, 255, 0);
 
 }</string>
                  </property>
@@ -1787,9 +1781,7 @@ border-radius: 2px;
                  <property name="styleSheet">
                   <string notr="true">QLineEdit{
 
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
+	background-color: rgba(255, 255, 255, 0);
 }</string>
                  </property>
                  <property name="clearButtonEnabled">
@@ -1906,9 +1898,7 @@ border-radius: 2px;
                  <property name="styleSheet">
                   <string notr="true">QLineEdit{
 
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
+	background-color: rgba(255, 255, 255, 0);
 }</string>
                  </property>
                  <property name="clearButtonEnabled">
@@ -2025,9 +2015,7 @@ border-radius: 2px;
                  <property name="styleSheet">
                   <string notr="true">QLineEdit{
 
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
+	background-color: rgba(255, 255, 255, 0);
 }</string>
                  </property>
                  <property name="clearButtonEnabled">
@@ -2112,12 +2100,7 @@ border-radius: 2px;
                <item>
                 <widget class="QLineEdit" name="LA0">
                  <property name="styleSheet">
-                  <string notr="true">QLineEdit{
-
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
-}</string>
+                  <string notr="true"/>
                  </property>
                  <property name="clearButtonEnabled">
                   <bool>true</bool>
@@ -2231,12 +2214,7 @@ border-radius: 2px;
                <item>
                 <widget class="QLineEdit" name="LA1">
                  <property name="styleSheet">
-                  <string notr="true">QLineEdit{
-
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
-}</string>
+                  <string notr="true"/>
                  </property>
                  <property name="clearButtonEnabled">
                   <bool>true</bool>
@@ -2350,12 +2328,7 @@ border-radius: 2px;
                <item>
                 <widget class="QLineEdit" name="LA2">
                  <property name="styleSheet">
-                  <string notr="true">QLineEdit{
-
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
-}</string>
+                  <string notr="true"/>
                  </property>
                  <property name="clearButtonEnabled">
                   <bool>true</bool>
@@ -2438,11 +2411,7 @@ border-radius: 2px;
             <item>
              <widget class="QFrame" name="frame_8">
               <property name="styleSheet">
-               <string notr="true">QFrame
-{
-	
-	background-color: rgba(255, 255, 255, 0);
-}</string>
+               <string notr="true"/>
               </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
@@ -2469,12 +2438,7 @@ border-radius: 2px;
                <item>
                 <widget class="QLineEdit" name="LA3">
                  <property name="styleSheet">
-                  <string notr="true">QLineEdit{
-
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
-}</string>
+                  <string notr="true"/>
                  </property>
                  <property name="clearButtonEnabled">
                   <bool>true</bool>
@@ -2588,12 +2552,7 @@ border-radius: 2px;
                <item>
                 <widget class="QLineEdit" name="LA4">
                  <property name="styleSheet">
-                  <string notr="true">QLineEdit{
-
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
-}</string>
+                  <string notr="true"/>
                  </property>
                  <property name="clearButtonEnabled">
                   <bool>true</bool>
@@ -2709,9 +2668,7 @@ border-radius: 2px;
                  <property name="styleSheet">
                   <string notr="true">QLineEdit{
 
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
+	background-color: rgba(255, 255, 255, 0);
 }</string>
                  </property>
                  <property name="clearButtonEnabled">
@@ -2936,12 +2893,7 @@ border-radius: 2px;
                <item>
                 <widget class="QLineEdit" name="L7">
                  <property name="styleSheet">
-                  <string notr="true">QLineEdit{
-
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
-}</string>
+                  <string notr="true"/>
                  </property>
                  <property name="clearButtonEnabled">
                   <bool>true</bool>
@@ -3057,9 +3009,7 @@ border-radius: 2px;
                  <property name="styleSheet">
                   <string notr="true">QLineEdit{
 
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
+	background-color: rgba(255, 255, 255, 0);
 }</string>
                  </property>
                  <property name="clearButtonEnabled">
@@ -3176,9 +3126,7 @@ border-radius: 2px;
                  <property name="styleSheet">
                   <string notr="true">QLineEdit{
 
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
+	background-color: rgba(255, 255, 255, 0);
 }</string>
                  </property>
                  <property name="clearButtonEnabled">
@@ -3295,9 +3243,7 @@ border-radius: 2px;
                  <property name="styleSheet">
                   <string notr="true">QLineEdit{
 
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
+	background-color: rgba(255, 255, 255, 0);
 }</string>
                  </property>
                  <property name="clearButtonEnabled">
@@ -3414,9 +3360,7 @@ border-radius: 2px;
                  <property name="styleSheet">
                   <string notr="true">QLineEdit{
 
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
+	background-color: rgba(255, 255, 255, 0);
 }</string>
                  </property>
                  <property name="clearButtonEnabled">
@@ -3533,9 +3477,7 @@ border-radius: 2px;
                  <property name="styleSheet">
                   <string notr="true">QLineEdit{
 
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
+	background-color: rgba(255, 255, 255, 0);
 }</string>
                  </property>
                  <property name="clearButtonEnabled">
@@ -3652,9 +3594,7 @@ border-radius: 2px;
                  <property name="styleSheet">
                   <string notr="true">QLineEdit{
 
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
+background-color: rgba(255, 255, 255, 0);
 }</string>
                  </property>
                  <property name="clearButtonEnabled">
@@ -3769,12 +3709,7 @@ border-radius: 2px;
                <item>
                 <widget class="QLineEdit" name="L0">
                  <property name="styleSheet">
-                  <string notr="true">QLineEdit{
-
-	background-color: rgb(246, 248, 250);
-	border: 1px solid grey;
-border-radius: 2px;
-}</string>
+                  <string notr="true"/>
                  </property>
                  <property name="clearButtonEnabled">
                   <bool>true</bool>
