@@ -12,12 +12,13 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1525, 799)
+        MainWindow.resize(1525, 828)
         MainWindow.setMinimumSize(QtCore.QSize(500, 500))
         MainWindow.setMaximumSize(QtCore.QSize(16777215, 16777215))
         MainWindow.setStyleSheet("QMainWindow\n"
 "{\n"
 "    background-color: rgb(209, 209, 209);\n"
+"border: none\n"
 "}")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -31,20 +32,32 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
         self.frame.setSizePolicy(sizePolicy)
-        self.frame.setMinimumSize(QtCore.QSize(100, 0))
+        self.frame.setMinimumSize(QtCore.QSize(269, 0))
         self.frame.setMaximumSize(QtCore.QSize(250, 16777215))
         self.frame.setStyleSheet("QFrame{border-radius: 10px;}")
         self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame.setObjectName("frame")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.frame)
-        self.verticalLayout.setContentsMargins(0, 6, 0, 0)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName("verticalLayout")
         self.treeWidget = QtWidgets.QTreeWidget(parent=self.frame)
         font = QtGui.QFont()
         font.setPointSize(12)
         self.treeWidget.setFont(font)
-        self.treeWidget.setStyleSheet("")
+        self.treeWidget.setStyleSheet("QTreeWidget{\n"
+"    \n"
+"    background-color: rgb(255, 255, 255);\n"
+"    border: 1px solid grey;\n"
+"border-top: none;\n"
+"border-radius: 0;\n"
+"    \n"
+"}\n"
+"QHeaderView::section{\n"
+"background-color: rgb(255, 255, 255);\n"
+"border:1px rgb(234, 234, 234);\n"
+"}")
         self.treeWidget.setObjectName("treeWidget")
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -58,7 +71,14 @@ class Ui_MainWindow(object):
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_4.setObjectName("frame_4")
         self.tableWidget = QtWidgets.QTableWidget(parent=self.frame_4)
-        self.tableWidget.setGeometry(QtCore.QRect(-1, 9, 271, 371))
+        self.tableWidget.setGeometry(QtCore.QRect(0, -1, 269, 371))
+        self.tableWidget.setStyleSheet("QTableWidget{\n"
+"        background-color: rgb(255, 255, 255);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 5px;\n"
+"border-bottom: none;\n"
+"}")
+        self.tableWidget.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustIgnored)
         self.tableWidget.setShowGrid(True)
         self.tableWidget.setWordWrap(True)
         self.tableWidget.setCornerButtonEnabled(True)
@@ -416,7 +436,11 @@ class Ui_MainWindow(object):
 "}")
         self.widget.setObjectName("widget")
         self.frame_3 = QtWidgets.QFrame(parent=self.widget)
-        self.frame_3.setGeometry(QtCore.QRect(-410, -510, 9999999, 9999999))
+        self.frame_3.setGeometry(QtCore.QRect(-420, -470, 9999999, 9999999))
+        self.frame_3.setStyleSheet("QFrame{\n"
+"    \n"
+"        background-color: rgb(255, 255, 255);\n"
+"}")
         self.frame_3.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_3.setObjectName("frame_3")
@@ -491,7 +515,12 @@ class Ui_MainWindow(object):
         self.P13_def.setObjectName("P13_def")
         self.horizontalLayout_19.addWidget(self.P13_def)
         self.L13 = QtWidgets.QLineEdit(parent=self.frame_23)
-        self.L13.setStyleSheet("")
+        self.L13.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.L13.setClearButtonEnabled(True)
         self.L13.setObjectName("L13")
         self.horizontalLayout_19.addWidget(self.L13)
@@ -544,6 +573,11 @@ class Ui_MainWindow(object):
         self.P12_def.setObjectName("P12_def")
         self.horizontalLayout_20.addWidget(self.P12_def)
         self.L12 = QtWidgets.QLineEdit(parent=self.frame_24)
+        self.L12.setStyleSheet("QLineEdit{\n"
+"border-radius: 2px;\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"}")
         self.L12.setClearButtonEnabled(True)
         self.L12.setObjectName("L12")
         self.horizontalLayout_20.addWidget(self.L12)
@@ -596,6 +630,13 @@ class Ui_MainWindow(object):
         self.P11_def.setObjectName("P11_def")
         self.horizontalLayout_21.addWidget(self.P11_def)
         self.L11 = QtWidgets.QLineEdit(parent=self.frame_25)
+        self.L11.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"\n"
+"}")
         self.L11.setClearButtonEnabled(True)
         self.L11.setObjectName("L11")
         self.horizontalLayout_21.addWidget(self.L11)
@@ -648,6 +689,12 @@ class Ui_MainWindow(object):
         self.P10_def.setObjectName("P10_def")
         self.horizontalLayout_22.addWidget(self.P10_def)
         self.L10 = QtWidgets.QLineEdit(parent=self.frame_26)
+        self.L10.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.L10.setClearButtonEnabled(True)
         self.L10.setObjectName("L10")
         self.horizontalLayout_22.addWidget(self.L10)
@@ -700,6 +747,12 @@ class Ui_MainWindow(object):
         self.P9_def.setObjectName("P9_def")
         self.horizontalLayout_23.addWidget(self.P9_def)
         self.L9 = QtWidgets.QLineEdit(parent=self.frame_27)
+        self.L9.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.L9.setClearButtonEnabled(True)
         self.L9.setObjectName("L9")
         self.horizontalLayout_23.addWidget(self.L9)
@@ -752,6 +805,12 @@ class Ui_MainWindow(object):
         self.P8_def.setObjectName("P8_def")
         self.horizontalLayout_24.addWidget(self.P8_def)
         self.L8 = QtWidgets.QLineEdit(parent=self.frame_28)
+        self.L8.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.L8.setClearButtonEnabled(True)
         self.L8.setObjectName("L8")
         self.horizontalLayout_24.addWidget(self.L8)
@@ -784,7 +843,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.LA0 = QtWidgets.QLineEdit(parent=self.frame_5)
-        self.LA0.setStyleSheet("")
+        self.LA0.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.LA0.setClearButtonEnabled(True)
         self.LA0.setObjectName("LA0")
         self.horizontalLayout_2.addWidget(self.LA0)
@@ -837,6 +901,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setSpacing(0)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.LA1 = QtWidgets.QLineEdit(parent=self.frame_6)
+        self.LA1.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.LA1.setClearButtonEnabled(True)
         self.LA1.setObjectName("LA1")
         self.horizontalLayout_3.addWidget(self.LA1)
@@ -889,6 +959,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setSpacing(0)
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.LA2 = QtWidgets.QLineEdit(parent=self.frame_7)
+        self.LA2.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.LA2.setClearButtonEnabled(True)
         self.LA2.setObjectName("LA2")
         self.horizontalLayout_5.addWidget(self.LA2)
@@ -941,6 +1017,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setSpacing(0)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.LA3 = QtWidgets.QLineEdit(parent=self.frame_8)
+        self.LA3.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.LA3.setClearButtonEnabled(True)
         self.LA3.setObjectName("LA3")
         self.horizontalLayout_4.addWidget(self.LA3)
@@ -993,6 +1075,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.setSpacing(0)
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
         self.LA4 = QtWidgets.QLineEdit(parent=self.frame_9)
+        self.LA4.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.LA4.setClearButtonEnabled(True)
         self.LA4.setObjectName("LA4")
         self.horizontalLayout_6.addWidget(self.LA4)
@@ -1045,6 +1133,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setSpacing(0)
         self.horizontalLayout_7.setObjectName("horizontalLayout_7")
         self.LA5 = QtWidgets.QLineEdit(parent=self.frame_14)
+        self.LA5.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.LA5.setClearButtonEnabled(True)
         self.LA5.setObjectName("LA5")
         self.horizontalLayout_7.addWidget(self.LA5)
@@ -1145,6 +1239,12 @@ class Ui_MainWindow(object):
         self.P7_def.setObjectName("P7_def")
         self.horizontalLayout_17.addWidget(self.P7_def)
         self.L7 = QtWidgets.QLineEdit(parent=self.frame_21)
+        self.L7.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.L7.setClearButtonEnabled(True)
         self.L7.setObjectName("L7")
         self.horizontalLayout_17.addWidget(self.L7)
@@ -1197,6 +1297,12 @@ class Ui_MainWindow(object):
         self.P6_def.setObjectName("P6_def")
         self.horizontalLayout_18.addWidget(self.P6_def)
         self.L6 = QtWidgets.QLineEdit(parent=self.frame_22)
+        self.L6.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.L6.setClearButtonEnabled(True)
         self.L6.setObjectName("L6")
         self.horizontalLayout_18.addWidget(self.L6)
@@ -1249,6 +1355,12 @@ class Ui_MainWindow(object):
         self.P5_def.setObjectName("P5_def")
         self.horizontalLayout_16.addWidget(self.P5_def)
         self.L5 = QtWidgets.QLineEdit(parent=self.frame_20)
+        self.L5.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.L5.setClearButtonEnabled(True)
         self.L5.setObjectName("L5")
         self.horizontalLayout_16.addWidget(self.L5)
@@ -1301,6 +1413,12 @@ class Ui_MainWindow(object):
         self.P4_def.setObjectName("P4_def")
         self.horizontalLayout_14.addWidget(self.P4_def)
         self.L4 = QtWidgets.QLineEdit(parent=self.frame_18)
+        self.L4.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.L4.setClearButtonEnabled(True)
         self.L4.setObjectName("L4")
         self.horizontalLayout_14.addWidget(self.L4)
@@ -1353,6 +1471,12 @@ class Ui_MainWindow(object):
         self.P3_def.setObjectName("P3_def")
         self.horizontalLayout_15.addWidget(self.P3_def)
         self.L3 = QtWidgets.QLineEdit(parent=self.frame_19)
+        self.L3.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.L3.setClearButtonEnabled(True)
         self.L3.setObjectName("L3")
         self.horizontalLayout_15.addWidget(self.L3)
@@ -1405,6 +1529,12 @@ class Ui_MainWindow(object):
         self.P2_def.setObjectName("P2_def")
         self.horizontalLayout_11.addWidget(self.P2_def)
         self.L2 = QtWidgets.QLineEdit(parent=self.frame_17)
+        self.L2.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.L2.setClearButtonEnabled(True)
         self.L2.setObjectName("L2")
         self.horizontalLayout_11.addWidget(self.L2)
@@ -1457,6 +1587,12 @@ class Ui_MainWindow(object):
         self.P1_def.setObjectName("P1_def")
         self.horizontalLayout_9.addWidget(self.P1_def)
         self.L1 = QtWidgets.QLineEdit(parent=self.frame_16)
+        self.L1.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.L1.setClearButtonEnabled(True)
         self.L1.setObjectName("L1")
         self.horizontalLayout_9.addWidget(self.L1)
@@ -1509,6 +1645,12 @@ class Ui_MainWindow(object):
         self.P0_def.setObjectName("P0_def")
         self.horizontalLayout_8.addWidget(self.P0_def)
         self.L0 = QtWidgets.QLineEdit(parent=self.frame_15)
+        self.L0.setStyleSheet("QLineEdit{\n"
+"\n"
+"    background-color: rgb(246, 248, 250);\n"
+"    border: 1px solid grey;\n"
+"border-radius: 2px;\n"
+"}")
         self.L0.setClearButtonEnabled(True)
         self.L0.setObjectName("L0")
         self.horizontalLayout_8.addWidget(self.L0)
@@ -1580,7 +1722,6 @@ class Ui_MainWindow(object):
         self.scrollArea.setStyleSheet("QScrollArea\n"
 "{\n"
 "    border-radius: 10px;\n"
-"    background-color: rgb(227, 227, 227);\n"
 "}")
         self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
         self.scrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAsNeeded)
@@ -1588,11 +1729,18 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 234, 744))
-        self.scrollAreaWidgetContents.setStyleSheet("QWidget{background-color: rgb(217, 217, 217);}")
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 234, 773))
+        self.scrollAreaWidgetContents.setStyleSheet("QWidget{\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    border: 1px solid grey;\n"
+"    border-radius: 5px;\n"
+"border-bottom: none;\n"
+"\n"
+"}")
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.frame_11 = QtWidgets.QFrame(parent=self.scrollAreaWidgetContents)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
@@ -1602,11 +1750,15 @@ class Ui_MainWindow(object):
         self.frame_11.setSizePolicy(sizePolicy)
         self.frame_11.setMinimumSize(QtCore.QSize(230, 107))
         self.frame_11.setMaximumSize(QtCore.QSize(16777215, 107))
+        self.frame_11.setStyleSheet("QFrame{\n"
+"border:none;\n"
+"    background-color: rgba(255, 255, 255, 0);\n"
+"}")
         self.frame_11.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_11.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_11.setObjectName("frame_11")
         self.servo = QtWidgets.QPushButton(parent=self.frame_11)
-        self.servo.setGeometry(QtCore.QRect(119, 1, 111, 105))
+        self.servo.setGeometry(QtCore.QRect(119, -1, 115, 105))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1614,8 +1766,9 @@ class Ui_MainWindow(object):
         self.servo.setSizePolicy(sizePolicy)
         self.servo.setMinimumSize(QtCore.QSize(111, 105))
         self.servo.setStyleSheet("QPushButton{\n"
-"    background-color:rgb(255, 250, 247);\n"
-"     border-radius: 10px;\n"
+"    background-color: rgb(246, 248, 250);\n"
+"     border-radius: 5px;\n"
+"    border: 1px solid grey;\n"
 "}\n"
 "QPushButton::checked\n"
 "{\n"
@@ -1652,7 +1805,7 @@ class Ui_MainWindow(object):
 "}")
         self.label_5.setObjectName("label_5")
         self.lcd = QtWidgets.QPushButton(parent=self.frame_11)
-        self.lcd.setGeometry(QtCore.QRect(0, 0, 111, 105))
+        self.lcd.setGeometry(QtCore.QRect(0, -1, 115, 105))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1660,8 +1813,9 @@ class Ui_MainWindow(object):
         self.lcd.setSizePolicy(sizePolicy)
         self.lcd.setMinimumSize(QtCore.QSize(111, 105))
         self.lcd.setStyleSheet("QPushButton{\n"
-"    background-color:rgb(255, 250, 247);\n"
-"     border-radius: 10px;\n"
+"    background-color: rgb(246, 248, 250);\n"
+"     border-radius: 5px;\n"
+"    border: 1px solid grey;\n"
 "}\n"
 "QPushButton::checked\n"
 "{\n"

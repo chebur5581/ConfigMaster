@@ -65,28 +65,30 @@ class App(QMainWindow):
         filename, _ = QFileDialog.getSaveFileName(self,
                                                   "Save File", "", "ConfigMaster Files(*.cfm)")
         if filename:
-
-            libs = []
-            for key in self.libs_pos.keys():
-                pin = self.libs_pos[key]['pin']
-                if pin is not None:
-                    for key_pin in self.pins.keys():
-                        if pin == self.pins[key_pin][3]:
-                            pin = key_pin
-                            break
-                libs.append({'pin': pin, 'pos': (key.x(), key.y())})
-
-            serial = self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(1, 1)).currentIndex()
-            dump = json.dumps({'pins': [i[0] for i in self.pins.values()],
-                               'includes': self.libs,
-                               'defs': self.defines,
-                               'libs': libs,
-                               'serial': serial})
-
-            with open(filename, 'w') as f:
-                f.write(dump)
+            self.save(filename)
             log('Saving completed', 'success')
             log(f'Path to file {filename}', 'info')
+
+    def save(self, filename):
+        libs = []
+        for key in self.libs_pos.keys():
+            pin = self.libs_pos[key]['pin']
+            if pin is not None:
+                for key_pin in self.pins.keys():
+                    if pin == self.pins[key_pin][3]:
+                        pin = key_pin
+                        break
+            libs.append({'pin': pin, 'pos': (key.x(), key.y())})
+
+        serial = self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(1, 1)).currentIndex()
+        dump = json.dumps({'pins': [i[0] for i in self.pins.values()],
+                           'includes': self.libs,
+                           'defs': self.defines,
+                           'libs': libs,
+                           'serial': serial})
+
+        with open(filename, 'w') as f:
+            f.write(dump)
 
     def open_file(self, filename):
         if not filename:
@@ -102,19 +104,14 @@ class App(QMainWindow):
                 self.change_mode(self.pins[key[1]][2], add=False)
 
             includes = load['includes']
-            if len(includes) > 1:
+            self.ui.servo.setChecked(False)
+            self.ui.lcd.setChecked(False)
+            if 'lcd' in includes:
                 self.ui.lcd.setChecked(True)
+            if 'servo' in includes:
                 self.ui.servo.setChecked(True)
-            if includes[0] == 'lcd':
-                self.ui.lcd.setChecked(True)
-                self.ui.servo.setChecked(False)
-                self.include_lib(self.ui.servo)
-                self.include_lib(self.ui.lcd)
-            if includes[0] == 'servo':
-                self.ui.lcd.setChecked(False)
-                self.ui.servo.setChecked(True)
-                self.include_lib(self.ui.servo)
-                self.include_lib(self.ui.lcd)
+            self.include_lib(self.ui.servo)
+            self.include_lib(self.ui.lcd)
 
             self.defines = load['defs']
             # log(load)
@@ -125,15 +122,11 @@ class App(QMainWindow):
                 else:
                     self.pins[key][3].setText(self.defines[key])
 
-            # for key in self.defines.keys():
-            #     self.pins[key][3].setText(self.defines[key])
-
             for i in enumerate(self.libs_pos.keys()):
                 pin = load['libs'][i[0]]['pin']
                 if pin is not None:
                     self.libs_pos[i[1]]['pin'] = self.pins[pin][3]
                     self.pins[pin][3].setStyleSheet('QLineEdit{border: none;}')
-
                 else:
                     self.libs_pos[i[1]]['pin'] = None
 

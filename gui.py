@@ -8,6 +8,9 @@ from main_gui import Ui_MainWindow
 
 class MainWindow(Ui_MainWindow):
     def configure(self):
+
+        self.toolBar.setStyleSheet('QToolBar{background-color: rgb(255, 255, 255);border: 1px solid grey; border-top: none;}')
+
         # установка виджетов в tableWidget
         self.tableWidget.setIndexWidget(self.tableWidget.model().index(1, 1), self.bod)
         self.tableWidget.setIndexWidget(self.tableWidget.model().index(2, 1), self.pinA0)
