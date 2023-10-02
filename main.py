@@ -198,7 +198,7 @@ class App(QMainWindow):
             log(f'saved in {filename}', 'info')
 
     def definition(self, lineEdit: QLineEdit):
-        reg_ex = QRegExp("\w+")
+        reg_ex = QRegExp("[\w-]+")
         input_validator = QRegExpValidator(reg_ex, lineEdit)
         lineEdit.setValidator(input_validator)
 
