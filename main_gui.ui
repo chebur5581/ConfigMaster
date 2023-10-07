@@ -1291,7 +1291,7 @@ border-bottom: none;
             <rect>
              <x>1190</x>
              <y>840</y>
-             <width>191</width>
+             <width>231</width>
              <height>138</height>
             </rect>
            </property>
@@ -2031,9 +2031,9 @@ background-color: rgba(255, 255, 255, 0);
           <widget class="QFrame" name="frame_30">
            <property name="geometry">
             <rect>
-             <x>454</x>
+             <x>424</x>
              <y>1039</y>
-             <width>191</width>
+             <width>221</width>
              <height>138</height>
             </rect>
            </property>
@@ -2756,7 +2756,7 @@ background-color: rgba(255, 255, 255, 0);
             <rect>
              <x>1190</x>
              <y>994</y>
-             <width>191</width>
+             <width>231</width>
              <height>185</height>
             </rect>
            </property>
@@ -4139,6 +4139,32 @@ QPushButton::checked
             </widget>
            </item>
            <item>
+            <widget class="QPushButton" name="autoTrace">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>11</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+
+	background-color: rgb(255, 255, 255);
+	border: 1px solid grey;
+	border-radius: 5px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Автораспределение</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <spacer name="verticalSpacer">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -4171,14 +4197,27 @@ QPushButton::checked
    </property>
    <widget class="QMenu" name="menufile">
     <property name="title">
-     <string>&amp;File</string>
+     <string>&amp;Файл</string>
     </property>
+    <widget class="QMenu" name="menu">
+     <property name="title">
+      <string>&amp;Экспортировать</string>
+     </property>
+     <addaction name="action_json"/>
+     <addaction name="action_Arduino_ino"/>
+    </widget>
     <addaction name="action_New"/>
-    <addaction name="action_File"/>
-    <addaction name="action_Save_2"/>
-    <addaction name="actionCompile_2"/>
+    <addaction name="action_Open"/>
+    <addaction name="action_Save"/>
+    <addaction name="menu"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>Инуструменты</string>
+    </property>
    </widget>
    <addaction name="menufile"/>
+   <addaction name="menu_2"/>
   </widget>
   <widget class="QToolBar" name="toolBar">
    <property name="windowTitle">
@@ -4207,7 +4246,7 @@ QPushButton::checked
   <action name="actionCompile">
    <property name="icon">
     <iconset>
-     <normaloff>assets/free-icon-compiler-5958745.png</normaloff>assets/free-icon-compiler-5958745.png</iconset>
+     <normaloff>assets/arduino.ico</normaloff>assets/arduino.ico</iconset>
    </property>
    <property name="text">
     <string>&amp;Compile</string>
@@ -4231,19 +4270,14 @@ QPushButton::checked
     <string>&amp;Save</string>
    </property>
   </action>
-  <action name="actionCompile_2">
-   <property name="text">
-    <string>Compile</string>
-   </property>
-  </action>
   <action name="action_file">
    <property name="text">
     <string>&amp;file</string>
    </property>
   </action>
-  <action name="action_File">
+  <action name="action_Open">
    <property name="text">
-    <string>&amp;Open</string>
+    <string>&amp;Открыть</string>
    </property>
   </action>
   <action name="actionSave">
@@ -4253,12 +4287,22 @@ QPushButton::checked
   </action>
   <action name="action_New">
    <property name="text">
-    <string>&amp;New</string>
+    <string>&amp;Новый файл</string>
    </property>
   </action>
-  <action name="action_Save_2">
+  <action name="action_Save">
    <property name="text">
-    <string>&amp;Save</string>
+    <string>&amp;Сохранить</string>
+   </property>
+  </action>
+  <action name="action_json">
+   <property name="text">
+    <string>json file (.json)</string>
+   </property>
+  </action>
+  <action name="action_Arduino_ino">
+   <property name="text">
+    <string>Arduino (.ino)</string>
    </property>
   </action>
  </widget>

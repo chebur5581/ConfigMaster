@@ -28,27 +28,34 @@ class App(QMainWindow):
 
         self.libs_links = {'lcd': self.ui.lcd,
                            'servo': self.ui.servo}
+
         self.libs_buttons = {'lcd': [self.ui.LibRs,
                                      self.ui.LibE,
                                      self.ui.LibD4,
                                      self.ui.LibD5,
                                      self.ui.LibD6,
                                      self.ui.LibD7],
-                             'servo': self.ui.LibServo}
+                             'servo': [self.ui.LibServo]}
 
         self.buttons_and_combos()  # мне стыдно за это
 
         self.ui.actionCompile.triggered.connect(self.compile)
-        self.ui.actionCompile_2.triggered.connect(self.compile)
+        self.ui.action_Arduino_ino.triggered.connect(self.compile)
+
         self.ui.action_New.triggered.connect(self.new_file)
+
         self.ui.actionSave_2.triggered.connect(self.save_file)
-        self.ui.action_Save_2.triggered.connect(self.save_file)
+        self.ui.action_Save.triggered.connect(self.save_file)
+        self.ui.action_json.triggered.connect(lambda x: self.save_file(jsn=True))
+
         self.ui.actionOpen.triggered.connect(self.open_file)
 
         self.ui.lcd.clicked.connect(lambda x: self.include_lib(self.ui.lcd))
         self.ui.servo.clicked.connect(lambda x: self.include_lib(self.ui.servo))
 
         self.ui.treeWidget.itemDoubleClicked.connect(self.load_example)
+
+        self.ui.autoTrace.clicked.connect(self.auto_trace)
 
         self.offset = self.ui.frame_3.pos()
         self.old_pos = QPoint(0, 0)
@@ -61,9 +68,12 @@ class App(QMainWindow):
         if text == 'Сервопривод':
             self.open_file('examples/servo.cfmex')
 
-    def save_file(self):
-        filename, _ = QFileDialog.getSaveFileName(self,
-                                                  "Save File", "", "ConfigMaster Files(*.cfm)")
+    def save_file(self, jsn=False):
+        if jsn:
+            filename, _ = QFileDialog.getSaveFileName(self, "Save File", "", "Json Files(*.json)")
+        if not jsn:
+            filename, _ = QFileDialog.getSaveFileName(self,
+                                                      "Save File", "", "ConfigMaster Files(*.cfm)")
         if filename:
             self.save(filename)
             log('Saving completed', 'success')
@@ -106,10 +116,12 @@ class App(QMainWindow):
             includes = load['includes']
             self.ui.servo.setChecked(False)
             self.ui.lcd.setChecked(False)
+
             if 'lcd' in includes:
                 self.ui.lcd.setChecked(True)
             if 'servo' in includes:
                 self.ui.servo.setChecked(True)
+
             self.include_lib(self.ui.servo)
             self.include_lib(self.ui.lcd)
 
@@ -151,6 +163,42 @@ class App(QMainWindow):
 
         self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(1, 1)).setCurrentIndex(0)
 
+    def auto_trace(self):
+        free_libs = []
+        for inc in self.libs:
+            for lib in self.libs_buttons[inc]:
+                if self.libs_pos[lib]['pin'] is None:
+                    free_libs.append(lib)  # добавляем все плитки библиотек которые не заняты
+        free_dig_pins = []
+        for pin in list(self.pins.keys())[8:]:
+            if self.pins[pin][0] == 0 and self.pins[pin][3].text() == '':  # если на режиме стоит none и в lineEdit нет текста
+                free_dig_pins.append(pin)
+
+        if len(free_libs) > len(free_dig_pins):
+            log('bruh пинов не хватает', 'warning')  # если не хватает пинов
+            QMessageBox.critical(self, 'Error', 'Не достаточно свободных пинов :(',
+                                 QMessageBox.StandardButton.Ok)
+            return
+
+        for pin in enumerate(free_dig_pins):
+            if len(free_libs) <= pin[0]:
+                break
+            # установка плитки на нужное  место и настройка lineEdita
+            line_edit = self.pins[pin[1]][3]
+            lib = free_libs[pin[0]]
+
+            global_pos = line_edit.parentWidget().mapToGlobal(QPoint())
+
+            line_edit.setText(lib.objectName().replace('Lib', '').upper())
+            line_edit.setStyleSheet('QLineEdit{border: none;}')
+
+            lib.move(self.ui.frame_3.mapFromGlobal(global_pos))
+            self.libs_pos[lib]['offset'] = line_edit.parentWidget().pos()
+            self.libs_pos[lib]['pin'] = line_edit
+
+        print([i.objectName() for i in free_libs])
+
+
     def include_lib(self, button: QPushButton):
         if button.isChecked():
             self.libs.append(button.objectName())
@@ -160,15 +208,29 @@ class App(QMainWindow):
                     but.show()
             else:
                 self.ui.LibServo.show()
+            self.ui.autoTrace.show()
 
         if not button.isChecked() and button.objectName() in self.libs:
             self.libs.remove(button.objectName())
 
             if button.objectName() == 'lcd':
-                for but in self.libs_buttons['lcd']:
-                    but.hide()
+                for lib in self.libs_buttons['lcd']:
+                    lib.hide()
+                    lib.move(self.libs_pos[lib]['default'])  # move on default position
+                    self.libs_pos[lib]['offset'] = lib.pos()
+                    lineEdit = self.libs_pos[lib]['pin']
+                    if lineEdit is not None:
+                        lineEdit.clear()
             else:
                 self.ui.LibServo.hide()
+                self.ui.LibServo.move(self.libs_pos[self.ui.LibServo]['default'])  # move on default position
+                self.libs_pos[self.ui.LibServo]['offset'] = self.ui.LibServo.pos()
+                lineEdit = self.libs_pos[self.ui.LibServo]['pin']
+                if lineEdit is not None:
+                    lineEdit.clear()
+        if len(self.libs) == 0:
+            self.ui.autoTrace.hide()
+
 
     def compile(self):
 
@@ -206,6 +268,7 @@ class App(QMainWindow):
         value = lineEdit.text().replace(' ', '')  # текст для названия пина
         self.defines.update({key: value})  # добавляем в словарь
         table_index = self.pins[key][1]  # получаем индекс пина в таблице
+
         if value == '':  # если текст стёрли
             self.defines.pop(key)  # удаляем пин из словаря
             self.ui.tableWidget.item(table_index, 0).setText(f'          pin {key}')  # ставим текст
@@ -220,6 +283,7 @@ class App(QMainWindow):
                 self.libs_pos[key]['pin'] = None
                 if lineEdit.text() == '':
                     self.libs_pos[key]['offset'] = key.pos()
+
         if lineEdit.text() == ' ':
             lineEdit.clear()
 
@@ -372,86 +436,65 @@ class App(QMainWindow):
         self.ui.L13.textChanged.connect(lambda x: self.definition(self.ui.L13))
 
         # если значение комбокса изменилось, то вызывем функцию mode_changed и передаём себя
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(2, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(2, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(3, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(3, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(4, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(4, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(5, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(5, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(6, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(6, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(7, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(7, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(8, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(8, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(9, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(9, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(10, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(10, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(11, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(11, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(12, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(12, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(13, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(13, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(14, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(14, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(15, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(15, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(16, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(16, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(17, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(17, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(18, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(18, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(19, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(19, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(20, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(20, 1))))
-        self.ui.tableWidget.indexWidget(
-            self.ui.tableWidget.model().index(21, 1)).currentIndexChanged.connect(
-            lambda x: self.mode_changed(
-                self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(21, 1))))
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(2, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(2, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(3, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(3, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(4, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(4, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(5, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(5, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(6, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(6, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(7, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(7, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(8, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(8, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(9, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(9, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(10, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(10, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(11, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(11, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(12, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(12, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(13, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(13, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(14, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(14, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(15, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(15, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(16, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(16, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(17, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(17, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(18, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(18, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(19, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(19, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(20, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(20, 1))))
+
+        self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(21, 1)).currentIndexChanged.connect(
+            lambda x: self.mode_changed(self.ui.tableWidget.indexWidget(self.ui.tableWidget.model().index(21, 1))))
 
 
 if __name__ == "__main__":  # запуск всего
