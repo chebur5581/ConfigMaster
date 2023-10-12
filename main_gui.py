@@ -79,6 +79,7 @@ class Ui_MainWindow(object):
 "border-bottom: none;\n"
 "}")
         self.tableWidget.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustIgnored)
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         self.tableWidget.setShowGrid(True)
         self.tableWidget.setWordWrap(True)
         self.tableWidget.setCornerButtonEnabled(True)

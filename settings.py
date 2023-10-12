@@ -19,3 +19,4 @@ debug = True
 libraries = {
     'lcd': ['#include <LiquidCrystal.h>', 'LiquidCrystal lcd(RS, E, D4, D5, D6, D7); // укажите нужные вам пины'],
     'servo': ['#include <Servo.h>', 'Servo myservo; // можно и не myservo', 'myservo.attach(pin);']}
+letters = 'йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ'

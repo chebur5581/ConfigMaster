@@ -9,7 +9,7 @@ from PyQt6.QtWidgets import QMainWindow, QApplication, QLineEdit, QComboBox, QPu
 from converter import Script
 from gui import MainWindow
 from logger import log
-from settings import icons
+from settings import icons, letters
 
 
 class App(QMainWindow):
@@ -169,16 +169,18 @@ class App(QMainWindow):
             for lib in self.libs_buttons[inc]:
                 if self.libs_pos[lib]['pin'] is None:
                     free_libs.append(lib)  # добавляем все плитки библиотек которые не заняты
+
         free_dig_pins = []
         for pin in list(self.pins.keys())[8:]:
-            if self.pins[pin][0] == 0 and self.pins[pin][3].text() == '':  # если на режиме стоит none и в lineEdit нет текста
+            if self.pins[pin][0] == 0 and self.pins[pin][3].text() == '':
+                # если на режиме стоит none и в lineEdit нет текста
                 free_dig_pins.append(pin)
 
         if len(free_libs) > len(free_dig_pins):
             log('bruh пинов не хватает', 'warning')  # если не хватает пинов
             QMessageBox.critical(self, 'Error', 'Не достаточно свободных пинов :(',
                                  QMessageBox.StandardButton.Ok)
-            return
+            return  # выход из функции
 
         for pin in enumerate(free_dig_pins):
             if len(free_libs) <= pin[0]:
@@ -193,11 +195,8 @@ class App(QMainWindow):
             line_edit.setStyleSheet('QLineEdit{border: none;}')
 
             lib.move(self.ui.frame_3.mapFromGlobal(global_pos))
-            self.libs_pos[lib]['offset'] = line_edit.parentWidget().pos()
+            self.libs_pos[lib]['offset'] = lib.pos()
             self.libs_pos[lib]['pin'] = line_edit
-
-        print([i.objectName() for i in free_libs])
-
 
     def include_lib(self, button: QPushButton):
         if button.isChecked():
@@ -231,7 +230,6 @@ class App(QMainWindow):
         if len(self.libs) == 0:
             self.ui.autoTrace.hide()
 
-
     def compile(self):
 
         if 'servo' in self.libs:
@@ -260,6 +258,8 @@ class App(QMainWindow):
             log(f'saved in {filename}', 'info')
 
     def definition(self, lineEdit: QLineEdit):
+        if lineEdit.text() in letters:
+            lineEdit.clear()
         reg_ex = QRegExp("[\w-]+")
         input_validator = QRegExpValidator(reg_ex, lineEdit)
         lineEdit.setValidator(input_validator)
@@ -315,7 +315,7 @@ class App(QMainWindow):
 
             # квадрат для определения находиться ли мышка над ним
             rect = QRect(global_pos.x(), global_pos.y(), w, h)
-            if rect.contains(cur):  # проверка
+            if rect.contains(cur) and lineEdit.parentWidget().parentWidget().objectName() != 'frame_30':  # проверка
                 # перемещаем значёк либы на место виджета
                 lib.move(self.ui.frame_3.mapFromGlobal(global_pos))
                 # ставим текст
